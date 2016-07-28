@@ -1,0 +1,9 @@
+[{
+	"id": "hcp://supportsitetemplate/Support_Site/site.json",
+	"name": "Support Site",
+	"description": "",
+	"thumbnail": "Support_Site/thumbnail.png",
+	"path": "Support_Site",
+	"_entityType": "PORTAL_SITE_V2_TEMPLATE_SITE",
+	"category": "Samples"
+}]

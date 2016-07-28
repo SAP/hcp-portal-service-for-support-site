@@ -1,0 +1,48 @@
+{
+      "_version": "1.3.0",
+      "sap.app": {
+        "_version": "1.3.0",
+        "id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequests.json",
+        "title": "Service Requests",
+        "description": "",
+        "tags": {
+          "keywords": [
+            ""
+          ]
+        },
+        "crossNavigation": {
+          "context": {},
+          "inbounds": {
+            "0":{
+              "semanticObject": "ServiceRequests",
+              "action": "Display",
+              "deviceTypes": {
+               "desktop": true,
+               "tablet": true,
+               "phone": true
+              },
+              "tileImplementation": {
+                  "id": "none"
+                }
+            }
+          }
+        }
+      },
+      "sap.platform.hcp": {
+        "_version": "1.2.0",
+        "uri": "/",
+        "appName": "servicerequests"
+      },
+        "sap.ui5":{
+          "_version": "1.2.0",
+          "componentName": "ServiceRequests"
+        },
+      "sap.flp": {
+        "_version": "1.1.0",
+        "config": {}
+      },
+      "sap.ui": {
+        "_version": "1.3.0",
+        "technology": "UI5"
+      }
+}

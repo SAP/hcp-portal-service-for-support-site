@@ -1,0 +1,19 @@
+.cpv2-scroll-content > .sapMScrollContScroll {
+    width: 100%;
+    height: 100%;
+}
+.sapMPage {
+    overflow: auto;
+}
+.center {
+    margin: 0 auto;
+    max-width: 1024px;
+    display: block;
+}
+.margin {
+    display: block;
+    margin: 0 auto;
+}
+p {
+    word-break: normal;
+}

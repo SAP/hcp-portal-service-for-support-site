@@ -1,0 +1,567 @@
+{
+    "ServiceRequestCollection": [
+        {
+            "__metadata": {
+                "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1EE68BB3A36C8C740442')",
+                "type": "c4codata.ServiceRequest",
+                "etag": "W/\"datetimeoffset'2016-06-16T17%3A32%3A39.3127820Z'\""
+            },
+            "RequestAssignmentStatusCode": "2",
+            "CompletedOnDate": "\/Date(1465344000000)\/",
+            "ObjectID": "00163E08A7AF1EE68BB3A36C8C740442",
+            "ActivityServiceIssueCategoryID": "",
+            "ApprovalStatusCode": "1",
+            "CauseServiceIssueCategoryID": "",
+            "ChangedBy": "Test Agent",
+            "CompletionDueDate": "\/Date(1465603200000)\/",
+            "ContractID": "",
+            "CreatedBy": "Juliane Beyer",
+            "CreationDate": "\/Date(1465344000000)\/",
+            "Customer": "",
+            "CustomerID": "",
+            "DataOriginTypeCode": "1",
+            "ID": "6006",
+            "IncidentCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "ActivityCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "CauseCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "IncidentServiceIssueCategoryID": "",
+            "InitialReviewDueDate": "\/Date(1465344000000)\/",
+            "InstallationPointID": "",
+            "InstalledBaseID": "",
+            "ItemListServiceRequestExecutionLifeCycleStatusCode": "1",
+            "LastChangeDate": "\/Date(1466035200000)\/",
+            "LastResponseOnDate": "\/Date(1465344000000)\/",
+            "Name": {
+                "__metadata": {
+                    "type": "c4codata.EXTENDED_Name"
+                },
+                "languageCode": "E",
+                "content": "Broken camera lens"
+            },
+            "NextResponseDueDate": null,
+            "ObjectCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "ObjectServiceIssueCategoryID": "",
+            "Partner": "",
+            "PartnerID": "",
+            "ProcessingTypeCode": "SRRQ",
+            "ProductID": "P100114",
+            "ReferenceDate": null,
+            "ReportedForEmail": "",
+            "ReportedForPartyID": "",
+            "ReporterEmail": "guy.roth@SAP.COM",
+            "ReporterPartyID": "1001702",
+            "RequestedEnd": "2016-06-11T07:00:00Z",
+            "RequestedEndTimeZoneCode": "PST",
+            "RequestedStart": "2016-06-10T07:00:00Z",
+            "RequestedStartTimeZoneCode": "PST",
+            "RoleCode": "8",
+            "SalesTerritoryID": "",
+            "SerialID": "",
+            "ServiceCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": "Account Support"
+            },
+            "ServiceIssueCategoryID": "AS",
+            "ServiceLevelAgreement": "CLOUDFORSERVICE_STANDARD",
+            "ServicePriorityCode": "3",
+            "ServiceRequestClassificationCode": "",
+            "ServiceRequestLifeCycleStatusCode": "2",
+            "ServiceTechnician": "",
+            "ServiceTechnicianTeam": "",
+            "WarrantyDescription": "",
+            "WarrantyFrom": null,
+            "WarrantyTo": null,
+            "ServiceAndSupportTeam": "S3110",
+            "ServiceRequestUserLifeCycleStatusCode": "4",
+            "AssignedTo": "",
+            "EscalationStatus": "1",
+            "AssignedToName": {
+                "__metadata": {
+                    "type": "c4codata.ENCRYPTED_LONG_Name"
+                },
+                "languageCode": "",
+                "content": ""
+            },
+            "ProductCategoryDescription": "Sweets",
+            "InitialResponseDate": "\/Date(1465344000000)\/",
+            "Contact": "",
+            "ParentServiceRequest": "",
+            "ETag": "\/Date(1466098359312)\/",
+            "CreationDateTime": "\/Date(1465406349070)\/",
+            "LastChangeDateTime": "\/Date(1466098359312)\/",
+            "RequestAssignmentStatusCodeText": "Requestor Action",
+            "ApprovalStatusCodeText": "Not Started",
+            "DataOriginTypeCodeText": "Manual data entry",
+            "ItemListServiceRequestExecutionLifeCycleStatusCodeText": "Open",
+            "ProcessingTypeCodeText": "Service Request",
+            "RoleCodeText": "Service Point",
+            "ServicePriorityCodeText": "Normal",
+            "ServiceRequestClassificationCodeText": "",
+            "ServiceRequestLifeCycleStatusCodeText": "In Process",
+            "ServiceRequestUserLifeCycleStatusCodeText": "Open",
+            "EscalationStatusText": "Not Escalated",
+            "ServiceRequestItem": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1EE68BB3A36C8C740442')/ServiceRequestItem"
+                }
+            },
+            "ServiceRequestAttachmentFolder": [
+                {
+                    "__metadata": {
+                        "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestAttachmentFolderCollection('00163E08A7A61ED68CFD0A49E9007350')",
+                        "type": "c4codata.ServiceRequestAttachmentFolder",
+                        "etag": "W/\"datetimeoffset'2016-06-16T17%3A32%3A39.3127820Z'\""
+                    },
+                    "DocumentLink": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection/Binary/$value",
+                    "Name": "Broken lens.jpg"
+                }
+            ],
+            "ServiceRequestBusinessTransactionDocumentReference": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1EE68BB3A36C8C740442')/ServiceRequestBusinessTransactionDocumentReference"
+                }
+            },
+            "ServiceRequestDescription": [
+                {
+                    "__metadata": {
+                        "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestDescriptionCollection('00163E08A7A61ED68BB3A3A528410C43')",
+                        "type": "c4codata.ServiceRequestDescription",
+                        "etag": "W/\"datetimeoffset'2016-06-08T17%3A19%3A11.0392130Z'\""
+                    },
+                    "ParentObjectID": "00163E08A7AF1EE68BB3A36C8C740442",
+                    "ObjectID": "00163E08A7A61ED68BB3A3A528410C43",
+                    "TypeCode": "10004",
+                    "LanguageCode": "",
+                    "Text": "My camera lens are broken, I need your assistance please.",
+                    "CreatedOn": "\/Date(1465406351039)",
+                    "UpdatedOn": "\/Date(1465406351039)\/",
+                    "CreatedBy": "Juliane Beyer",
+                    "LastUpdatedBy": "Juliane Beyer",
+                    "AuthorName": "Guy Roth",
+                    "AuthorUUID": "00163E08-A7A6-1ED5-98C2-1C4FD510C107",
+                    "ETag": "\/Date(1465406351039)\/",
+                    "TypeCodeText": "Curriculum Vitae",
+                    "LanguageCodeText": ""
+                },
+                {
+                    "__metadata": {
+                        "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestDescriptionCollection('00163E08A7AF1ED68CFA314BAF43F28B')",
+                        "type": "c4codata.ServiceRequestDescription",
+                        "etag": "W/\"datetimeoffset'2016-06-16T14%3A49%3A35.3764620Z'\""
+                    },
+                    "ParentObjectID": "00163E08A7AF1EE68BB3A36C8C740442",
+                    "ObjectID": "00163E08A7AF1ED68CFA314BAF43F28B",
+                    "TypeCode": "10007",
+                    "LanguageCode": "",
+                    "Text": "Hi Guy, could you please send us a picture of your broken lens?",
+                    "CreatedOn": "\/Date(1465412677151)\/",
+                    "UpdatedOn": "\/Date(1465412677151)\/",
+                    "CreatedBy": "Juliane Beyer",
+                    "LastUpdatedBy": "Juliane Beyer",
+                    "AuthorName": "Juliane Beyer",
+                    "AuthorUUID": "00163E08-A7A6-1ED5-98C2-1C4FD510C107",
+                    "ETag": "\/Date(1466088575376)\/",
+                    "TypeCodeText": "Requirements Specification",
+                    "LanguageCodeText": ""
+                },
+                {
+                    "__metadata": {
+                        "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestDescriptionCollection('00163E0E04F11EE68BB57B00690FE9F4')",
+                        "type": "c4codata.ServiceRequestDescription",
+                        "etag": "W/\"datetimeoffset'2016-06-08T19%3A04%3A37.1518210Z'\""
+                    },
+                    "ParentObjectID": "00163E08A7AF1EE68BB3A36C8C740442",
+                    "ObjectID": "00163E0E04F11EE68BB57B00690FE9F4",
+                    "TypeCode": "10008",
+                    "LanguageCode": "",
+                    "Text": "Sure, I attached a file with a picture. Thanks!",
+                    "CreatedOn": "\/Date(1466088575376)\/",
+                    "UpdatedOn": "\/Date(1466088575376)\/",
+                    "CreatedBy": "Juliane Beyer",
+                    "LastUpdatedBy": "Juliane Beyer",
+                    "AuthorName": "Guy Roth",
+                    "AuthorUUID": null,
+                    "ETag": "\/Date(1465412677151)\/",
+                    "TypeCodeText": "Skills Profile",
+                    "LanguageCodeText": ""
+                }
+            ],
+            "ServicePointLocationAddress": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1EE68BB3A36C8C740442')/ServicePointLocationAddress"
+                }
+            },
+            "ServiceRequestHistoricalVersion": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1EE68BB3A36C8C740442')/ServiceRequestHistoricalVersion"
+                }
+            }
+        },
+        {
+            "__metadata": {
+                "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E0E04F11ED688B37F54C6875BE2')",
+                "type": "c4codata.ServiceRequest",
+                "etag": "W/\"datetimeoffset'2016-06-06T12%3A29%3A00.4141480Z'\""
+            },
+            "RequestAssignmentStatusCode": "1",
+            "CompletedOnDate": null,
+            "ObjectID": "00163E0E04F11ED688B37F54C6875BE2",
+            "ActivityServiceIssueCategoryID": "",
+            "ApprovalStatusCode": "1",
+            "CauseServiceIssueCategoryID": "",
+            "ChangedBy": "Test Agent",
+            "CompletionDueDate": "\/Date(1464220800000)\/",
+            "ContractID": "",
+            "CreatedBy": "",
+            "CreationDate": "\/Date(1464048000000)\/",
+            "Customer": "Lowes",
+            "CustomerID": "1000497",
+            "DataOriginTypeCode": "4",
+            "ID": "5985",
+            "IncidentCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "ActivityCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "CauseCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "IncidentServiceIssueCategoryID": "",
+            "InitialReviewDueDate": "\/Date(1464048000000)\/",
+            "InstallationPointID": "",
+            "InstalledBaseID": "",
+            "ItemListServiceRequestExecutionLifeCycleStatusCode": "1",
+            "LastChangeDate": "\/Date(1465171200000)\/",
+            "LastResponseOnDate": null,
+            "Name": {
+                "__metadata": {
+                    "type": "c4codata.EXTENDED_Name"
+                },
+                "languageCode": "E",
+                "content": "Lost password"
+            },
+            "NextResponseDueDate": null,
+            "ObjectCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "ObjectServiceIssueCategoryID": "",
+            "Partner": "Lowes",
+            "PartnerID": "1000497",
+            "ProcessingTypeCode": "SRRQ",
+            "ProductID": "P100114",
+            "ReferenceDate": null,
+            "ReportedForEmail": "",
+            "ReportedForPartyID": "",
+            "ReporterEmail": "guy.roth@SAP.COM",
+            "ReporterPartyID": "1001702",
+            "RequestedEnd": "2016-05-27T00:00:00Z",
+            "RequestedEndTimeZoneCode": "UTC",
+            "RequestedStart": "2016-05-26T00:00:00Z",
+            "RequestedStartTimeZoneCode": "UTC",
+            "RoleCode": "8",
+            "SalesTerritoryID": "",
+            "SerialID": "",
+            "ServiceCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": "Account Support"
+            },
+            "ServiceIssueCategoryID": "AS",
+            "ServiceLevelAgreement": "CLOUDFORSERVICE_STANDARD",
+            "ServicePriorityCode": "2",
+            "ServiceRequestClassificationCode": "",
+            "ServiceRequestLifeCycleStatusCode": "1",
+            "ServiceTechnician": "Toni Technician",
+            "ServiceTechnicianTeam": "",
+            "WarrantyDescription": "",
+            "WarrantyFrom": null,
+            "WarrantyTo": null,
+            "ServiceAndSupportTeam": "",
+            "ServiceRequestUserLifeCycleStatusCode": "1",
+            "AssignedTo": "",
+            "EscalationStatus": "1",
+            "AssignedToName": {
+                "__metadata": {
+                    "type": "c4codata.ENCRYPTED_LONG_Name"
+                },
+                "languageCode": "",
+                "content": ""
+            },
+            "ProductCategoryDescription": "Sweets",
+            "InitialResponseDate": null,
+            "Contact": "Guy Roth",
+            "ParentServiceRequest": "",
+            "ETag": "\/Date(1465216140414)\/",
+            "CreationDateTime": "\/Date(1464086450743)\/",
+            "LastChangeDateTime": "\/Date(1465216140414)\/",
+            "RequestAssignmentStatusCodeText": "Processor Action",
+            "ApprovalStatusCodeText": "Not Started",
+            "DataOriginTypeCodeText": "Internet",
+            "ItemListServiceRequestExecutionLifeCycleStatusCodeText": "Open",
+            "ProcessingTypeCodeText": "Service Request",
+            "RoleCodeText": "Service Point",
+            "ServicePriorityCodeText": "Urgent",
+            "ServiceRequestClassificationCodeText": "",
+            "ServiceRequestLifeCycleStatusCodeText": "Open",
+            "ServiceRequestUserLifeCycleStatusCodeText": "Open",
+            "EscalationStatusText": "Not Escalated",
+            "ServiceRequestItem": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E0E04F11ED688B37F54C6875BE2')/ServiceRequestItem"
+                }
+            },
+            "ServiceRequestAttachmentFolder": [],
+            "ServiceRequestBusinessTransactionDocumentReference": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E0E04F11ED688B37F54C6875BE2')/ServiceRequestBusinessTransactionDocumentReference"
+                }
+            },
+            "ServiceRequestDescription": [
+                {
+                    "__metadata": {
+                        "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestDescriptionCollection('00163E0E04F11ED688B37F54C687DBE2')",
+                        "type": "c4codata.ServiceRequestDescription",
+                        "etag": "W/\"datetimeoffset'2016-05-24T10%3A40%3A50.7438580Z'\""
+                    },
+                    "ParentObjectID": "00163E0E04F11ED688B37F54C6875BE2",
+                    "ObjectID": "00163E0E04F11ED688B37F54C687DBE2",
+                    "TypeCode": "10004",
+                    "LanguageCode": "EN",
+                    "Text": "I lost my password to the candy portal, where can I reset it?",
+                    "CreatedOn": "\/Date(1464086450743)\/",
+                    "UpdatedOn": "\/Date(1464086450743)\/",
+                    "CreatedBy": "Technical User _PORTAL",
+                    "LastUpdatedBy": "Technical User _PORTAL",
+                    "AuthorName": "Guy Roth",
+                    "AuthorUUID": "00163E08-A7AF-1ED5-83BC-400CFE8A75B3",
+                    "ETag": "\/Date(1464086450743)\/",
+                    "TypeCodeText": "Curriculum Vitae",
+                    "LanguageCodeText": "English"
+                }
+            ],
+            "ServicePointLocationAddress": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E0E04F11ED688B37F54C6875BE2')/ServicePointLocationAddress"
+                }
+            },
+            "ServiceRequestHistoricalVersion": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E0E04F11ED688B37F54C6875BE2')/ServiceRequestHistoricalVersion"
+                }
+            }
+        },
+        {
+            "__metadata": {
+                "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1ED583BC4FE1A2A2568F')",
+                "type": "c4codata.ServiceRequest",
+                "etag": "W/\"datetimeoffset'2016-06-08T10%3A37%3A41.1959410Z'\""
+            },
+            "RequestAssignmentStatusCode": "1",
+            "CompletedOnDate": null,
+            "ObjectID": "00163E08A7AF1ED583BC4FE1A2A2568F",
+            "ActivityServiceIssueCategoryID": "",
+            "ApprovalStatusCode": "1",
+            "CauseServiceIssueCategoryID": "",
+            "ChangedBy": "Test Agent",
+            "CompletionDueDate": "\/Date(1433808000000)\/",
+            "ContractID": "",
+            "CreatedBy": "",
+            "CreationDate": "\/Date(1433721600000)\/",
+            "Customer": "Lowes",
+            "CustomerID": "1000497",
+            "DataOriginTypeCode": "4",
+            "ID": "5181",
+            "IncidentCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "ActivityCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "CauseCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "IncidentServiceIssueCategoryID": "",
+            "InitialReviewDueDate": "\/Date(1433721600000)\/",
+            "InstallationPointID": "",
+            "InstalledBaseID": "",
+            "ItemListServiceRequestExecutionLifeCycleStatusCode": "1",
+            "LastChangeDate": "\/Date(1465344000000)\/",
+            "LastResponseOnDate": null,
+            "Name": {
+                "__metadata": {
+                    "type": "c4codata.EXTENDED_Name"
+                },
+                "languageCode": "E",
+                "content": "Partner data required"
+            },
+            "NextResponseDueDate": null,
+            "ObjectCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": ""
+            },
+            "ObjectServiceIssueCategoryID": "",
+            "Partner": "",
+            "PartnerID": "",
+            "ProcessingTypeCode": "SRRQ",
+            "ProductID": "P100114",
+            "ReferenceDate": null,
+            "ReportedForEmail": "",
+            "ReportedForPartyID": "",
+            "ReporterEmail": "guy.roth@SAP.COM",
+            "ReporterPartyID": "1001702",
+            "RequestedEnd": "2015-06-11T00:00:00Z",
+            "RequestedEndTimeZoneCode": "UTC",
+            "RequestedStart": "2015-06-10T00:00:00Z",
+            "RequestedStartTimeZoneCode": "UTC",
+            "RoleCode": "8",
+            "SalesTerritoryID": "",
+            "SerialID": "",
+            "ServiceCategoryName": {
+                "__metadata": {
+                    "type": "c4codata.MEDIUM_Name"
+                },
+                "content": "Account Support"
+            },
+            "ServiceIssueCategoryID": "AS",
+            "ServiceLevelAgreement": "CLOUDFORSERVICE_STANDARD",
+            "ServicePriorityCode": "1",
+            "ServiceRequestClassificationCode": "",
+            "ServiceRequestLifeCycleStatusCode": "1",
+            "ServiceTechnician": "Toni Technician",
+            "ServiceTechnicianTeam": "",
+            "WarrantyDescription": "",
+            "WarrantyFrom": null,
+            "WarrantyTo": null,
+            "ServiceAndSupportTeam": "",
+            "ServiceRequestUserLifeCycleStatusCode": "1",
+            "AssignedTo": "",
+            "EscalationStatus": "1",
+            "AssignedToName": {
+                "__metadata": {
+                    "type": "c4codata.ENCRYPTED_LONG_Name"
+                },
+                "languageCode": "",
+                "content": ""
+            },
+            "ProductCategoryDescription": "Sweets",
+            "InitialResponseDate": null,
+            "Contact": "Guy Roth",
+            "ParentServiceRequest": "",
+            "ETag": "\/Date(1465382261195)\/",
+            "CreationDateTime": "\/Date(1433770219374)\/",
+            "LastChangeDateTime": "\/Date(1465382261195)\/",
+            "RequestAssignmentStatusCodeText": "Processor Action",
+            "ApprovalStatusCodeText": "Not Started",
+            "DataOriginTypeCodeText": "Internet",
+            "ItemListServiceRequestExecutionLifeCycleStatusCodeText": "Open",
+            "ProcessingTypeCodeText": "Service Request",
+            "RoleCodeText": "Service Point",
+            "ServicePriorityCodeText": "Immediate",
+            "ServiceRequestClassificationCodeText": "",
+            "ServiceRequestLifeCycleStatusCodeText": "Open",
+            "ServiceRequestUserLifeCycleStatusCodeText": "Open",
+            "EscalationStatusText": "Not Escalated",
+            "ServiceRequestItem": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1ED583BC4FE1A2A2568F')/ServiceRequestItem"
+                }
+            },
+            "ServiceRequestAttachmentFolder": [
+                {
+                    "__metadata": {
+                        "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestAttachmentFolderCollection('00163E0E08831EE68BAC92B12180C79A')",
+                        "type": "c4codata.ServiceRequestAttachmentFolder",
+                        "etag": "W/\"datetimeoffset'2016-06-08T10%3A34%3A31.0479890Z'\""
+                    },
+                    "DocumentLink": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection/Binary/$value",
+                    "Name": "Partner deal figures.pdf"
+                }
+            ],
+            "ServiceRequestBusinessTransactionDocumentReference": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1ED583BC4FE1A2A2568F')/ServiceRequestBusinessTransactionDocumentReference"
+                }
+            },
+            "ServiceRequestDescription": [
+                {
+                    "__metadata": {
+                        "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestDescriptionCollection('00163E08A7A61EE68BAC8AEF6DAF4382')",
+                        "type": "c4codata.ServiceRequestDescription",
+                        "etag": "W/\"datetimeoffset'2016-06-08T10%3A32%3A48.2217840Z'\""
+                    },
+                    "ParentObjectID": "00163E08A7AF1ED583BC4FE1A2A2568F",
+                    "ObjectID": "00163E08A7A61EE68BAC8AEF6DAF4382",
+                    "TypeCode": "10004",
+                    "LanguageCode": "",
+                    "Text": "I need some data for an offer I'm creating for a partner, see attached deal figures",
+                    "CreatedOn": "\/Date(1465381968221)\/",
+                    "UpdatedOn": "\/Date(1465381968221)\/",
+                    "CreatedBy": "Juliane Beyer",
+                    "LastUpdatedBy": "Juliane Beyer",
+                    "AuthorName": "Guy Roth",
+                    "AuthorUUID": "00163E08-A7A6-1ED5-98C2-1C4FD510C107",
+                    "ETag": "\/Date(1465381968221)\/",
+                    "TypeCodeText": "Requirements Specification",
+                    "LanguageCodeText": ""
+                }
+            ],
+            "ServicePointLocationAddress": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1ED583BC4FE1A2A2568F')/ServicePointLocationAddress"
+                }
+            },
+            "ServiceRequestHistoricalVersion": {
+                "__deferred": {
+                    "uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1ED583BC4FE1A2A2568F')/ServiceRequestHistoricalVersion"
+                }
+            }
+        }
+    ]
+}

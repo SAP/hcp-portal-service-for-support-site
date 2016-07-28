@@ -1,0 +1,50 @@
+{
+	"_version": "1.0",
+	"identification": {
+		"id": "menu.json",
+		"entityType": "menu",
+		"i18n": "i18n/menu.properties"
+	},
+	"payload": {
+		"locked": "false",
+		"tags": [],
+		"entities": [{
+			"title": "{{home}}",
+			"target": {
+				"semanticObject": "Home",
+				"action": "Display"
+			},
+			"entityType": "PAGE"
+		}, {
+			"title": "{{community}}",
+			"target": {
+				"semanticObject": "Community",
+				"action": "Display"
+			},
+			"entityType": "PAGE"
+		}, {
+			"title": "{{knowledgebase}}",
+			"target": {
+				"semanticObject": "KnowledgeBase",
+				"action": "Display"
+			},
+			"entityType": "PAGE"
+		},
+		{
+			"title": "{{dashboard}}",
+			"target": {
+				"semanticObject": "Shell",
+				"action": "home"
+			},
+			"entityType": "PAGE"
+		},
+		{
+			"title": "{{servicerequests}}",
+			"target": {
+				"semanticObject": "ServiceRequests",
+				"action": "Display"
+			},
+			"entityType": "APP"
+		}]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"_version": "1.1",
+	"identification": {
+		"id": "hcp://supportsitetemplate/Support_Site/catalogs/defaultCatalog.json",
+		"title": "Everyone",
+		"description": "",
+		"entityType": "catalog"
+	},
+	"payload": {
+		"appDescriptors": [
+			{
+				"namespace": "",
+				"id": "hcp://supportsitetemplate/Support_Site/pages/Home.json"
+			},
+			{
+				"namespace": "",
+				"id": "hcp://supportsitetemplate/Support_Site/pages/Community.json"
+			},
+			{
+				"namespace": "",
+				"id": "hcp://supportsitetemplate/Support_Site/pages/KnowledgeBase.json"
+			},
+			{
+				"namespace": "",
+				"id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequests.json"
+			},
+			{
+				"namespace": "",
+				"id": "hcp://supportsitetemplate/Support_Site/pages/Dashboard.json"
+			},
+			{
+				"namespace": "",
+				"id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsHighPriority.json"
+			},
+			{
+				"namespace": "",
+				"id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsOpenTickets.json"
+			},
+			{
+				"namespace": "",
+				"id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsPendingResponse.json"
+			},
+			{
+				"namespace": "",
+				"id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsCreateNewTicket.json"
+			}
+			
+		]
+	}
+}

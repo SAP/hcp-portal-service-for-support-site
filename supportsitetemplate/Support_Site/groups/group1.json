@@ -1,0 +1,45 @@
+{
+	"_version": "1.0",
+	"identification": {
+		"id": "hcp://supportsitetemplate/Support_Site/groups/group1.json",
+		"title": "Self Service",
+		"description": "",
+		"entityType": "group"
+	},
+	"payload": {
+		"locked": false,
+		"tags": [],
+		"tiles": [
+		
+            {
+              "target": {
+                "semanticObject": "ServiceRequestsCreateNewTicket",
+                "action": "Display"
+              },
+              "id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsCreateNewTicket.json"
+            },
+            {
+              "target": {
+                "semanticObject": "ServiceRequestsOpenTickets",
+                "action": "Display"
+              },
+              "id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsOpenTickets.json"
+            },
+            {
+              "target": {
+                "semanticObject": "ServiceRequestsHighPriority",
+                "action": "Display"
+              },
+              "id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsHighPriority.json"
+            },
+            {
+              "target": {
+                "semanticObject": "ServiceRequestsPendingResponse",
+                "action": "Display"
+              },
+              "id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsPendingResponse.json"
+            }
+          ]
+	},
+	"isModified": false
+}

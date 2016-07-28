@@ -1,0 +1,61 @@
+<mvc:View controllerName="cpv2.templates.Home.Template" height="100%" xmlns:appContainer="sap.ushell.components.container"
+	xmlns:commons="sap.ui.commons" xmlns:core="sap.ui.core" xmlns:cpControls="sap.hana.uis.flp.control" xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" class="support-site">
+	<Page enableScrolling="false" showFooter="false" showHeader="false">
+		<content>
+			<FlexBox direction="Column">
+				<items>
+					<cpControls:Widget alias="page1.header"></cpControls:Widget>
+					<l:VerticalLayout width="80%" class="center">
+						<l:layoutData>
+							<FlexItemData growFactor="1"/>
+						</l:layoutData>
+						<l:Grid hSpacing="0" vSpacing="0" class="sapUiMediumMarginTopBottom">
+							<l:VerticalLayout width="95%" class="margin">
+								<l:layoutData>
+									<l:GridData span="L6 M6 S12"/>
+								</l:layoutData>
+								<cpControls:Widget alias="page1.topLeftContent"></cpControls:Widget>
+							</l:VerticalLayout>
+							<l:VerticalLayout width="95%" class="margin">
+								<l:layoutData>
+									<l:GridData span="L6 M6 S12"/>
+								</l:layoutData>
+								<cpControls:Widget alias="page1.topRightContent"></cpControls:Widget>
+							</l:VerticalLayout>
+						</l:Grid>
+						<l:Grid hSpacing="0" vSpacing="0" class="sapUiMediumMarginTopBottom">
+							<l:VerticalLayout width="95%" class="margin">
+								<l:layoutData>
+									<l:GridData span="L6 M6 S12"/>
+								</l:layoutData>
+								<cpControls:Widget alias="page1.centerLeftContent"></cpControls:Widget>
+							</l:VerticalLayout>
+							<l:VerticalLayout width="95%" class="margin">
+								<l:layoutData>
+									<l:GridData span="L6 M6 S12"/>
+								</l:layoutData>
+								<cpControls:Widget alias="page1.centerRightContent"></cpControls:Widget>
+							</l:VerticalLayout>
+						</l:Grid>
+						<l:Grid hSpacing="0" vSpacing="0" class="sapUiMediumMarginTopBottom">
+							<l:VerticalLayout width="95%" class="margin">
+								<l:layoutData>
+									<l:GridData span="L6 M6 S12"/>
+								</l:layoutData>
+								<cpControls:Widget alias="page1.bottomLeftContent"></cpControls:Widget>
+							</l:VerticalLayout>
+							<l:VerticalLayout width="95%" class="margin">
+								<l:layoutData>
+									<l:GridData span="L6 M6 S12"/>
+								</l:layoutData>
+								<cpControls:Widget alias="page1.bottomRightContent"></cpControls:Widget>
+							</l:VerticalLayout>
+						</l:Grid>
+					</l:VerticalLayout>
+					<cpControls:Widget alias="page1.footer"></cpControls:Widget>
+				</items>
+			</FlexBox>
+		</content>
+	</Page>
+</mvc:View>

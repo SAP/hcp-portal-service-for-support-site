@@ -1,0 +1,9 @@
+Description=C4C
+Type=HTTP
+Authentication=BasicAuthentication
+WebIDEUsage=odata_gen
+Name=c4c
+WebIDEEnabled=true
+CloudConnectorVersion=2
+ProxyType=Internet
+URL=https\://myXXXXXX.crm.ondemand.com

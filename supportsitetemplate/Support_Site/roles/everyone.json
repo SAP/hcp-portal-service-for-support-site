@@ -1,0 +1,22 @@
+{
+	"_version": "1.0",
+	"identification": {
+		"id": "Everyone",
+		"namespace": "",
+		"entityType": "role",
+		"title": "Everyone",
+		"description": "",
+		"i18n": ""
+	},
+	"payload": {
+		"catalogs": [{
+			"namespace": "",
+			"id": "hcp://supportsitetemplate/Support_Site/catalogs/defaultCatalog.json"
+		}],
+		"groups": [{
+			"namespace": "",
+			"id": "hcp://supportsitetemplate/Support_Site/groups/group1.json"
+		}]
+
+	}
+}

@@ -1,0 +1,89 @@
+<mvc:View controllerName="ServiceRequests.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{Name/content}"></ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarInfo" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
+						<VBox class="detailsBox">
+							<HBox>
+								<Label class="infoTitle" text="Status:"/>
+								<Label class="infoLabel" id="infoStatusLabel" text="{ServiceRequestUserLifeCycleStatusCodeText}"/>
+								<Select id="infoStatusSelect" visible="false" selectedKey="{ServiceRequestUserLifeCycleStatusCode}">
+									<items>
+										<core:Item key="1" text="Open"/>
+										<core:Item key="3" text="Completed"/>
+									</items>
+								</Select>
+							</HBox>
+							<HBox>
+								<Label class="infoTitle" text="Priority:"/>
+								<Label class="infoLabel" id="infoPriorityLabel" text="{ServicePriorityCodeText}"/>
+								<Select id="infoPrioritySelect" visible="false" selectedKey="{ServicePriorityCode}">
+									<items>
+										<core:Item key="3" text="Normal"/>
+										<core:Item key="2" text="Urgent"/>
+										<core:Item key="1" text="Immediate"/>
+									</items>
+								</Select>
+							</HBox>
+							<HBox>
+								<Label class="infoTitle" text="Product Category:"/>
+								<Label class="infoLabel" id="infoProductCategoryLabel" text="{ProductCategoryDescription}"/>
+								<Select id="infoProductCategorySelect" visible="false" selectedKey="{ProductID}">
+									<items>
+										<core:Item key="P100114" text="Sweets"/>
+										<core:Item key="P200010" text="Consumer Products"/>
+										<core:Item key="P200020" text="Life Sciences"/>
+										<core:Item key="P200030" text="Retail"/>
+										<core:Item key="P200040" text="Wholesale Distribution"/>
+										<core:Item key="P200050" text="Automotive"/>
+										<core:Item key="P200160" text="Utilities"/>
+										<core:Item key="P200120" text="Mill Products"/>
+										<core:Item key="P200271" text="Operations"/>
+										<core:Item key="P200280" text="Media"/>
+										<core:Item key="P100314" text="Television"/>
+									</items>
+								</Select>
+							</HBox>
+							<HBox>
+								<Label class="infoTitle" text="Service Category:"/>
+								<Label class="infoLabel" id="infoServiceCategoryLabel" text="{ServiceCategoryName/content}"/>
+								<Select id="infoServiceCategorySelect" visible="false" selectedKey="{ServiceIssueCategoryID}">
+									<items>
+										<core:Item key="AS" text="Account Support"/>
+										<core:Item key="PS" text="Product Support"/>
+										<core:Item key="OS" text="Order Support"/>
+										<core:Item key="HT" text="How-To Support"/>
+										<core:Item key="SS" text="Social Support"/>
+									</items>
+								</Select>
+							</HBox>
+						</VBox>
+						<List id="descriptionsList"/>
+						<FeedInput id="interactionInput" post="onPost" showIcon="false"/>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarAttachments" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}">
+						<VBox class="detailsBox">
+							<Label text="Upload an attachment"/>
+							<u:FileUploader id="fileUploader" tooltip="Upload an attachment" uploadComplete="onUploadComplete" change="onFileChange"/>
+							<Button id="uploadFileButton" text="Upload" press="onFileUpload"/>
+						</VBox>
+						<List id="attachmentsList" itemPress="onAttachmentPress" noDataText="No attachments"/>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:editAction>
+			<semantic:EditAction id="edit" press="onEdit"/>
+		</semantic:editAction>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" press="onSave" visible="false"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel" visible="false"/>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>

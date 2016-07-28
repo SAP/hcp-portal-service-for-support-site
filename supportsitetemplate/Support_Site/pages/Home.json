@@ -1,0 +1,476 @@
+{
+	"_version": "1.3.0",
+	"sap.app": {
+		"_version": "1.3.0",
+		"id": "hcp://supportsitetemplate/Support_Site/pages/Home.json",
+		"baseId": "hcp://supportsitetemplate/Support_Site/pageTemplates/Home/manifest.json",
+		"title": "Home",
+		"description": "",
+		"crossNavigation": {
+			"context": {},
+			"inbounds": {
+				"0": {
+					"semanticObject": "Home",
+					"action": "Display"
+				},
+		          "1": {
+		              "semanticObject": "Home",
+		              "action": "show"
+		          }
+			}
+		}
+	},
+	"sap.cloud.portal": {
+		"applicationType": "page",
+		"nodes": {
+			"bottomRightContent": {
+				"_version": "1.3.0",
+				"sap.app": {
+					"_version": "1.3.0",
+					"id": "hcp://portalapptemplates/htmlwidget/manifest.json",
+					"title": "HTML Widget",
+					"description": "A widget template that displays HTML files.",
+					"tags": {
+						"keywords": []
+					},
+					"crossNavigation": {
+						"inbounds": {
+							"0": {
+								"semanticObject": "htmlwidget",
+								"action": "Display"
+							}
+						}
+					}
+				},
+				"sap.platform.hcp": {
+					"_version": "1.2.0",
+					"appName": "portalapptemplates",
+					"uri": "/htmlwidget"
+				},
+				"sap.cloud.portal": {
+					"show.portal.settings": "false",
+					"settings": {
+						"markup": {
+							"isRequired": "false",
+							"storage_type": "html",
+							"value": "<style>\n    .main2 {\n        padding: 10px 16px 0 0;\n        margin: 0;\n        overflow: hidden;\n        font-family: benton_book;\n    }\n\n    h1 {\n        color: #FE8F08;\n        font-size: 20px;\n        font-weight: normal;\n        margin: 0;\n    }\n\n    .link {\n        font-size: 16px;\n        margin: 0;\n        cursor: pointer;\n        color: #007CC0;\n        text-align: left;\n        padding-top: 3px;\n        padding-left: 5px;\n    }\n\n    p {\n        color: #666;\n        line-height: 20px;\n        margin-bottom: 0;\n        font-size: 16px;\n    }\n</style>\n<div class='main2'>\n    <h1>Service Requests</h1>\n    <p>\n        Create a service request by clicking one button!\n    </p>\n    <p>\n        You can open a new request, track the status of your open requests and get your issue resolved in no time. A history of all your requests is saved automatically for future reference.\n    </p>\n    <p>\n        Our support staff is online 24/7 and are committed to getting your issues resolved fast and to your utmost satisfaction.\n    </p>\n</div>",
+							"displayName": "HTML",
+							"description": "",
+							"id": "markup"
+						}
+					}
+				},
+				"sap.flp": {
+					"_version": "1.1.0",
+					"config": {}
+				},
+				"sap.ui": {
+					"_version": "1.3.0",
+					"technology": "UI5"
+				},
+				"sap.ui5": {
+					"_version": "1.2.0",
+					"componentName": "htmlwidget.local",
+					"routing": {
+						"config": {
+							"routerClass": "sap.hana.uis.flp.routing.Router"
+						}
+					}
+				},
+				"local": "true",
+				"sectionAlias": "page1.bottomRightContent"
+			},
+			"centerLeftContent": {
+        "_version": "1.3.0",
+        "sap.app": {
+          "_version": "1.3.0",
+          "id": "hcp://portalapptemplates/imageWidget/manifest.json",
+          "title": "Image Widget",
+          "description": "A widget template that displays images."
+        },
+        "sap.platform.hcp": {
+          "_version": "1.2.0",
+          "appName": "portalapptemplates",
+          "uri": "/imageWidget"
+        },
+        "sap.cloud.portal": {
+          "show.portal.settings": "false",
+          "settings": {
+            "source": {
+              "value": "0"
+            },
+            "resources": {
+              "url": [
+                {
+                  "value": "/img/Home/home_pic2.png"
+                }
+              ]
+            },
+            "state": {
+              "value": "0"
+            },
+            "height": {
+              "value": "285"
+            },
+            "units": {
+              "value": "px"
+            },
+            "alignment": {
+              "value": 1
+            },
+            "isTemplateResource": true
+          }
+        },
+        "sap.flp": {
+          "config": {}
+        },
+        "sap.ui": {
+          "_version": "1.3.0",
+          "technology": "UI5"
+        },
+        "sap.ui5": {
+          "_version": "1.2.0",
+          "componentName": "sap.cp.widgets.image",
+          "routing": {
+            "config": {
+              "routerClass": "sap.hana.uis.flp.routing.Router"
+            }
+          },
+          "rootView": "sap.cp.widgets.image.view.Widget",
+          "models": {
+            "i18nApp": {
+              "type": "sap.ui.model.resource.ResourceModel",
+              "uri": "i18n/i18n.properties"
+            }
+          },
+          "resources": {
+            "css": [
+              {
+                "uri": "css/style.css"
+              }
+            ]
+          }
+        },
+        "sectionAlias": "page1.centerLeftContent"
+      },
+			"centerRightContent": {
+				"_version": "1.3.0",
+				"sap.app": {
+					"_version": "1.3.0",
+					"id": "hcp://portalapptemplates/htmlwidget/manifest.json",
+					"title": "HTML Widget",
+					"description": "A widget template that displays HTML files.",
+					"tags": {
+						"keywords": []
+					},
+					"crossNavigation": {
+						"inbounds": {
+							"0": {
+								"semanticObject": "htmlwidget",
+								"action": "Display"
+							}
+						}
+					}
+				},
+				"sap.platform.hcp": {
+					"_version": "1.2.0",
+					"appName": "portalapptemplates",
+					"uri": "/htmlwidget"
+				},
+				"sap.cloud.portal": {
+					"show.portal.settings": "false",
+					"settings": {
+						"markup": {
+							"isRequired": "false",
+							"storage_type": "html",
+							"value": "<style>\n    .main2 {\n        padding: 10px 16px 0 0;\n        margin: 0;\n        overflow: hidden;\n        font-family: benton_book;\n    }\n\n    h1 {\n        color: #FE8F08;\n        font-size: 20px;\n        font-weight: normal;\n        margin: 0;\n    }\n\n    .link {\n        font-size: 16px;\n        margin: 0;\n        cursor: pointer;\n        color: #007CC0;\n        text-align: left;\n        padding-top: 3px;\n        padding-left: 5px;\n    }\n\n    p {\n        color: #666;\n        line-height: 20px;\n        margin-bottom: 0;\n        font-size: 16px;\n    }\n</style>\n<div class='main2'>\n    <h1>Knowledge Base</h1>\n    <p>\n        Look for answers to common problems in our list of frequently asked questions.\n    </p>\n    <p>\n        Learn about best practices in blogs, manuals and how-to guides, or use our powerful search to find a pinpoint answer to your specific questions.\n    </p>\n </div>",
+							"displayName": "HTML",
+							"description": "",
+							"id": "markup"
+						}
+					}
+				},
+				"sap.flp": {
+					"_version": "1.1.0",
+					"config": {}
+				},
+				"sap.ui": {
+					"_version": "1.3.0",
+					"technology": "UI5"
+				},
+				"sap.ui5": {
+					"_version": "1.2.0",
+					"componentName": "htmlwidget.local",
+					"routing": {
+						"config": {
+							"routerClass": "sap.hana.uis.flp.routing.Router"
+						}
+					}
+				},
+				"local": "true",
+				"sectionAlias": "page1.centerRightContent"
+			},
+			"bottomLeftContent": {
+        "_version": "1.3.0",
+        "sap.app": {
+          "_version": "1.3.0",
+          "id": "hcp://portalapptemplates/imageWidget/manifest.json",
+          "title": "Image Widget",
+          "description": "A widget template that displays images."
+        },
+        "sap.platform.hcp": {
+          "_version": "1.2.0",
+          "appName": "portalapptemplates",
+          "uri": "/imageWidget"
+        },
+        "sap.cloud.portal": {
+          "show.portal.settings": "false",
+          "settings": {
+            "source": {
+              "value": "0"
+            },
+            "resources": {
+              "url": [
+                {
+                  "value": "/img/Home/home_pic3.png"
+                }
+              ]
+            },
+            "state": {
+              "value": "0"
+            },
+            "height": {
+              "value": "285"
+            },
+            "units": {
+              "value": "px"
+            },
+            "alignment": {
+              "value": 1
+            },
+            "isTemplateResource": true
+          }
+        },
+        "sap.flp": {
+          "config": {}
+        },
+        "sap.ui": {
+          "_version": "1.3.0",
+          "technology": "UI5"
+        },
+        "sap.ui5": {
+          "_version": "1.2.0",
+          "componentName": "sap.cp.widgets.image",
+          "routing": {
+            "config": {
+              "routerClass": "sap.hana.uis.flp.routing.Router"
+            }
+          },
+          "rootView": "sap.cp.widgets.image.view.Widget",
+          "models": {
+            "i18nApp": {
+              "type": "sap.ui.model.resource.ResourceModel",
+              "uri": "i18n/i18n.properties"
+            }
+          },
+          "resources": {
+            "css": [
+              {
+                "uri": "css/style.css"
+              }
+            ]
+          }
+        },
+        "sectionAlias": "page1.bottomLeftContent"
+      },
+			"header": {
+				"_version": "1.3.0",
+				"sap.app": {
+					"_version": "1.3.0",
+					"id": "hcp://portalapptemplates/htmlwidget/manifest.json",
+					"title": "HTML Widget",
+					"description": "A widget template that displays HTML files.",
+					"tags": {
+						"keywords": []
+					},
+					"crossNavigation": {
+						"inbounds": {
+							"0": {
+								"semanticObject": "htmlwidget",
+								"action": "Display"
+							}
+						}
+					}
+				},
+				"sap.platform.hcp": {
+					"_version": "1.2.0",
+					"appName": "portalapptemplates",
+					"uri": "/htmlwidget"
+				},
+				"sap.cloud.portal": {
+					"show.portal.settings": "false",
+					"settings": {
+						"markup": {
+							"isRequired": "false",
+							"storage_type": "html",
+							"value": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\">\n    <script>\n        $(function() {\n            $(\"#community\")\n                    .mouseover(function() {\n                        $('#community').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/img/Home/community_btn_over.png');\n                    })\n                    .mouseout(function() {\n                        $('#community').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/img/Home/community_btn.png');\n                    });\n            $(\"#service\")\n                    .mouseover(function() {\n                        $('#service').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/img/Home/service_btn_over.png');\n                    })\n                    .mouseout(function() {\n                        $('#service').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/img/Home/service_btn.png');\n                    });\n            $(\"#knowledge\")\n                    .mouseover(function() {\n                        $('#knowledge').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/img/Home/knowledge_btn_over.png');\n                    })\n                    .mouseout(function() {\n                        $('#knowledge').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/img/Home/knowledge_btn.png');\n                    });\n        });\n    </script>\n    <style>\n        @font-face {\n            font-family: benton_medium;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Medium.ttf');\n        }\n\n        @font-face {\n            font-family: benton_light;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Light.ttf');\n        }\n\n        @font-face {\n            font-family: benton_book;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Book.ttf');\n        }\n        #header {\n            background-image: url('/sap/fiori/supportsitetemplate/Support_Site/img/Home/home_image.jpg');\n            background-repeat: no-repeat;\n            background-size: cover;\n            background-position: 0 0;\n            font-family: benton_light;\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n        }\n        #header .inner {\n            display: block;\n            width: 70%;\n            margin: 0 auto;\n            max-width: 1001px;\n\n        }\n        #header .inner .intro {\n            text-align: center;\n            font-size: 1rem;\n            margin: 2rem;\n            font-family: benton_book;\n            color: #fff;\n            width: 67%;\n            margin: 0 auto;\n            line-height: 1.5;\n        }\n        #header p {\n            color: #fff;\n            font-size: 3rem;\n            text-align: center;\n            margin: 5vw 0 0px 0px;\n            font-weight: 100;\n        }\n        img#pas {\n            width: 100%;\n        }\n        #header .social {\n            width: 65%;\n            margin: 4vw auto 2vw auto;\n            text-align: justify;\n        }\n        #header .social:after {\n            content: \"\";\n            width: 100%;\n            display: inline-block;\n        }\n        #header .social img {\n            width: 54%;\n            display: inline-block;\n            vertical-align: top;\n        }\n        #header .box {\n            width: 30%;\n            text-align: center;\n            display: inline-table;\n            font-size: 0.8rem;\n            cursor: pointer;\n        }\n        #header .box .title {\n            color: #faa500;\n            font-size: 1rem;\n font-weight: 600;\n           font-family: benton_book;\n            text-align: center;\n            margin:1rem 1rem 0.3rem 1rem;\n        }\n        #header .box .subheader {\n            color: #fff;\n            font-size: 0.9rem;\n  line-height: 1.5;\n        }\n\n        /*tablet*/\n\n        .sapUiMedia-Std-Tablet #header p {\n            margin-top: 5rem;\n            font-size: 3rem;\n            line-height: normal;              padding-bottom: 1rem;\n}\n\n /*smartphone*/\n\n        .sapUiMedia-Std-Phone #header p {\n            margin-top: 2rem;\n            font-size: 2rem;\n\t\t\tline-height: normal;\n        }\n\n        .sapUiMedia-Std-Phone img#pas {\n            display: none;\n        }\n\n        .sapUiMedia-Std-Phone #header .inner .intro {\n            margin: 1rem auto;\n            width: 80%;\n            font-size: 0.9rem;\n        }\n\n        .sapUiMedia-Std-Phone #header .social {\n            width: 100%;\n\n        }\n\n        .sapUiMedia-Std-Phone #header .box {\n            width: 100%;\n            border-bottom: 1px solid #ddd;\n            padding: 32px 0;\n        }\n\n        .sapUiMedia-Std-Phone #header .box:last-of-type {\n            width: 100%;\n            border-bottom: 1px none #ddd;\n            padding: 32px 0;\n        }\n\n        .sapUiMedia-Std-Phone #header .social img {\n            width: 40%;\n        }\n\n\n    </style>\n</head>\n<body>\n<section id=\"header\">\n    <div class=\"inner\">\n        <p>Welcome to Atomic Support</p>\n        <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Home/home_pas.png\" id=\"pas\">\n        <div class=\"intro\">\n            Learn about Atomic products, read online help, open tickets, and chat with our support staff. This is also the place to connect with other Atomic users and join the community.\n        </div>\n        <div class=\"social\">\n            <div class=\"box\" id=\"community\" onclick=\"hasher.setHash('Community-Display')\">\n                <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Home/community_btn.png\">\n                <div class=\"title\">Support Community</div>\n                <div class=\"subheader\">Connect with fellow Atomic users around the world</div>\n            </div>\n\n            <div class=\"box\" id =\"knowledge\" onclick=\"hasher.setHash('KnowledgeBase-Display')\">\n                <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Home/knowledge_btn.png\">\n                <div class=\"title\">Knowledge Base</div>\n                <div class=\"subheader\">Search for answers to common issues</div>\n            </div>\n            <div class=\"box\" id=\"service\" onclick=\"hasher.setHash('ServiceRequests-Display')\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Home/service_btn.png\">\n            <div class=\"title\">Service Requests</div>\n            <div class=\"subheader\">Open a request to receive support from our staff</div>\n        </div>\n        </div>\n    </div>\n</section>\n</body>\n</html>",
+							"displayName": "HTML",
+							"description": "",
+							"id": "markup"
+						}
+					}
+				},
+				"sap.flp": {
+					"_version": "1.1.0",
+					"config": {}
+				},
+				"sap.ui": {
+					"_version": "1.3.0",
+					"technology": "UI5"
+				},
+				"sap.ui5": {
+					"_version": "1.2.0",
+					"componentName": "htmlwidget.local",
+					"routing": {
+						"config": {
+							"routerClass": "sap.hana.uis.flp.routing.Router"
+						}
+					}
+				},
+				"local": "true",
+				"sectionAlias": "page1.header"
+			},
+			"topRightContent": {
+				"_version": "1.3.0",
+				"sap.app": {
+					"_version": "1.3.0",
+					"id": "hcp://portalapptemplates/htmlwidget/manifest.json",
+					"title": "HTML Widget",
+					"description": "A widget template that displays HTML files.",
+					"tags": {
+						"keywords": []
+					},
+					"crossNavigation": {
+						"inbounds": {
+							"0": {
+								"semanticObject": "htmlwidget",
+								"action": "Display"
+							}
+						}
+					}
+				},
+				"sap.platform.hcp": {
+					"_version": "1.2.0",
+					"appName": "portalapptemplates",
+					"uri": "/htmlwidget"
+				},
+				"sap.cloud.portal": {
+					"show.portal.settings": "false",
+					"settings": {
+						"markup": {
+							"isRequired": "false",
+							"storage_type": "html",
+							"value": "<style>\n    .main2 {\n        padding: 10px 16px 0 0;\n        margin: 0;\n        overflow: hidden;\n        font-family: Arial, Calibri, Tahoma, Geneva, sans-serif;\n    }\n\n    h1 {\n        color: #FE8F08;\n        font-size: 20px;\n        font-weight: normal;\n        margin: 0;\n    }\n\n    .link {\n        font-size: 16px;\n        margin: 0;\n        cursor: pointer;\n        color: #007CC0;\n        text-align: left;\n        padding-top: 3px;\n        padding-left: 5px;\n    }\n\n    p {\n        color: #666;\n        line-height: 20px;\n        margin-bottom: 0;\n        font-size: 16px;\n    }\n</style>\n<div class='main2'>\n    <h1>Support Community</h1>\n    <p>\n        Joining the Community is Easy!\n    </p>\n    <p>\n        Our community is a great place to share and connect with other people who are passionate about the same things you are.\n    </p>\n    <p>\n        Get your questions answered, share your ideas and feedback, get your problems solved, and give back by helping others! It only takes a minute to get started.\n    </p>\n    <p>\n        Connect. Participate. Join the community.\n    </p>\n\n\n</div>",
+							"displayName": "HTML",
+							"description": "",
+							"id": "markup"
+						}
+					}
+				},
+				"sap.flp": {
+					"_version": "1.1.0",
+					"config": {}
+				},
+				"sap.ui": {
+					"_version": "1.3.0",
+					"technology": "UI5"
+				},
+				"sap.ui5": {
+					"_version": "1.2.0",
+					"componentName": "htmlwidget.local",
+					"routing": {
+						"config": {
+							"routerClass": "sap.hana.uis.flp.routing.Router"
+						}
+					}
+				},
+				"local": "true",
+				"sectionAlias": "page1.topRightContent"
+			},
+			"topLeftContent": {
+        "_version": "1.3.0",
+        "sap.app": {
+          "_version": "1.3.0",
+          "id": "hcp://portalapptemplates/imageWidget/manifest.json",
+          "title": "Image Widget",
+          "description": "A widget template that displays images."
+        },
+        "sap.platform.hcp": {
+          "_version": "1.2.0",
+          "appName": "portalapptemplates",
+          "uri": "/imageWidget"
+        },
+        "sap.cloud.portal": {
+          "show.portal.settings": "false",
+          "settings": {
+            "source": {
+              "value": "0"
+            },
+            "resources": {
+              "url": [
+                {
+                  "value": "/img/Home/home_pic1.png"
+                }
+              ]
+            },
+            "state": {
+              "value": "0"
+            },
+            "height": {
+              "value": "285"
+            },
+            "units": {
+              "value": "px"
+            },
+            "alignment": {
+              "value": 1
+            },
+            "isTemplateResource": true
+          }
+        },
+        "sap.flp": {
+          "config": {}
+        },
+        "sap.ui": {
+          "_version": "1.3.0",
+          "technology": "UI5"
+        },
+        "sap.ui5": {
+          "_version": "1.2.0",
+          "componentName": "sap.cp.widgets.image",
+          "routing": {
+            "config": {
+              "routerClass": "sap.hana.uis.flp.routing.Router"
+            }
+          },
+          "rootView": "sap.cp.widgets.image.view.Widget",
+          "models": {
+            "i18nApp": {
+              "type": "sap.ui.model.resource.ResourceModel",
+              "uri": "i18n/i18n.properties"
+            }
+          },
+          "resources": {
+            "css": [
+              {
+                "uri": "css/style.css"
+              }
+            ]
+          }
+        },
+        "sectionAlias": "page1.topLeftContent"
+      }
+		}
+		
+	}
+}

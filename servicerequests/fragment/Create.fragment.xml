@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<Dialog id="addDialog" title="Create Service Request">
+		<content>
+			<VBox class="dialogVbox">
+				<Label text="Title" class="dialogLabel mandatoryLabel" />
+				<Input id="createTitle" width="100%" valueStateText="Enter a title"/>
+				<Label text="Description" class="dialogLabel mandatoryLabel"/>
+				<TextArea id="createDescription" rows="3" width="100%" valueStateText="Enter a description"/>
+				<Label text="Priority" class="dialogLabel"/>
+				<Select id="createPriority" width="100%">
+					<items>
+						<core:Item key="3" text="Normal"/>
+						<core:Item key="2" text="Urgent"/>
+						<core:Item key="1" text="Immediate"/>
+					</items>
+				</Select>
+				<Label text="Product Category" class="dialogLabel"/>
+				<Select id="createProductCategory" width="100%">
+					<items>
+						<core:Item key="P100114" text="Sweets"/>
+						<core:Item key="P200010" text="Consumer Products"/>
+						<core:Item key="P200020" text="Life Sciences"/>
+						<core:Item key="P200030" text="Retail"/>
+						<core:Item key="P200040" text="Wholesale Distribution"/>
+						<core:Item key="P200050" text="Automotive"/>
+						<core:Item key="P200160" text="Utilities"/>
+						<core:Item key="P200120" text="Mill Products"/>
+						<core:Item key="P200271" text="Operations"/>
+						<core:Item key="P200280" text="Media"/>
+						<core:Item key="P100314" text="Television"/>
+					</items>
+				</Select>
+				<Label text="Service Category" class="dialogLabel"/>
+				<Select id="createServiceCategory" width="100%">
+					<items>
+						<core:Item key="AS" text="Account Support"/>
+						<core:Item key="PS" text="Product Support"/>
+						<core:Item key="OS" text="Order Support"/>
+						<core:Item key="HT" text="How-To Support"/>
+						<core:Item key="SS" text="Social Support"/>
+					</items>
+				</Select>
+				<Label text="Attachment" class="dialogLabel"/>
+				<u:FileUploader id="createFileUploader" uploadComplete="onUploadComplete" change="onFileChange"/>
+			</VBox>
+		</content>
+		<buttons>
+			<Button id="addDialogCreateButton" text="Create" press="onDialogAdd"/>
+			<Button text="Cancel" press="onDialogCancel"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
