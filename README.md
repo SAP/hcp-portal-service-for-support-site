@@ -17,7 +17,7 @@ The Support Site solution includes several components:
 
 ### Prepare the Landscape
 
-1. In your HCP cockpit, create a destination to your C4C tenant with the following configuration:
+1. In your HCP cockpit, create a destination to your C4C tenant by importing the destination file you extracted from GitHub, c4c, and use the following configuration:
   
   Property | Value
   --- | ---
