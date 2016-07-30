@@ -42,7 +42,7 @@ The Support Site solution includes several components:
 3. Import the following applications to SAP Web IDE and deploy them to your account:
  * supportsitetemplate.zip (Site template)
  * servicerequests.zip (Service Requests application)
-4. You may also download two optional SAP Jam widgets from https://github.com/SAP/sap-hcp-portal-service-samples (under the widgets folder):
+4. You may also download two optional SAP Jam widgets from https://github.com/SAP/hcp-portal-service-samples (under the widgets folder):
  * jamgroupfeed.zip (Jam Group Feed widget)
  * jamsearch.zip (Jam Search widget)
 
