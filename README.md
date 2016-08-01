@@ -1,6 +1,6 @@
 # Welcome to the SAP HANA Cloud Platform, Portal Service for Support Site GitHub Repository
 
-The SAP HCP portal service for Support Site repository provides all you need to deploy the Support Site solution on your HCP account and connect it to your C4C tenant. Click [here](https://hcp.sap.com/capabilities/ux/cloud-portal.html) to receive more information on using SAP HCP portal service.
+The SAP HCP portal service for Support Site repository provides all you need to deploy the Support Site solution on your HCP account and connect it to your SAP Hybris Cloud for Customer (C4C) tenant. Click [here](https://hcp.sap.com/capabilities/ux/cloud-portal.html) to receive more information on using SAP HCP portal service.
 
 ## How to Deploy the Support Site Sample Solution
 
