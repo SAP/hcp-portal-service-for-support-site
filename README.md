@@ -33,7 +33,7 @@ The Support Site solution includes several components:
   User | technical_user_name
   Password | technical_user_password
 
-2. [Optional] Create a trust between your HCP account and your Jam tenant, and create a destination to your Jam tenant, as described here.
+2. [Optional] Create a trust between your HCP account and your Jam tenant, and create a destination to your Jam tenant, as described [here](http://help.sap.com/download/documentation/sapjam/developer/index.html#hcp/concepts/ADVANCED_TOPICS-API_integrate_features_data.html).
 
 ### Download and Deploy the Applications
 
