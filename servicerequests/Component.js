@@ -26,7 +26,7 @@ sap.ui.define([
 		 * @override
 		 */
 		init: function() {
-			if (window.location.href.indexOf("mockData") !== -1) {
+			if (window.location.href.indexOf("mockData") !== -1 || sap.ushell.Container.getUser().getEmail() === "") {
 				this.mockData = true;
 				var model = new JSONModel(jQuery.sap.getModulePath("ServiceRequests") + "/mock/c4codata.json");
 				model.attachRequestCompleted(function() {
@@ -91,6 +91,11 @@ sap.ui.define([
 				}
 			}
 			return this._sContentDensityClass;
+		},
+
+		onConfigChange: function(oEvent) {
+			var settings = this.getMetadata().getManifest()["sap.cloud.portal"].settings;
+			this.getAggregation("rootControl").$().css("height", settings.widgetHeight.value + "px");
 		}
 
 	});

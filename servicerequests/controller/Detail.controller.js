@@ -204,14 +204,10 @@ sap.ui.define([
 			view.byId("cancel").setVisible(isEdit);
 			view.byId("edit").setVisible(!isEdit);
 
-			view.byId("infoStatusLabel").setVisible(!isEdit);
-			view.byId("infoPriorityLabel").setVisible(!isEdit);
-			view.byId("infoProductCategoryLabel").setVisible(!isEdit);
-			view.byId("infoServiceCategoryLabel").setVisible(!isEdit);
-			view.byId("infoStatusSelect").setVisible(isEdit);
-			view.byId("infoPrioritySelect").setVisible(isEdit);
-			view.byId("infoProductCategorySelect").setVisible(isEdit);
-			view.byId("infoServiceCategorySelect").setVisible(isEdit);
+			view.byId("infoStatusSelect").setEnabled(isEdit);
+			view.byId("infoPrioritySelect").setEnabled(isEdit);
+			view.byId("infoProductCategorySelect").setEnabled(isEdit);
+			view.byId("infoServiceCategorySelect").setEnabled(isEdit);
 		},
 
 		/**

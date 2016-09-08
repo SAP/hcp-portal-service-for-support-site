@@ -1,0 +1,10 @@
+[
+	{
+		"id": "hcp://servicerequests/manifest.json",
+		"_entityType": "PORTAL_SITE_V2_TEMPLATE_APP_CONFIG",
+		"path": "",
+		"name": "Service Requests",
+		"thumbnail": "sap-icon://accidental-leave",
+		"preview": ""
+	}
+]

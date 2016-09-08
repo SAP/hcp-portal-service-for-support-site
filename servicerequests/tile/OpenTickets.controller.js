@@ -14,7 +14,7 @@ sap.ui.define([
 				}
 			}.bind(this));
 
-			if (window.location.href.indexOf("mockData") !== -1) {
+			if (window.location.href.indexOf("mockData") !== -1 || sap.ushell.Container.getUser().getEmail() === "") {
 				$("#openTicketsTileNumber").text("3");
 			} else {
 				var email = sap.ushell.Container.getUser().getEmail();

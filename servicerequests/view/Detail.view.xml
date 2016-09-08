@@ -10,8 +10,7 @@
 						<VBox class="detailsBox">
 							<HBox>
 								<Label class="infoTitle" text="Status:"/>
-								<Label class="infoLabel" id="infoStatusLabel" text="{ServiceRequestUserLifeCycleStatusCodeText}"/>
-								<Select id="infoStatusSelect" visible="false" selectedKey="{ServiceRequestUserLifeCycleStatusCode}">
+								<Select id="infoStatusSelect" width="10rem" enabled="false" selectedKey="{ServiceRequestUserLifeCycleStatusCode}">
 									<items>
 										<core:Item key="1" text="Open"/>
 										<core:Item key="3" text="Completed"/>
@@ -20,8 +19,7 @@
 							</HBox>
 							<HBox>
 								<Label class="infoTitle" text="Priority:"/>
-								<Label class="infoLabel" id="infoPriorityLabel" text="{ServicePriorityCodeText}"/>
-								<Select id="infoPrioritySelect" visible="false" selectedKey="{ServicePriorityCode}">
+								<Select id="infoPrioritySelect" width="10rem" enabled="false" selectedKey="{ServicePriorityCode}">
 									<items>
 										<core:Item key="3" text="Normal"/>
 										<core:Item key="2" text="Urgent"/>
@@ -31,8 +29,7 @@
 							</HBox>
 							<HBox>
 								<Label class="infoTitle" text="Product Category:"/>
-								<Label class="infoLabel" id="infoProductCategoryLabel" text="{ProductCategoryDescription}"/>
-								<Select id="infoProductCategorySelect" visible="false" selectedKey="{ProductID}">
+								<Select id="infoProductCategorySelect" width="10rem" enabled="false" selectedKey="{ProductID}">
 									<items>
 										<core:Item key="P100114" text="Sweets"/>
 										<core:Item key="P200010" text="Consumer Products"/>
@@ -50,8 +47,7 @@
 							</HBox>
 							<HBox>
 								<Label class="infoTitle" text="Service Category:"/>
-								<Label class="infoLabel" id="infoServiceCategoryLabel" text="{ServiceCategoryName/content}"/>
-								<Select id="infoServiceCategorySelect" visible="false" selectedKey="{ServiceIssueCategoryID}">
+								<Select id="infoServiceCategorySelect" width="10rem" enabled="false" selectedKey="{ServiceIssueCategoryID}">
 									<items>
 										<core:Item key="AS" text="Account Support"/>
 										<core:Item key="PS" text="Product Support"/>
