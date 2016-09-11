@@ -4,6 +4,8 @@ The SAP HCP portal service for Support Site repository provides all you need to 
 
 ## How to Deploy the Support Site Sample Solution
 
+[Watch the configuration video](https://youtu.be/wikqPJQ_LKY)
+
 This guide will show you how to download the Support Site sample solution from the SAP HANA Cloud Platform, portal service GitHub repository and deploy it to your account.
 
 The Support Site solution includes several components:
