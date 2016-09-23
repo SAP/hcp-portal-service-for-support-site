@@ -39,8 +39,8 @@ The Support Site solution includes several components:
 
 ### Download and Deploy the Applications
 
-1. Navigate to https://github.com/SAP/hcp-portal-service-for-support-site
-2. Clone the repository to your computer, or download it as a ZIP file by clicking the “Clone or download” button and selecting “Download ZIP”, and extract its contents.
+1. Navigate to https://github.com/SAP/hcp-portal-service-for-support-site/releases
+2. Download all the files from the latest release to your computer. You can also download the source code.
 3. Import the following applications to your account:
  * supportsitetemplate.zip (Site template)
  * servicerequests.zip (Service Requests application)
@@ -53,8 +53,8 @@ The Support Site solution includes several components:
 
 ### Import the SAPUI5 theme
 
-1. Navigate to your portal service Admin Space, and select Service  Theme Manager.
-2. Import the theme file you extracted from GitHub, supportsitetheme.zip.
+1. Navigate to your portal service Admin Space, and select Services -> Theme Manager.
+2. Import the theme file you downloaded from GitHub, supportsitetheme.zip.
 
 ### Create a new site
 
