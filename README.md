@@ -51,12 +51,12 @@ The Support Site solution includes several components:
  * jamgroupfeed.zip (Jam Group Feed widget)
  * jamsearch.zip (Jam Search widget)
 
-### Import the SAPUI5 theme
+### Import the SAPUI5 Theme
 
 1. Navigate to your portal service Admin Space, and select Services -> Theme Manager.
 2. Import the theme file you downloaded from GitHub, supportsitetheme.zip.
 
-### Create a new site
+### Create a New Site
 
 1. Still in the Admin Space, navigate to the Site Directory and create a new site based on the Support Site template.
 2. [Optional] Configure each of the SAP Jam widgets by selecting the widget and then clicking the settings icon. 
@@ -65,3 +65,13 @@ The Support Site solution includes several components:
  * Note: The SAP Jam widgets are part of the site template and are created automatically as part of the site’s initial content. If you did not deploy the SAP Jam applications, these sections will show an error message. In this case, simply click on the sections and delete the widgets.
 3. Publish the site. That’s all – your Support Site is ready!
 
+## Extend the Sample Solution for Productive Use
+
+The sample solution provided in this repository is intended to be used as an accelerator for a productive implementation, adapting and extending it to fit a specific customer's requirements. The solution uses cutting-edge front-end technologies like SAPUI5 and the OData open protocol, and extending the solution requires adequate knowledge of these technologies.
+
+You can use the following resources to learn more:
+* [SAP HANA Cloud Platform (HCP)](https://hcp.sap.com/developers.html)
+* [HCP Portal Service](https://help.hana.ondemand.com/cloud_portal/frameset.htm)
+* [SAPUI5: openSAP Course](https://open.sap.com/courses/ui51)
+* [SAPUI5: Tutorials](https://sapui5.hana.ondemand.com/)
+* [OData protocol](http://www.odata.org/)
