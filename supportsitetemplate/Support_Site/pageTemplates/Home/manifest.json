@@ -98,9 +98,7 @@
 		"appType": "UI5",
 		"config": {
 			"editable": true,
-			"deletable": true,
-			"theme.id": "sap_bluecrystal",
-			"theme.active": "[\"sap_bluecrystal\",\"sap_hcb\"]"
+			"deletable": true
 		}
 	},
 	"sap.ui": {
