@@ -39,13 +39,18 @@
 				},
 				{
 					"namespace": "",
+					"id": "hcp://supportsitetemplate/Support_Site/pageTemplates/6_Sections/manifest.json"
+				},
+				
+				{
+					"namespace": "",
 					"id": "hcp://supportsitetemplate/Support_Site/pageTemplates/SAP_Fiori_Launchpad/manifest.json"
 				}
 			],
 			"config": {
 				"icon": "supportsitetemplate/Support_Site/thumbnail.png",
 				"theme.id": "supportsitetheme",
-				"theme.active": "[\"supportsitetheme\",\"sap_hcb\",\"sap_bluecrystal\"]"
+				"theme.active": "[\"supportsitetheme\",\"sap_hcb\"]"
 			}
 		}
 	}

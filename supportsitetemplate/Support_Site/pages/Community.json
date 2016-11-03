@@ -3,7 +3,7 @@
 	"sap.app": {
 		"_version": "1.3.0",
 		"id": "hcp://supportsitetemplate/Support_Site/pages/Community.json",
-		"baseId": "hcp://supportsitetemplate/Support_Site/pageTemplates/4_Sections/manifest.json",
+		"baseId": "hcp://supportsitetemplate/Support_Site/pageTemplates/6_Sections/manifest.json",
 		"title": "Community",
 		"description": "",
 		"crossNavigation": {
@@ -19,17 +19,533 @@
 	"sap.cloud.portal": {
 		"applicationType": "page",
 		"nodes": {
-			"bottomMainContent": {
+			"page1.MainContent2": {
 				"_version": "1.3.0",
 				"sap.app": {
 					"_version": "1.1.0",
-					"id": "hcp://jamgroupfeedwidget/manifest.json",
+					"id": "hcp://portalapptemplates/rtewidget/widgets/tilegrid/manifest.json",
+					"type": "application",
+					"applicationVersion": {
+						"version": "1.0.0"
+					},
+					"title": "Tile Grid",
+					"description": "Add and arrange predefined tiles, and set their content and appearance",
+					"sourceTemplate": {
+						"id": "ui5template.basicSAPUI5ApplicationProject",
+						"version": "1.32.0"
+					}
+				},
+				"sap.ui": {
+					"_version": "1.1.0",
+					"technology": "UI5",
+					"icons": {
+						"icon": "",
+						"favIcon": "",
+						"phone": "",
+						"phone@2": "",
+						"tablet": "",
+						"tablet@2": ""
+					},
+					"deviceTypes": {
+						"desktop": true,
+						"tablet": true,
+						"phone": true
+					},
+					"supportedThemes": [
+						"sap_hcb",
+						"sap_bluecrystal"
+					]
+				},
+				"sap.ui5": {
+					"_version": "1.1.0",
+					"rootView": {
+						"viewName": "rtewidget.widgets.tilegrid.view.Main",
+						"type": "XML"
+					},
+					"dependencies": {
+						"minUI5Version": "1.30.0",
+						"libs": {
+							"sap.ui.core": {},
+							"sap.m": {},
+							"sap.ui.layout": {}
+						}
+					},
+					"contentDensities": {
+						"compact": true,
+						"cozy": true
+					},
+					"resources": {
+						"css": [
+							{
+								"uri": "../../css/style.css"
+							},
+							{
+								"uri": "css/style.css"
+							}
+						]
+					},
+					"componentName": "rtewidget.widgets.tilegrid"
+				},
+				"sap.flp": {
+					"appType": "SAP_UI5_Component",
+					"config": {
+						"editable": true,
+						"deletable": true
+					}
+				},
+				"sap.platform.hcp": {
+					"uri": "/rtewidget/widgets/tilegrid/",
+					"appName": "portalapptemplates"
+				},
+				"sap.cloud.portal": {
+					"show.portal.settings": "false",
+					"menu": {
+						"actions": {
+							"properties": {
+								"element": "OverflowToolbarButton",
+								"events": {
+									"press": "onEditButtonPress"
+								},
+								"attributes": {
+									"icon": "sap-icon://edit",
+									"tooltip": "Edit"
+								}
+							}
+						}
+					},
+					"settings": {
+						"plugins": "template link image table textcolor colorpicker autolink directionality searchreplace hr insertdatetime charmap imageuploader templateutils menurenamer tilesettings",
+						"portalplugins": "imageuploader templateutils",
+						"customplugins": "menurenamer tilesettings",
+						"menu": {
+							"list": {
+								"title": "Tile",
+								"items": "template | tilesetting | cutitem copyitem pasteitem deleteitem"
+							},
+							"file": {
+								"title": "Edit",
+								"items": "undo redo | cut copy paste pastetext | selectall | searchreplace"
+							},
+							"insert": {
+								"title": "Insert",
+								"items": "image imageuploader link | charmap hr insertdatetime"
+							},
+							"format": {
+								"title": "Format",
+								"items": "bold italic underline strikethrough superscript subscript | formats | removeformat"
+							}
+						},
+						"toolbar": [
+							"undo redo | cut copy paste | bold italic underline | fontselect fontsizeselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | link image imageuploader"
+						],
+						"table_toolbar": "",
+						"fontsize_formats": "8px 9px 10px 11px 12px 13px 14px 16px 18px 20px 22px 24px 30px 36px 48px",
+						"templates": [
+							{
+								"title": "{TEMPLATE1_TILE_TITLE}",
+								"url": "/templates/template1.html"
+							},
+							{
+								"title": "{TEMPLATE2_TILE_TITLE}",
+								"url": "/templates/template2.html"
+							},
+							{
+								"title": "{TEMPLATE3_TILE_TITLE}",
+								"url": "/templates/template3.html"
+							},
+							{
+								"title": "{TEMPLATE4_TILE_TITLE}",
+								"url": "/templates/template4.html"
+							}
+						],
+						"template_cdate_classes": "timestamp",
+						"template_cdate_format": "%d.%m.%Y | %H:%M:%S",
+						"tile_settings": {
+							"units": "px",
+							"height": 250,
+							"height_iPhone": 200,
+							"width": 398,
+							"width_iPhone": 200,
+							"margin": 10,
+							"tiles": 3,
+							"alignment": "1",
+							"border": 1,
+							"shadow": 0
+						},
+						"color_picker_settings": {
+							"colors": [
+								"ffffff",
+								"ff8d8d",
+								"ffc489",
+								"ffe594",
+								"d6ffaa",
+								"76daff",
+								"dbacff",
+								"ffa4fc",
+								"e7e6e6",
+								"ff4e4e",
+								"ff9f3e",
+								"ffd34d",
+								"abfc55",
+								"00b0f0",
+								"b85aff",
+								"fd5cf7",
+								"d0cece",
+								"ff0000",
+								"ff8000",
+								"ffc000",
+								"78ce1d",
+								"2e75b5",
+								"930ff7",
+								"ff00f6",
+								"aeabab",
+								"d00000",
+								"d96d00",
+								"dba500",
+								"66ba0c",
+								"195b96",
+								"790acc",
+								"d400cd",
+								"757070",
+								"a20000",
+								"a65300",
+								"a67d00",
+								"4e8f09",
+								"104371",
+								"5c0b98",
+								"950090",
+								"0c0c0c",
+								"7b0000",
+								"6f3700",
+								"6e5300",
+								"366108",
+								"082a49",
+								"39075e",
+								"5d005a"
+							],
+							"default": "d0d0d0"
+						},
+						"resources": {
+							"assets": [
+								{
+									"value": "/assets/markup/Community_Tile_Grid.html"
+								},
+								{
+									"value": "/assets/img/Communities/1.png"
+								},
+								{
+									"value": "/assets/img/Communities/2.png"
+								},
+								{
+									"value": "/assets/img/Communities/3.png"
+								},
+								{
+									"value": "/assets/img/Communities/4.png"
+								},
+								{
+									"value": "/assets/img/Communities/5.png"
+								},
+								{
+									"value": "/assets/img/Communities/6.png"
+								},
+								{
+									"value": "/assets/img/Communities/7.png"
+								},
+								{
+									"value": "/assets/img/Communities/8.png"
+								},
+								{
+									"value": "/assets/img/Communities/9.png"
+								},
+								{
+									"value": "/assets/img/Communities/10.png"
+								},
+								{
+									"value": "/assets/img/Communities/11.png"
+								},
+								{
+									"value": "/assets/img/Communities/12.png"
+								}
+							]
+						}
+					}
+				},
+				"local": "true",
+				"sectionAlias": "page1.MainContent2"
+			},
+			"page1.MainContent1": {
+				"_version": "1.3.0",
+				"sap.app": {
+					"_version": "1.1.0",
+					"id": "hcp://portalapptemplates/rtewidget/widgets/rte/manifest.json",
+					"type": "application",
+					"applicationVersion": {
+						"version": "1.0.0"
+					},
+					"title": "Rich Text Editor",
+					"description": "An editor for adding and formatting text, tables and more",
+					"sourceTemplate": {
+						"id": "ui5template.basicSAPUI5ApplicationProject",
+						"version": "1.32.0"
+					}
+				},
+				"sap.ui": {
+					"_version": "1.1.0",
+					"technology": "UI5",
+					"icons": {
+						"icon": "",
+						"favIcon": "",
+						"phone": "",
+						"phone@2": "",
+						"tablet": "",
+						"tablet@2": ""
+					},
+					"deviceTypes": {
+						"desktop": true,
+						"tablet": true,
+						"phone": true
+					},
+					"supportedThemes": [
+						"sap_hcb",
+						"sap_bluecrystal"
+					]
+				},
+				"sap.ui5": {
+					"_version": "1.1.0",
+					"rootView": {
+						"viewName": "rtewidget.widgets.rte.view.Main",
+						"type": "XML"
+					},
+					"dependencies": {
+						"minUI5Version": "1.30.0",
+						"libs": {
+							"sap.ui.core": {
+							},
+							"sap.m": {
+							},
+							"sap.ui.layout": {
+							}
+						}
+					},
+					"contentDensities": {
+						"compact": true,
+						"cozy": true
+					},
+					"resources": {
+						"css": [
+							{
+								"uri": "../../css/style.css"
+							}
+						]
+					},
+					"componentName": "rtewidget.widgets.rte"
+				},
+				"sap.flp": {
+					"appType": "SAP_UI5_Component",
+					"config": {
+						"editable": true,
+						"deletable": true
+					}
+				},
+				"sap.platform.hcp": {
+					"uri": "/rtewidget/widgets/rte/",
+					"appName": "portalapptemplates"
+				},
+				"sap.cloud.portal": {
+					"show.portal.settings": "false",
+					"menu": {
+						"actions": {
+							"properties": {
+								"element": "OverflowToolbarButton",
+								"events": {
+									"press": "onEditButtonPress"
+								},
+								"attributes": {
+									"icon": "sap-icon://edit",
+									"tooltip": "Edit"
+								}
+							}
+						}
+					},
+					"settings": {
+						"plugins": "template link image table textcolor colorpicker autolink directionality searchreplace hr insertdatetime charmap imageuploader",
+						"portalplugins": "imageuploader",
+						"menu": {
+							"file": {
+								"title": "Edit",
+								"items": "undo redo | cut copy paste pastetext | selectall | searchreplace"
+							},
+							"insert": {
+								"title": "Insert",
+								"items": "image imageuploader link | charmap hr insertdatetime"
+							},
+							"format": {
+								"title": "Format",
+								"items": "bold italic underline strikethrough superscript subscript | formats | removeformat"
+							},
+							"table": {
+								"title": "Table",
+								"items": "inserttable tableprops deletetable | cell row column"
+							}
+						},
+						"toolbar": [
+							"undo redo | cut copy paste | bold italic underline | fontselect fontsizeselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | link image imageuploader"
+						],
+						"fontsize_formats": "8px 9px 10px 11px 12px 13px 14px 16px 18px 20px 22px 24px 30px 36px 48px",
+						"resources": {
+							"assets": [
+								{
+									"value": "/assets/markup/Community_Rich_Text_Editor_1.html"
+								}
+							]
+						}
+					}
+				},
+				"local": "true",
+				"sectionAlias": "page1.MainContent1"
+			},
+			"page1.MainContent3": {
+				"_version": "1.3.0",
+				"sap.app": {
+					"_version": "1.1.0",
+					"id": "hcp://portalapptemplates/rtewidget/widgets/rte/manifest.json",
+					"type": "application",
+					"applicationVersion": {
+						"version": "1.0.0"
+					},
+					"title": "Rich Text Editor",
+					"description": "An editor for adding and formatting text, tables and more",
+					"sourceTemplate": {
+						"id": "ui5template.basicSAPUI5ApplicationProject",
+						"version": "1.32.0"
+					}
+				},
+				"sap.ui": {
+					"_version": "1.1.0",
+					"technology": "UI5",
+					"icons": {
+						"icon": "",
+						"favIcon": "",
+						"phone": "",
+						"phone@2": "",
+						"tablet": "",
+						"tablet@2": ""
+					},
+					"deviceTypes": {
+						"desktop": true,
+						"tablet": true,
+						"phone": true
+					},
+					"supportedThemes": [
+						"sap_hcb",
+						"sap_bluecrystal"
+					]
+				},
+				"sap.ui5": {
+					"_version": "1.1.0",
+					"rootView": {
+						"viewName": "rtewidget.widgets.rte.view.Main",
+						"type": "XML"
+					},
+					"dependencies": {
+						"minUI5Version": "1.30.0",
+						"libs": {
+							"sap.ui.core": {
+							},
+							"sap.m": {
+							},
+							"sap.ui.layout": {
+							}
+						}
+					},
+					"contentDensities": {
+						"compact": true,
+						"cozy": true
+					},
+					"resources": {
+						"css": [
+							{
+								"uri": "../../css/style.css"
+							}
+						]
+					},
+					"componentName": "rtewidget.widgets.rte"
+				},
+				"sap.flp": {
+					"appType": "SAP_UI5_Component",
+					"config": {
+						"editable": true,
+						"deletable": true
+					}
+				},
+				"sap.platform.hcp": {
+					"uri": "/rtewidget/widgets/rte/",
+					"appName": "portalapptemplates"
+				},
+				"sap.cloud.portal": {
+					"show.portal.settings": "false",
+					"menu": {
+						"actions": {
+							"properties": {
+								"element": "OverflowToolbarButton",
+								"events": {
+									"press": "onEditButtonPress"
+								},
+								"attributes": {
+									"icon": "sap-icon://edit",
+									"tooltip": "Edit"
+								}
+							}
+						}
+					},
+					"settings": {
+						"plugins": "template link image table textcolor colorpicker autolink directionality searchreplace hr insertdatetime charmap imageuploader",
+						"portalplugins": "imageuploader",
+						"menu": {
+							"file": {
+								"title": "Edit",
+								"items": "undo redo | cut copy paste pastetext | selectall | searchreplace"
+							},
+							"insert": {
+								"title": "Insert",
+								"items": "image imageuploader link | charmap hr insertdatetime"
+							},
+							"format": {
+								"title": "Format",
+								"items": "bold italic underline strikethrough superscript subscript | formats | removeformat"
+							},
+							"table": {
+								"title": "Table",
+								"items": "inserttable tableprops deletetable | cell row column"
+							}
+						},
+						"toolbar": [
+							"undo redo | cut copy paste | bold italic underline | fontselect fontsizeselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | link image imageuploader"
+						],
+						"fontsize_formats": "8px 9px 10px 11px 12px 13px 14px 16px 18px 20px 22px 24px 30px 36px 48px",
+						"resources": {
+							"assets": [
+								{
+									"value": "/assets/markup/Community_Rich_Text_Editor_2.html"
+								}
+							]
+						}
+					}
+				},
+				"local": "true",
+				"sectionAlias": "page1.MainContent3"
+			},
+			"page1.MainContent4": {
+				"_version": "1.3.0",
+				"sap.app": {
+					"_version": "1.1.0",
+					"id": "hcp://portalapptemplates/jamGroupFeedWidget/manifest.json",
 					"type": "application",
 					"i18n": "i18n/i18n.properties",
 					"applicationVersion": {
 						"version": "1.0.0"
 					},
-					"title": "SAP Jam Group Feed",
+					"title": "Jam Group Feed",
 					"description": "Embed content from SAP Jam into your site pages",
 					"sourceTemplate": {
 						"id": "ui5template.basicSAPUI5ApplicationProject",
@@ -60,7 +576,7 @@
 				"sap.ui5": {
 					"_version": "1.1.0",
 					"rootView": {
-						"viewName": "JamGroupFeedWidget.view.Main",
+						"viewName": "jamGroupFeedWidget.view.Main",
 						"type": "XML"
 					},
 					"dependencies": {
@@ -79,14 +595,16 @@
 						"i18n": {
 							"type": "sap.ui.model.resource.ResourceModel",
 							"settings": {
-								"bundleName": "JamGroupFeedWidget.i18n.i18n"
+								"bundleName": "jamGroupFeedWidget.i18n.i18n"
 							}
 						}
 					},
 					"resources": {
-						"css": [{
-							"uri": "css/style.css"
-						}]
+						"css": [
+							{
+								"uri": "css/style.css"
+							}
+						]
 					},
 					"config": {
 						"jamUrl": "/destinations/jam/api/v1/OData",
@@ -99,7 +617,7 @@
 							"routerClass": "sap.hana.uis.flp.routing.Router"
 						}
 					},
-					"componentName": "JamGroupFeedWidget"
+					"componentName": "jamGroupFeedWidget"
 				},
 				"sap.flp": {
 					"appType": "SAP_UI5_Component",
@@ -109,8 +627,8 @@
 					}
 				},
 				"sap.platform.hcp": {
-					"uri": "",
-					"appName": "jamgroupfeedwidget",
+					"uri": "/jamGroupFeedWidget/",
+					"appName": "portalapptemplates",
 					"_version": "1.1.0"
 				},
 				"sap.cloud.portal": {
@@ -120,84 +638,39 @@
 							"displayName": "SAP Jam group ID",
 							"value": ""
 						},
-						"groupName": ""
-					}
-				},
-				"local": "true",
-				"sectionAlias": "page1.bottomMainContent"
-			},
-			"topMainContent": {
-				"_version": "1.3.0",
-				"sap.app": {
-					"_version": "1.3.0",
-					"id": "hcp://portalapptemplates/htmlwidget/manifest.json",
-					"title": "HTML Widget",
-					"description": "A widget template that displays HTML files.",
-					"tags": {
-						"keywords": []
-					},
-					"crossNavigation": {
-						"inbounds": {
-							"0": {
-								"semanticObject": "htmlwidget",
-								"action": "Display"
-							}
-						}
-					}
-				},
-				"sap.platform.hcp": {
-					"_version": "1.2.0",
-					"appName": "portalapptemplates",
-					"uri": "/htmlwidget"
-				},
-				"sap.cloud.portal": {
-					"show.portal.settings": "false",
-					"settings": {
-						"markup": {
-							"isRequired": "false",
-							"storage_type": "html",
-							"value": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\">\n    <style>\n        #leaders {\n            font-family: benton_book;\n            margin: 0 auto;\n            padding: 0;\n            overflow: hidden;\n            color: #394358;\n            max-width: 1001px;\n        }\n\n        #leaders h2 {\n            font-size: 2rem;\n            text-align: center;\n            margin: 3vw 0;\n            font-weight: 100;\n        }\n\n        #leaders p {\n            font-size: 1rem;\n            text-align: center;\n            margin: 4vw 0 0 0;\n            font-weight: 100;\n            clear: left;\n            line-height: 2;\n        }\n\n        #leaders img {\n            margin: 0.5%;\n            width: 15%;\n        }\n\n        /*smartphone*/\n\n        .sapUiMedia-Std-Phone #leaders h2 {\n            font-size: 1.5rem;\n        }\n\n        .sapUiMedia-Std-Phone #leaders img {\n            width: 48%;\n        }\n\n        .sapUiMedia-Std-Phone #leader_images #second_row img {\n            display: none;\n        }\n\n    </style>\n</head>\n<body>\n<div id=\"leaders\">\n    <h2>Hear from our community leaders</h2>\n    <div id=\"leader_images\">\n        <div id=\"first_row\"><img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/1.png\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/2.png\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/3.png\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/4.png\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/5.png\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/6.png\">\n        </div>\n        <div id=\"second_row\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/7.png\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/8.png\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/9.png\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/10.png\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/11.png\">\n            <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/12.png\">\n        </div>\n    </div>\n    <p>Didn't find the answer in our Knowledge Base?<br>\n    Ask the community! </p>\n</div>\n</body>\n</html>",
-							"displayName": "HTML",
-							"description": "",
-							"id": "markup"
-						}
-					}
-				},
-				"sap.flp": {
-					"_version": "1.1.0",
-					"config": {}
-				},
-				"sap.ui": {
-					"_version": "1.3.0",
-					"technology": "UI5"
-				},
-				"sap.ui5": {
-					"_version": "1.2.0",
-					"componentName": "htmlwidget.local",
-					"routing": {
-						"config": {
-							"routerClass": "sap.hana.uis.flp.routing.Router"
+						"visualProperties": {
+							"showGroupName": true,
+							"widgetHeight": 0,
+							"desktopHeight": "300",
+							"mobileHeight": "300",
+							"errorLink": "http://help.sap.com/download/documentation/sapjam/developer/index.html#hcp/concepts/ADVANCED_TOPICS-API_integrate_features_data.html"
 						}
 					}
 				},
 				"local": "true",
-				"sectionAlias": "page1.topMainContent"
+				"sectionAlias": "page1.MainContent4"
 			},
 			"header": {
 				"_version": "1.3.0",
 				"sap.app": {
 					"_version": "1.3.0",
-					"id": "hcp://portalapptemplates/htmlwidget/manifest.json",
 					"title": "HTML Widget",
 					"description": "A widget template that displays HTML files.",
 					"tags": {
-						"keywords": []
+						"keywords": [
+							"keyword"
+						]
 					},
 					"crossNavigation": {
 						"inbounds": {
 							"0": {
 								"semanticObject": "htmlwidget",
-								"action": "Display"
+								"action": "Display",
+								"deviceTypes": {
+									"desktop": true,
+									"tablet": true,
+									"phone": true
+								}
 							}
 						}
 					}
@@ -207,16 +680,26 @@
 					"appName": "portalapptemplates",
 					"uri": "/htmlwidget"
 				},
+				"sap.ui5": {
+					"_version": "1.2.0",
+					"componentName": "htmlwidget.local"
+				},
 				"sap.cloud.portal": {
 					"show.portal.settings": "false",
 					"settings": {
 						"markup": {
 							"isRequired": "false",
-							"storage_type": "html",
-							"value": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\">\n    <style>\n        @font-face {\n            font-family: benton_medium;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Medium.ttf');\n        }\n\n\n        @font-face {\n            font-family: benton_light;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Light.ttf');\n        }\n\n        @font-face {\n            font-family: benton_book;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Book.ttf');\n        }\n        #header {\n            background-image: url('/sap/fiori/supportsitetemplate/Support_Site/img/Communities/community_image.jpg');\n            background-repeat: no-repeat;\n            background-size: cover;\n            background-position: 0 0;\n            font-family: benton_light;\n            margin: 0;\n            padding: 0 0 7rem 0;\n            overflow: hidden;\n        }\n        #header .inner {\n            display: block;\n            width: 70%;\n            margin: 0 auto;\n            max-width: 1001px;\n\n        }\n        #header .inner .intro {\n            text-align: center;\n            font-size: 1rem;\n            margin: 2rem;\n            font-family: benton_book;\n            color: #fff;\n            width: 65%;\n            margin: 0 auto;\n            line-height: 1.5;\n        }\n        #header p {\n            color: #fff;\n            font-size: 3rem;\n            text-align: center;\n            margin: 5vw 0 0px 0px;\n            font-weight: 100;\n        }\n        img#pas {\n            width: 100%;\n        }\n\n        /*tablet*/\n\n        .sapUiMedia-Std-Tablet #header p {\n            margin-top: 5rem;\n            font-size: 3rem;\n            line-height: normal;              padding-bottom: 1rem;\n}\n\n /*smartphone*/\n\n        .sapUiMedia-Std-Phone #header p {\n            margin-top: 2rem;\n            font-size: 2rem;\n            line-height: normal;\n}\n\n        .sapUiMedia-Std-Phone img#pas {\n            display: none;\n        }\n\n        .sapUiMedia-Std-Phone #header .inner .intro {\n            margin: 1rem auto;\n            width: 80%;\n            font-size: 0.9rem;\n        }\n\n    </style>\n</head>\n<body>\n<section id=\"header\">\n    <div class=\"inner\">\n        <p>Welcome to our Communities</p>\n        <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Communities/community_pas.png\" id=\"pas\">\n        <div class=\"intro\">\n            Our community is a great place to share and connect with other people who are passionate about the same things you are. Get your questions answered, share your ideas and feedback, get your problems solved, and give back by helping others! It only takes a minute to get started.\n        </div>\n    </div>\n</section>\n</body>\n</html>",
+							"storage_type": "ecm",
 							"displayName": "HTML",
-							"description": "",
+							"description": "resource_url_description",
 							"id": "markup"
+						},
+						"resources": {
+							"assets": [
+								{
+									"value": "/assets/markup/Community_HTML_1.html"
+								}
+							]
 						}
 					}
 				},
@@ -227,15 +710,6 @@
 				"sap.ui": {
 					"_version": "1.3.0",
 					"technology": "UI5"
-				},
-				"sap.ui5": {
-					"_version": "1.2.0",
-					"componentName": "htmlwidget.local",
-					"routing": {
-						"config": {
-							"routerClass": "sap.hana.uis.flp.routing.Router"
-						}
-					}
 				},
 				"local": "true",
 				"sectionAlias": "page1.header"
@@ -243,7 +717,7 @@
 		}
 	},
 	"sap.flp": {
-    "_version": "1.1.0",
-    "config": {}
-  }
+		"_version": "1.1.0",
+		"config": {}
+	}
 }

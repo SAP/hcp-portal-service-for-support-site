@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: benton_medium;
+            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Medium.ttf');
+        }
+
+
+        @font-face {
+            font-family: benton_light;
+            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Light.ttf');
+        }
+
+        @font-face {
+            font-family: benton_book;
+            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Book.ttf');
+        }
+        #header {
+            background-image: url('/sap/fiori/supportsitetemplate/Support_Site/assets/img/KnowledgeBase/knowledge_image.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 0;
+            font-family: benton_light;
+            margin: 0;
+            padding: 0 0 7rem 0;
+            overflow: hidden;
+        }
+        #header .inner {
+            display: block;
+            width: 70%;
+            margin: 0 auto;
+            max-width: 1001px;
+
+        }
+        #header .inner .intro {
+            text-align: center;
+            font-size: 1rem;
+            margin: 2rem;
+            font-family: benton_book;
+            color: #fff;
+            width: 65%;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        #header p {
+            color: #fff;
+            font-size: 3rem;
+            text-align: center;
+            margin: 5vw 0 0px 0px;
+            font-weight: 100;
+        }
+        img#pas {
+            width: 100%;
+        }
+        /*tablet*/
+
+        .sapUiMedia-Std-Tablet #header p {
+            margin-top: 5rem;
+            font-size: 3rem;
+            line-height: normal;              padding-bottom: 1rem;
+}
+
+    /*smartphone*/
+
+        .sapUiMedia-Std-Phone #header p {
+            margin-top: 2rem;
+            font-size: 2rem;
+            line-height: normal;
+}
+
+        .sapUiMedia-Std-Phone img#pas {
+            display: none;
+        }
+
+        .sapUiMedia-Std-Phone #header .inner .intro {
+            margin: 1rem auto;
+            font-size: 0.9rem;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+<section id="header">
+    <div class="inner">
+        <p>Knowledge Base</p>
+        <img src="/sap/fiori/supportsitetemplate/Support_Site/assets/img/KnowledgeBase/knowledge_pas.png" id="pas">
+        <div class="intro">
+            Browse through the manuals and how-to guides or skim through the frequently asked questions to find the solution to your problem. 
+        </div>
+    </div>
+</section>
+</body>
+</html>

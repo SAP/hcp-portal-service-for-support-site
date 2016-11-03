@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script>
+        $(function() {
+            $("#community")
+                    .mouseover(function() {
+                        $('#community').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/community_btn_over.png');
+                    })
+                    .mouseout(function() {
+                        $('#community').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/community_btn.png');
+                    });
+            $("#service")
+                    .mouseover(function() {
+                        $('#service').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/service_btn_over.png');
+                    })
+                    .mouseout(function() {
+                        $('#service').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/service_btn.png');
+                    });
+            $("#knowledge")
+                    .mouseover(function() {
+                        $('#knowledge').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/knowledge_btn_over.png');
+                    })
+                    .mouseout(function() {
+                        $('#knowledge').find('img').attr('src','/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/knowledge_btn.png');
+                    });
+        });
+    </script>
+    <style>
+        @font-face {
+            font-family: benton_medium;
+            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Medium.ttf');
+        }
+
+        @font-face {
+            font-family: benton_light;
+            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Light.ttf');
+        }
+
+        @font-face {
+            font-family: benton_book;
+            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Book.ttf');
+        }
+        #header {
+            background-image: url('/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/home_image.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 0;
+            font-family: benton_light;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #header .inner {
+            display: block;
+            width: 70%;
+            margin: 0 auto;
+            max-width: 1001px;
+
+        }
+        #header .inner .intro {
+            text-align: center;
+            font-size: 1rem;
+            margin: 2rem;
+            font-family: benton_book;
+            color: #fff;
+            width: 67%;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        #header p {
+            color: #fff;
+            font-size: 3rem;
+            text-align: center;
+            margin: 5vw 0 0px 0px;
+            font-weight: 100;
+        }
+        img#pas {
+            width: 100%;
+        }
+        #header .social {
+            width: 65%;
+            margin: 4vw auto 2vw auto;
+            text-align: justify;
+        }
+        #header .social:after {
+            content: "";
+            width: 100%;
+            display: inline-block;
+        }
+        #header .social img {
+            width: 54%;
+            display: inline-block;
+            vertical-align: top;
+        }
+        #header .box {
+            width: 30%;
+            text-align: center;
+            display: inline-table;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        #header .box .title {
+            color: #faa500;
+            font-size: 1rem;
+ font-weight: 600;
+           font-family: benton_book;
+            text-align: center;
+            margin:1rem 1rem 0.3rem 1rem;
+        }
+        #header .box .subheader {
+            color: #fff;
+            font-size: 0.9rem;
+  line-height: 1.5;
+        }
+
+        /*tablet*/
+
+        .sapUiMedia-Std-Tablet #header p {
+            margin-top: 5rem;
+            font-size: 3rem;
+            line-height: normal;              padding-bottom: 1rem;
+}
+
+ /*smartphone*/
+
+        .sapUiMedia-Std-Phone #header p {
+            margin-top: 2rem;
+            font-size: 2rem;
+			line-height: normal;
+        }
+
+        .sapUiMedia-Std-Phone img#pas {
+            display: none;
+        }
+
+        .sapUiMedia-Std-Phone #header .inner .intro {
+            margin: 1rem auto;
+            width: 80%;
+            font-size: 0.9rem;
+        }
+
+        .sapUiMedia-Std-Phone #header .social {
+            width: 100%;
+
+        }
+
+        .sapUiMedia-Std-Phone #header .box {
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            padding: 32px 0;
+        }
+
+        .sapUiMedia-Std-Phone #header .box:last-of-type {
+            width: 100%;
+            border-bottom: 1px none #ddd;
+            padding: 32px 0;
+        }
+
+        .sapUiMedia-Std-Phone #header .social img {
+            width: 40%;
+        }
+
+
+    </style>
+</head>
+<body>
+<section id="header">
+    <div class="inner">
+        <p>Welcome to Atomic Support</p>
+        <img src="/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/home_pas.png" id="pas">
+        <div class="intro">
+            Learn about Atomic products, read online help, open tickets, and chat with our support staff. This is also the place to connect with other Atomic users and join the community.
+        </div>
+        <div class="social">
+            <div class="box" id="community" onclick="hasher.setHash('Community-Display')">
+                <img src="/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/community_btn.png">
+                <div class="title">Support Community</div>
+                <div class="subheader">Connect with fellow Atomic users around the world</div>
+            </div>
+
+            <div class="box" id ="knowledge" onclick="hasher.setHash('KnowledgeBase-Display')">
+                <img src="/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/knowledge_btn.png">
+                <div class="title">Knowledge Base</div>
+                <div class="subheader">Search for answers to common issues</div>
+            </div>
+            <div class="box" id="service" onclick="hasher.setHash('ServiceRequests-Display')">
+            <img src="/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/service_btn.png">
+            <div class="title">Service Requests</div>
+            <div class="subheader">Open a request to receive support from our staff</div>
+        </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

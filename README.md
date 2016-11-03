@@ -44,7 +44,7 @@ The Support Site solution includes several components:
 3. Import the following applications to your account:
  * supportsitetemplate.zip (Site template)
  * servicerequests.zip (Service Requests application)
-
+  
   You can import the files to SAP Web IDE and then deploy them to HCP, or you can directly deploy them to HCP through the HCP cockpit (Applications >> HTML5 Applications >> Import from File). Click [here](https://help.hana.ondemand.com/webide/frameset.htm?344e8c91e33b4ae8b4032709c45776a3.html) to receive more information on using SAP Web IDE.
   
 4. You may also download two optional SAP Jam widgets from https://github.com/SAP/hcp-portal-service-samples (under the widgets folder):
@@ -55,6 +55,8 @@ The Support Site solution includes several components:
 
 1. Navigate to your portal service Admin Space, and select Services -> Theme Manager.
 2. Import the theme file you downloaded from GitHub, supportsitetheme.zip.
+
+  Note: The theme file supportsitetheme.zip is compatible with the *innovation* version of SAPUI5. If you want to use the *stable* version of SAPUI5 in your site, import supportsitetheme-stable.zip instead.
 
 ### Create a New Site
 

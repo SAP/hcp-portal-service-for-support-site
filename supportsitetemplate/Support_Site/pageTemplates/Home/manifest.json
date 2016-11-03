@@ -34,62 +34,72 @@
 	"sap.cloud.portal": {
 		"applicationType": "page",
 		"nodes": {
-			"footer": {
-				"sap.cloud.portal": {
-					"show.portal.settings": "false",
-					"settings": {
-						"markup": {
-							"id": "markup",
-							"isRequired": "false",
-							"description": "",
-							"value": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\">\n\n    <style>\n\n        @font-face {\n            font-family: benton_medium;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Medium.ttf');\n        }\n\n        @font-face {\n            font-family: benton_light;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Light.ttf');\n        }\n\n        @font-face {\n            font-family: benton_book;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Book.ttf');\n        }\n\n        #footer {\n            background-image: url('/sap/fiori/supportsitetemplate/Support_Site/img/Home/footer_image.jpg');\n            background-repeat: no-repeat;\n            background-size: cover;\n            background-position: 0 0;\n            font-family: benton_light;\n            margin: 0;\n            padding: 0;\n            overflow: hidden;\n        }\n\n        .inner {\n            display: block;\n            width: 60%;\n            margin: 0 auto;\n            max-width: 1001px;\n        }\n\n        #footer p {\n            color: #fff;\n            font-size: 3rem;\n            text-align: center;\n            margin: 3.5vw 0 1vw 0px;\n            font-weight: 100;\n        }\n\n        img#pas {\n            width: 100%;\n        }\n\n        .social {\n            width: 50%;\n            margin: 0.7vw auto;\n            text-align: justify;\n        }\n\n        .social:after {\n            content: \"\";\n            width: 100%;\n            display: inline-block;\n        }\n\n        .social img {\n            width: 18%;\n            display: inline-block;\n            vertical-align: top;\n            cursor: pointer;\n        }\n\n        /*smartphone*/\n\n        .sapUiMedia-Std-Phone #footer .inner {\n            width: 80%;\n        }\n\n        .sapUiMedia-Std-Phone #footer p {\n            margin-top: 1.5rem;\n            font-size: 2rem;\n        }\n\n        .sapUiMedia-Std-Phone #footer .social {\n            width: 100%;\n            margin: 1.5rem auto;\n        }\n\n        .sapUiMedia-Std-Phone #footer .social img {\n            width: 25%;\n        }\n\n\n    </style>\n</head>\n<body>\n<section id=\"footer\">\n    <div class=\"inner\">\n        <p>Contact Us</p>\n        <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Home/home_pas.png\" id=\"pas\">\n        <div class=\"social\">\n            <img id=\"phone\" src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Home/phone_btn.png\"\n                 onmouseover=\"this.src='/sap/fiori/supportsitetemplate/Support_Site/img/Home/phone_btn_over.png'\"\n                 onmouseout=\"this.src='/sap/fiori/supportsitetemplate/Support_Site/img/Home/phone_btn.png'\">\n            <img id=\"mail\" src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Home/mail_btn.png\"\n                 onmouseover=\"this.src='/sap/fiori/supportsitetemplate/Support_Site/img/Home/mail_btn_over.png'\"\n                 onmouseout=\"this.src='/sap/fiori/supportsitetemplate/Support_Site/img/Home/mail_btn.png'\">\n            <img id=\"chat\" src=\"/sap/fiori/supportsitetemplate/Support_Site/img/Home/chat_btn.png\"\n                 onmouseover=\"this.src='/sap/fiori/supportsitetemplate/Support_Site/img/Home/chat_btn_over.png'\"\n                 onmouseout=\"this.src='/sap/fiori/supportsitetemplate/Support_Site/img/Home/chat_btn.png'\">\n        </div>\n    </div>\n</section>\n</body>\n</html>",
-							"displayName": "HTML",
-							"storage_type": "html"
-						}
-					}
-				},
-				"_version": "1.3.0",
-				"sap.platform.hcp": {
-					"_version": "1.2.0",
-					"appName": "portalapptemplates",
-					"uri": "/htmlwidget"
-				},
-				"sectionAlias": "page1.footer",
-				"sap.ui": {
-					"_version": "1.3.0",
-					"technology": "UI5"
-				},
-				"sap.flp": {
-					"_version": "1.1.0",
-					"config": {}
-				},
-				"sap.app": {
-					"_version": "1.3.0",
-					"id": "hcp://portalapptemplates/htmlwidget/manifest.json",
-					"title": "HTML Widget",
-					"description": "A widget template that displays HTML files.",
-					"tags": {
-						"keywords": []
-					},
-					"crossNavigation": {
-						"inbounds": {
-							"0": {
-								"semanticObject": "htmlwidget",
-								"action": "Display"
-							}
-						}
-					}
-				},
-				"sap.ui5": {
-					"_version": "1.2.0",
-					"componentName": "htmlwidget.local",
-					"routing": {
-						"config": {
-							"routerClass": "sap.hana.uis.flp.routing.Router"
-						}
-					}
-				}
-			}
+		"footer": {
+		
+        "_version": "1.3.0",
+        "sap.app": {
+            "_version": "1.3.0",
+            "title": "HTML Widget",
+            "description": "A widget template that displays HTML files.",
+            "tags": {
+              "keywords": [
+                "keyword"
+              ]
+            },
+            "crossNavigation": {
+              "inbounds": {
+                "0":{
+                  "semanticObject": "htmlwidget",
+                  "action": "Display",
+                  "deviceTypes": {
+                    "desktop": true,
+                    "tablet": true,
+                    "phone": true
+                  }
+                }
+              }
+            }
+        },
+        "sap.platform.hcp": {
+            "_version": "1.2.0",
+            "appName": "portalapptemplates",
+            "uri": "/htmlwidget"
+          },
+          "sap.ui5":{
+            "_version": "1.2.0",
+            "componentName": "htmlwidget.local"
+          },
+          "sap.cloud.portal": {
+            "show.portal.settings":"false",
+            "settings": {
+              "markup": {
+                "isRequired": "false",
+                "storage_type": "ecm",
+                "displayName": "HTML",
+                "description": "resource_url_description",
+                "id": "markup"
+              },
+              "resources": {
+                "assets": [
+                  {
+                    "value": "/assets/markup/Footer_HTML.html"
+                  }
+                ]
+              }
+            }
+
+          },
+          "sap.flp": {
+            "_version": "1.1.0",
+            "config": {}
+          },
+          "sap.ui": {
+            "_version": "1.3.0",
+            "technology": "UI5"
+          },
+        "local": "true",
+        "sectionAlias": "page1.footer"     
+      }
 		},
 		"thumbnail": "preview.png"
 	},
@@ -98,7 +108,9 @@
 		"appType": "UI5",
 		"config": {
 			"editable": true,
-			"deletable": true
+			"deletable": true,
+			"theme.id": "sap_bluecrystal",
+			"theme.active": "[\"sap_bluecrystal\",\"sap_hcb\"]"
 		}
 	},
 	"sap.ui": {

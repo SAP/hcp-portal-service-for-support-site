@@ -23,13 +23,13 @@
 				"_version": "1.3.0",
 				"sap.app": {
 					"_version": "1.1.0",
-					"id": "hcp://jamsearchwidget/manifest.json",
+					"id": "hcp://portalapptemplates/jamSearchWidget/manifest.json",
 					"type": "application",
 					"i18n": "i18n/i18n.properties",
 					"applicationVersion": {
 						"version": "1.0.0"
 					},
-					"title": "SAP Jam Search",
+					"title": "Jam Search",
 					"description": "Embed content from SAP Jam into your site pages",
 					"sourceTemplate": {
 						"id": "ui5template.basicSAPUI5ApplicationProject",
@@ -60,7 +60,7 @@
 				"sap.ui5": {
 					"_version": "1.1.0",
 					"rootView": {
-						"viewName": "JamSearchWidget.view.Main",
+						"viewName": "jamSearchWidget.view.Main",
 						"type": "XML"
 					},
 					"dependencies": {
@@ -79,21 +79,23 @@
 						"i18n": {
 							"type": "sap.ui.model.resource.ResourceModel",
 							"settings": {
-								"bundleName": "JamSearchWidget.i18n.i18n"
+								"bundleName": "jamSearchWidget.i18n.i18n"
 							}
 						}
 					},
 					"resources": {
-						"css": [{
-							"uri": "css/style.css"
-						}]
+						"css": [
+							{
+								"uri": "css/style.css"
+							}
+						]
 					},
 					"config": {
 						"jamTenantUrl": "https://developer.sapjam.com",
 						"jamUrl": "/destinations/jam/api/v1/OData/Search?$format=json&$expand='ObjectReference'&Query='{query}'",
 						"searchQuery": "SAP"
 					},
-					"componentName": "JamSearchWidget"
+					"componentName": "jamSearchWidget"
 				},
 				"sap.flp": {
 					"appType": "SAP_UI5_Component",
@@ -103,16 +105,19 @@
 					}
 				},
 				"sap.platform.hcp": {
-					"uri": "",
-					"appName": "jamsearchwidget",
+					"uri": "/jamSearchWidget/",
+					"appName": "portalapptemplates",
 					"_version": "1.1.0"
 				},
 				"sap.cloud.portal": {
+					"show.portal.settings": "false",
 					"settings": {
-						"searchQuery": {
-							"displayName": "Default search query",
-							"value": "SAP"
-						}
+						"widgetHeight": 0,
+						"desktopHeight": "300",
+						"mobileHeight": "300",
+						"showSearchResults": "true",
+						"currentValue": "SAP",
+						"defaultValue": "SAP"
 					}
 				},
 				"local": "true",
@@ -121,54 +126,128 @@
 			"topMainContent": {
 				"_version": "1.3.0",
 				"sap.app": {
-					"_version": "1.3.0",
-					"id": "hcp://portalapptemplates/htmlwidget/manifest.json",
-					"title": "HTML Widget",
-					"description": "A widget template that displays HTML files.",
-					"tags": {
-						"keywords": []
+					"_version": "1.1.0",
+					"id": "hcp://portalapptemplates/rtewidget/widgets/rte/manifest.json",
+					"type": "application",
+					"applicationVersion": {
+						"version": "1.0.0"
 					},
-					"crossNavigation": {
-						"inbounds": {
-							"0": {
-								"semanticObject": "htmlwidget",
-								"action": "Display"
+					"title": "Rich Text Editor",
+					"description": "An editor for adding and formatting text, tables and more",
+					"sourceTemplate": {
+						"id": "ui5template.basicSAPUI5ApplicationProject",
+						"version": "1.32.0"
+					}
+				},
+				"sap.ui": {
+					"_version": "1.1.0",
+					"technology": "UI5",
+					"icons": {
+						"icon": "",
+						"favIcon": "",
+						"phone": "",
+						"phone@2": "",
+						"tablet": "",
+						"tablet@2": ""
+					},
+					"deviceTypes": {
+						"desktop": true,
+						"tablet": true,
+						"phone": true
+					},
+					"supportedThemes": [
+						"sap_hcb",
+						"sap_bluecrystal"
+					]
+				},
+				"sap.ui5": {
+					"_version": "1.1.0",
+					"rootView": {
+						"viewName": "rtewidget.widgets.rte.view.Main",
+						"type": "XML"
+					},
+					"dependencies": {
+						"minUI5Version": "1.30.0",
+						"libs": {
+							"sap.ui.core": {
+							},
+							"sap.m": {
+							},
+							"sap.ui.layout": {
 							}
 						}
+					},
+					"contentDensities": {
+						"compact": true,
+						"cozy": true
+					},
+					"resources": {
+						"css": [
+							{
+								"uri": "../../css/style.css"
+							}
+						]
+					},
+					"componentName": "rtewidget.widgets.rte"
+				},
+				"sap.flp": {
+					"appType": "SAP_UI5_Component",
+					"config": {
+						"editable": true,
+						"deletable": true
 					}
 				},
 				"sap.platform.hcp": {
-					"_version": "1.2.0",
-					"appName": "portalapptemplates",
-					"uri": "/htmlwidget"
+					"uri": "/rtewidget/widgets/rte/",
+					"appName": "portalapptemplates"
 				},
 				"sap.cloud.portal": {
 					"show.portal.settings": "false",
-					"settings": {
-						"markup": {
-							"isRequired": "false",
-							"storage_type": "html",
-							"value": "<style>\n    .main2 {\n        padding: 10px 16px 0 0;\n        margin: 0px 0 5px 0;\n        padding-bottom: 10px;\n        overflow: hidden;\n        font-family: benton_book;\n        border-bottom: 1px solid #b0b1b2;\n    }\n\n    h1 {\n        color: #FE8F08;\n        font-size: 20px;\n        font-weight: normal;\n        margin: 0;\n    }\n\n\n    p, ol li {\n        color: #666;\n        line-height: 20px;\n        margin-bottom: 0;\n        font-size: 16px;\n    }\n\t\n\t\t.main2 ol li {\n\t\tmargin-left:-20px;}\n</style>\n<div class='main2'>\n    <h1>How can I get a copy of my payment receipt?</h1>\n    <p><b>To view your billing history or print a receipt:</b></p>\n<ol>\n\t<li>Once you are logged in, hover the cursor over your name at the top right of any page to see the account menu</li>\n\t<li>Select Account > Billing</li>\n\t<li>Scroll down and select Payment History and Receipts. Your account billing history will be displayed</li>\n\t<li>Select View Receipt for the payment you wish to view or print</li>\n</ol>\n</div>\n<div class=\"main2\">\n    <h1>How can I change my user name?</h1>\n    <p><b>If you wish to change your user name or password:</b></p>\n<ol>\n\t<li>Once you are logged in, hover the cursor over your name at the top right of any page to see the account menu</li>\n\t\n\t<li>Select My Profile</li>\n\t<li>Select Edit next to the item you wish to change</li>\n\t<li>Enter your new information</li>\n\t<li>Save your changes</li>\n</ol>\t\n</div>\n<div class=\"main2\">\n    <h1>Can I cancel at any time or am I committed to a certain period?</h1>\n    <p>Yes, you can cancel your membership at any time. You will have access to the library until the end of your billing cycle, at which time your membership will not be renewed. Members who live in a European Union country may cancel for any reason within 14 days, by sending a written notice to Customer Service. When you're ready to reactivate your membership, go to our website and select the Reactivate link in the upper right corner.</p>\n</div>\n<div class=\"main2\">\n    <h1>How do I update my credit card and billing information?</h1>\n\t<ol>\n\t\t<li>Once you are logged in, hover the cursor over your name at the top right of any page to see the account menu</li>\n\t\t<li>Select Account > Billing</li>\n\t\t<li>In the Billing Information section, select Edit</li>\n\t\t<li>Enter your new information</li>\n\t\t<li>Save your changes</li>\n\t</ol>\n</div>\n\n<div class=\"main2\">\n    <h1>How do I get an activation key?</h1>\n    <p>If you have not received an activation key from us or from the trial subscription provider, contact your provider.</p>\n</div>",
-							"displayName": "HTML",
-							"description": "",
-							"id": "markup"
+					"menu": {
+						"actions": {
+							"properties": {
+								"element": "OverflowToolbarButton",
+								"events": {
+									"press": "onEditButtonPress"
+								},
+								"attributes": {
+									"icon": "sap-icon://edit",
+									"tooltip": "Edit"
+								}
+							}
 						}
-					}
-				},
-				"sap.flp": {
-					"_version": "1.1.0",
-					"config": {}
-				},
-				"sap.ui": {
-					"_version": "1.3.0",
-					"technology": "UI5"
-				},
-				"sap.ui5": {
-					"_version": "1.2.0",
-					"componentName": "htmlwidget.local",
-					"routing": {
-						"config": {
-							"routerClass": "sap.hana.uis.flp.routing.Router"
+					},
+					"settings": {
+						"plugins": "template link image table textcolor colorpicker autolink directionality searchreplace hr insertdatetime charmap imageuploader",
+						"portalplugins": "imageuploader",
+						"menu": {
+							"file": {
+								"title": "Edit",
+								"items": "undo redo | cut copy paste pastetext | selectall | searchreplace"
+							},
+							"insert": {
+								"title": "Insert",
+								"items": "image imageuploader link | charmap hr insertdatetime"
+							},
+							"format": {
+								"title": "Format",
+								"items": "bold italic underline strikethrough superscript subscript | formats | removeformat"
+							},
+							"table": {
+								"title": "Table",
+								"items": "inserttable tableprops deletetable | cell row column"
+							}
+						},
+						"toolbar": [
+							"undo redo | cut copy paste | bold italic underline | fontselect fontsizeselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | link image imageuploader"
+						],
+						"fontsize_formats": "8px 9px 10px 11px 12px 13px 14px 16px 18px 20px 22px 24px 30px 36px 48px",
+						"resources": {
+							"assets": [
+								{
+									"value": "/assets/markup/KnowledgeBase_Rich_Text_Editor_1.html"
+								}
+							]
 						}
 					}
 				},
@@ -179,17 +258,23 @@
 				"_version": "1.3.0",
 				"sap.app": {
 					"_version": "1.3.0",
-					"id": "hcp://portalapptemplates/htmlwidget/manifest.json",
 					"title": "HTML Widget",
 					"description": "A widget template that displays HTML files.",
 					"tags": {
-						"keywords": []
+						"keywords": [
+							"keyword"
+						]
 					},
 					"crossNavigation": {
 						"inbounds": {
 							"0": {
 								"semanticObject": "htmlwidget",
-								"action": "Display"
+								"action": "Display",
+								"deviceTypes": {
+									"desktop": true,
+									"tablet": true,
+									"phone": true
+								}
 							}
 						}
 					}
@@ -199,16 +284,26 @@
 					"appName": "portalapptemplates",
 					"uri": "/htmlwidget"
 				},
+				"sap.ui5": {
+					"_version": "1.2.0",
+					"componentName": "htmlwidget.local"
+				},
 				"sap.cloud.portal": {
 					"show.portal.settings": "false",
 					"settings": {
 						"markup": {
 							"isRequired": "false",
-							"storage_type": "html",
-							"value": "<!DOCTYPE html>\n<html>\n<head lang=\"en\">\n    <meta charset=\"UTF-8\">\n    <style>\n        @font-face {\n            font-family: benton_medium;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Medium.ttf');\n        }\n\n\n        @font-face {\n            font-family: benton_light;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Light.ttf');\n        }\n\n        @font-face {\n            font-family: benton_book;\n            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Book.ttf');\n        }\n        #header {\n            background-image: url('/sap/fiori/supportsitetemplate/Support_Site/img/KnowledgeBase/knowledge_image.jpg');\n            background-repeat: no-repeat;\n            background-size: cover;\n            background-position: 0 0;\n            font-family: benton_light;\n            margin: 0;\n            padding: 0 0 7rem 0;\n            overflow: hidden;\n        }\n        #header .inner {\n            display: block;\n            width: 70%;\n            margin: 0 auto;\n            max-width: 1001px;\n\n        }\n        #header .inner .intro {\n            text-align: center;\n            font-size: 1rem;\n            margin: 2rem;\n            font-family: benton_book;\n            color: #fff;\n            width: 65%;\n            margin: 0 auto;\n            line-height: 1.5;\n        }\n        #header p {\n            color: #fff;\n            font-size: 3rem;\n            text-align: center;\n            margin: 5vw 0 0px 0px;\n            font-weight: 100;\n        }\n        img#pas {\n            width: 100%;\n        }\n        /*tablet*/\n\n        .sapUiMedia-Std-Tablet #header p {\n            margin-top: 5rem;\n            font-size: 3rem;\n            line-height: normal;              padding-bottom: 1rem;\n}\n\n    /*smartphone*/\n\n        .sapUiMedia-Std-Phone #header p {\n            margin-top: 2rem;\n            font-size: 2rem;\n            line-height: normal;\n}\n\n        .sapUiMedia-Std-Phone img#pas {\n            display: none;\n        }\n\n        .sapUiMedia-Std-Phone #header .inner .intro {\n            margin: 1rem auto;\n            font-size: 0.9rem;\n            width: 80%;\n        }\n    </style>\n</head>\n<body>\n<section id=\"header\">\n    <div class=\"inner\">\n        <p>Knowledge Base</p>\n        <img src=\"/sap/fiori/supportsitetemplate/Support_Site/img/KnowledgeBase/knowledge_pas.png\" id=\"pas\">\n        <div class=\"intro\">\n            Browse through the manuals and how-to guides or skim through the frequently asked questions to find the solution to your problem. \n        </div>\n    </div>\n</section>\n</body>\n</html>",
+							"storage_type": "ecm",
 							"displayName": "HTML",
-							"description": "",
+							"description": "resource_url_description",
 							"id": "markup"
+						},
+						"resources": {
+							"assets": [
+								{
+									"value": "/assets/markup/KnowledgeBase_HTML_1.html"
+								}
+							]
 						}
 					}
 				},
@@ -220,19 +315,9 @@
 					"_version": "1.3.0",
 					"technology": "UI5"
 				},
-				"sap.ui5": {
-					"_version": "1.2.0",
-					"componentName": "htmlwidget.local",
-					"routing": {
-						"config": {
-							"routerClass": "sap.hana.uis.flp.routing.Router"
-						}
-					}
-				},
 				"local": "true",
 				"sectionAlias": "page1.header"
 			}
 		}
-		
 	}
 }

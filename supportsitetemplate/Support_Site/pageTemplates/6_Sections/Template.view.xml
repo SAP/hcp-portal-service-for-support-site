@@ -1,4 +1,4 @@
-<mvc:View controllerName="cpv2.templates.4_Sections.Template" height="100%" xmlns:appContainer="sap.ushell.components.container"
+<mvc:View controllerName="cpv2.templates.6_Sections.Template" height="100%" xmlns:appContainer="sap.ushell.components.container"
 	xmlns:commons="sap.ui.commons" xmlns:core="sap.ui.core" xmlns:cpControls="sap.hana.uis.flp.control" xmlns:l="sap.ui.layout"
 	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
 	<Page enableScrolling="false" showFooter="false" showHeader="false">
@@ -15,7 +15,7 @@
 								<l:layoutData>
 									<l:GridData span="L12 M12 S12"/>
 								</l:layoutData>
-								<cpControls:Widget alias="page1.topMainContent"></cpControls:Widget>
+								<cpControls:Widget alias="page1.MainContent1"></cpControls:Widget>
 							</l:VerticalLayout>
 						</l:Grid>
 						<l:Grid hSpacing="0" vSpacing="0" class="sapUiMediumMarginTopBottom">
@@ -23,7 +23,23 @@
 								<l:layoutData>
 									<l:GridData span="L12 M12 S12"/>
 								</l:layoutData>
-								<cpControls:Widget alias="page1.bottomMainContent"></cpControls:Widget>
+								<cpControls:Widget alias="page1.MainContent2"></cpControls:Widget>
+							</l:VerticalLayout>
+						</l:Grid>
+						<l:Grid hSpacing="0" vSpacing="0" class="sapUiMediumMarginTopBottom">
+							<l:VerticalLayout width="100%">
+								<l:layoutData>
+									<l:GridData span="L12 M12 S12"/>
+								</l:layoutData>
+								<cpControls:Widget alias="page1.MainContent3"></cpControls:Widget>
+							</l:VerticalLayout>
+						</l:Grid>
+						<l:Grid hSpacing="0" vSpacing="0" class="sapUiMediumMarginTopBottom">
+							<l:VerticalLayout width="100%">
+								<l:layoutData>
+									<l:GridData span="L12 M12 S12"/>
+								</l:layoutData>
+								<cpControls:Widget alias="page1.MainContent4"></cpControls:Widget>
 							</l:VerticalLayout>
 						</l:Grid>
 					</l:VerticalLayout>

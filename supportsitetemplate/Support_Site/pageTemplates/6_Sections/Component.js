@@ -1,11 +1,11 @@
 // define a root UIComponent which exposes the main view
 /*global jQuery, sap */
-jQuery.sap.declare("cpv2.templates.4_Sections.Component");
+jQuery.sap.declare("cpv2.templates.6_Sections.Component");
 jQuery.sap.require("sap.ui.core.UIComponent");
 jQuery.sap.require("sap.ui.core.routing.Router");
 
 // new Component
-sap.ui.core.UIComponent.extend("cpv2.templates.4_Sections.Component", {
+sap.ui.core.UIComponent.extend("cpv2.templates.6_Sections.Component", {
 
 	oMainView: null,
 
@@ -31,7 +31,7 @@ sap.ui.core.UIComponent.extend("cpv2.templates.4_Sections.Component", {
 		"use strict";
 		this.oMainView = sap.ui.view({
 			type: sap.ui.core.mvc.ViewType.XML,
-			viewName: "cpv2.templates.4_Sections.Template",
+			viewName: "cpv2.templates.6_Sections.Template",
 			id: this.createId("MainView")
 		});
 

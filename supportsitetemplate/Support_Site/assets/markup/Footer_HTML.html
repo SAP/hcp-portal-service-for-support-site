@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <style>
+
+        @font-face {
+            font-family: benton_medium;
+            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Medium.ttf');
+        }
+
+        @font-face {
+            font-family: benton_light;
+            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Light.ttf');
+        }
+
+        @font-face {
+            font-family: benton_book;
+            src: url('/sap/fiori/supportsitetemplate/Support_Site/fonts/BentonSans-Book.ttf');
+        }
+
+        #footer {
+            background-image: url('/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/footer_image.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 0;
+            font-family: benton_light;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .inner {
+            display: block;
+            width: 60%;
+            margin: 0 auto;
+            max-width: 1001px;
+        }
+
+        #footer p {
+            color: #fff;
+            font-size: 3rem;
+            text-align: center;
+            margin: 3.5vw 0 1vw 0px;
+            font-weight: 100;
+        }
+
+        img#pas {
+            width: 100%;
+        }
+
+        .social {
+            width: 50%;
+            margin: 0.7vw auto;
+            text-align: justify;
+        }
+
+        .social:after {
+            content: "";
+            width: 100%;
+            display: inline-block;
+        }
+
+        .social img {
+            width: 18%;
+            display: inline-block;
+            vertical-align: top;
+            cursor: pointer;
+        }
+
+        /*smartphone*/
+
+        .sapUiMedia-Std-Phone #footer .inner {
+            width: 80%;
+        }
+
+        .sapUiMedia-Std-Phone #footer p {
+            margin-top: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .sapUiMedia-Std-Phone #footer .social {
+            width: 100%;
+            margin: 1.5rem auto;
+        }
+
+        .sapUiMedia-Std-Phone #footer .social img {
+            width: 25%;
+        }
+
+
+    </style>
+</head>
+<body>
+<section id="footer">
+    <div class="inner">
+        <p>Contact Us</p>
+        <img src="/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/home_pas.png" id="pas">
+        <div class="social">
+            <img id="phone" src="/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/phone_btn.png"
+                 onmouseover="this.src='/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/phone_btn_over.png'"
+                 onmouseout="this.src='/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/phone_btn.png'">
+            <img id="mail" src="/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/mail_btn.png"
+                 onmouseover="this.src='/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/mail_btn_over.png'"
+                 onmouseout="this.src='/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/mail_btn.png'">
+            <img id="chat" src="/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/chat_btn.png"
+                 onmouseover="this.src='/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/chat_btn_over.png'"
+                 onmouseout="this.src='/sap/fiori/supportsitetemplate/Support_Site/assets/img/Home/chat_btn.png'">
+        </div>
+    </div>
+</section>
+</body>
+</html>

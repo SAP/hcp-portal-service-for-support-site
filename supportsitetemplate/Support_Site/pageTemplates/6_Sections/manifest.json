@@ -2,9 +2,9 @@
 	"_version": "1.3.0",
 	"sap.app": {
 		"_version": "1.3.0",
-		"id": "hcp://supportsitetemplate/Support_Site/pageTemplates/4_Sections/manifest.json",
-		"title": "4 Sections",
-		"description": "A page layout that contains 4 sections.",
+		"id": "hcp://supportsitetemplate/Support_Site/pageTemplates/6_Sections/manifest.json",
+		"title": "6 Sections",
+		"description": "A page layout that contains 6 sections.",
 		"tags": {
 			"keywords": []
 		},
@@ -12,7 +12,7 @@
 			"inbounds": {
 				"0": {
 					"semanticObject": "obj",
-					"action": "4_Sections",
+					"action": "6_Sections",
 					"deviceTypes": {
 						"desktop": true,
 						"tablet": true,
@@ -25,11 +25,11 @@
 	"sap.platform.hcp": {
 		"_version": "1.2.0",
 		"appName": "supportsitetemplate",
-		"uri": "/Support_Site/pageTemplates/4_Sections"
+		"uri": "/Support_Site/pageTemplates/6_Sections"
 	},
 	"sap.ui5": {
 		"_version": "1.2.0",
-		"componentName": "cpv2.templates.4_Sections"
+		"componentName": "cpv2.templates.6_Sections"
 	},
 	"sap.cloud.portal": {
 		"applicationType": "page",
