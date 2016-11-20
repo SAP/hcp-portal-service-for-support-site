@@ -13,7 +13,7 @@
             <PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>
             <!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
             <List id="list"
-                  items="{ path: '/ServiceRequestCollection', sorter: { path: 'CreationDateTime', descending: true }, groupHeaderFactory: '.createGroupHeader', parameters: {expand: 'ServiceRequestDescription,ServiceRequestAttachmentFolder', select: '*,ServiceRequestDescription/*,ServiceRequestAttachmentFolder/Name,ServiceRequestAttachmentFolder/DocumentLink'} }"
+                  items="{ path: '/ServiceRequestCollection', sorter: { path: 'CreationDateTime', descending: true }, groupHeaderFactory: '.createGroupHeader', parameters: {expand: 'ServiceRequestDescription,ServiceRequestAttachmentFolder'} }"
                   busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}"
                   mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true"
                   growingScrollToLoad="true" updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
