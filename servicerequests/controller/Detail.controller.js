@@ -33,85 +33,81 @@ sap.ui.define([
 
 			if (this.getOwnerComponent().mockData) {
 				this._onMetadataLoaded();
-				this.getView().byId("uploadFileButton").setEnabled(false);
-				this.getView().byId("interactionInput").setEnabled(false);
 			} else {
 				this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
 			}
-
 			this.app = this.getOwnerComponent().getAggregation("rootControl");
 			this.app.setBusyIndicatorDelay(0);
 			this.getView().setBusyIndicatorDelay(0);
 		},
-
 		onPost: function(oEvent) {
 			var view = this.getView(),
 				model = view.getModel(),
 				sPath = view.getElementBinding().getPath(),
 				authorUUID = this.getOwnerComponent().contactUUID,
 				text = oEvent.getSource().getValue();
-
-			var url = model.sServiceUrl + sPath + "/ServiceRequestDescription",
-				token = model.getSecurityToken();
-
-			this.app.setBusy(true);
-
-			jQuery.ajax({
-				url: url,
-				method: "POST",
-				contentType: "application/json",
-				headers: {
-					"X-CSRF-TOKEN": token
-				},
-				data: JSON.stringify({
+			if (!this.getOwnerComponent().mockData) {
+				var url = model.sServiceUrl + sPath + "/ServiceRequestDescription",
+					token = model.getSecurityToken();
+				this.app.setBusy(true);
+				jQuery.ajax({
+					url: url,
+					method: "POST",
+					contentType: "application/json",
+					headers: {
+						"X-CSRF-TOKEN": token
+					},
+					data: JSON.stringify({
+						TypeCode: "10008",
+						AuthorUUID: authorUUID,
+						Text: text
+					}),
+					success: function() {
+						this.getModel().refresh();
+					}.bind(this),
+					error: function(jqXHR) {
+						var error = jqXHR.responseJSON.error.message.value;
+						MessageBox.error(error);
+					},
+					complete: function() {
+						this.app.setBusy(false);
+					}.bind(this)
+				});
+			} else {
+				var serviceData = model.getData().ServiceRequestCollection[parseInt(view.getElementBinding().getPath().split("/")[2])].ServiceRequestDescription;
+				var user = sap.ushell.Container.getUser();
+				var dataDescription = {
 					TypeCode: "10008",
-					AuthorUUID: authorUUID,
-					Text: text
-				}),
-				success: function() {
-					this.getModel().refresh();
-				}.bind(this),
-				error: function(jqXHR) {
-					var error = jqXHR.responseJSON.error.message.value;
-					MessageBox.error(error);
-				},
-				complete: function() {
-					this.app.setBusy(false);
-				}.bind(this)
-			});
+					AuthorName: user.getFullName(),
+					Text: text,
+					CreatedOn: new Date()
+				};
+				serviceData.push(dataDescription);
+				model.refresh();
+				this._populateDescriptionsList(view.getElementBinding().getPath());
+			}
 		},
-
 		onAttachmentPress: function(oEvent) {
 			var item = oEvent.getParameter("listItem");
 			var link = document.createElement("a");
-			link.href = item.data("uri");
-			link.download = item.getTitle();
+			if (item.data("uri").fileBlob) {
+				link.href = URL.createObjectURL(item.data("uri").fileBlob);
+				link.download = item.data("uri").Name;
+			} else {
+				link.href = item.data("uri");
+				link.download = item.getTitle();
+			}
 			link.click();
 		},
-
 		onEdit: function() {
 			this._setEditMode(true);
 		},
-
 		onCancel: function() {
 			this._setEditMode(false);
 		},
-
 		onSave: function() {
-			if (this.getOwnerComponent().mockData) {
-				MessageToast.show("The service request was updated successfully");
-				this._setEditMode(false);
-				return;
-			}
-
-			this.app.setBusy(true);
-
 			var view = this.getView(),
-				model = view.getModel(),
-				sPath = view.getElementBinding().getPath(),
-				url = model.sServiceUrl + sPath,
-				token = model.getSecurityToken();
-
+				model = view.getModel();
 			var patch = {
 				ServiceRequestLifeCycleStatusCode: view.byId("infoStatusSelect").getSelectedKey(),
 				ServicePriorityCode: view.byId("infoPrioritySelect").getSelectedKey(),
@@ -119,33 +115,56 @@ sap.ui.define([
 				ServiceIssueCategoryID: view.byId("infoServiceCategorySelect").getSelectedKey()
 			};
 
-			jQuery.ajax({
-				url: url,
-				method: "PATCH",
-				contentType: "application/json",
-				headers: {
-					"X-CSRF-TOKEN": token
-				},
-				data: JSON.stringify(patch),
-				success: function() {
-					MessageToast.show("The service request was updated successfully");
-					this.getModel().refresh();
-				}.bind(this),
-				error: function(jqXHR) {
-					var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
-					MessageBox.error(error);
-				},
-				complete: function() {
-					this.app.setBusy(false);
-					this._setEditMode(false);
-				}.bind(this)
-			});
+			var patchMock = {
+					ServiceRequestLifeCycleStatusCode: view.byId("infoStatusSelect").getSelectedKey(),
+					ServiceRequestUserLifeCycleStatusCodeText: view.byId("infoStatusSelect").getSelectedItem().getProperty("text"),
+					ServicePriorityCode: view.byId("infoPrioritySelect").getSelectedKey(),
+					ServicePriorityCodeText: view.byId("infoPrioritySelect").getSelectedItem().getProperty("text"),
+					ProductID: view.byId("infoProductCategorySelect").getSelectedKey(),
+					ServiceIssueCategoryID: view.byId("infoServiceCategorySelect").getSelectedKey()
+			};
+			if (this.getOwnerComponent().mockData) {
+				var sPath = view.getElementBinding().getPath(),
+					ind = parseInt(sPath.split('/')[2]),
+					data = model.getData(),
+					arr = data.ServiceRequestCollection,
+					objToUpdate = arr[ind];
+				jQuery.extend(true, objToUpdate, patchMock);
+				MessageToast.show("The service request was updated successfully");
+				model.setData(data);
+				model.refresh(true);
+				this._setEditMode(false);
+			} else {
+				this.app.setBusy(true);
+				var sPath = view.getElementBinding().getPath(),
+					url = model.sServiceUrl + sPath,
+					token = model.getSecurityToken();
+				jQuery.ajax({
+					url: url,
+					method: "PATCH",
+					contentType: "application/json",
+					headers: {
+						"X-CSRF-TOKEN": token
+					},
+					data: JSON.stringify(patch),
+					success: function() {
+						MessageToast.show("The service request was updated successfully");
+						this.getModel().refresh();
+					}.bind(this),
+					error: function(jqXHR) {
+						var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
+						MessageBox.error(error);
+					},
+					complete: function() {
+						this.app.setBusy(false);
+						this._setEditMode(false);
+					}.bind(this)
+				});
+			}
 		},
-
 		onFileChange: function(oEvent) {
 			this.fileToUpload = oEvent.getParameter("files")["0"];
 		},
-
 		onFileUpload: function() {
 			if (this.fileToUpload) {
 				this.app.setBusy(true);
@@ -156,60 +175,67 @@ sap.ui.define([
 				MessageBox.show("No file was selected");
 			}
 		},
-
 		uploadFile: function(e) {
 			var view = this.getView(),
 				model = view.getModel(),
-				sPath = view.getElementBinding().getPath(),
-				url = model.sServiceUrl + sPath + "/ServiceRequestAttachmentFolder",
-				token = model.getSecurityToken();
+				sPath = view.getElementBinding().getPath();
 
-			var data = {
-				Name: this.fileToUpload.name,
-				Binary: window.btoa(e.target.result)
-			};
-
-			jQuery.ajax({
-				url: url,
-				method: "POST",
-				contentType: "application/json",
-				headers: {
-					"X-CSRF-TOKEN": token
-				},
-				data: JSON.stringify(data),
-				success: function() {
-					view.byId("fileUploader").clear();
-					this.fileToUpload = null;
-					MessageToast.show("The attachment was uploaded successfully");
-					this.getModel().refresh();
-				}.bind(this),
-				error: function(jqXHR) {
-					var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
-					MessageBox.error(error);
-				},
-				complete: function() {
-					this.app.setBusy(false);
-				}.bind(this)
-			});
+			if (!this.getOwnerComponent().mockData) {
+				var url = model.sServiceUrl + sPath + "/ServiceRequestAttachmentFolder",
+					token = model.getSecurityToken();
+				var data = {
+					Name: this.fileToUpload.name,
+					Binary: window.btoa(e.target.result)
+				};
+				jQuery.ajax({
+					url: url,
+					method: "POST",
+					contentType: "application/json",
+					headers: {
+						"X-CSRF-TOKEN": token
+					},
+					data: JSON.stringify(data),
+					success: function() {
+						view.byId("fileUploader").clear();
+						this.fileToUpload = null;
+						MessageToast.show("The attachment was uploaded successfully");
+						this.getModel().refresh();
+					}.bind(this),
+					error: function(jqXHR) {
+						var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
+						MessageBox.error(error);
+					},
+					complete: function() {
+						this.app.setBusy(false);
+					}.bind(this)
+				});
+			} else {
+				var data = {
+					Name: this.fileToUpload.name,
+					fileBlob: new Blob([this.fileToUpload], {type: "any"})
+				};
+				var attachmentData = model.getData().ServiceRequestCollection[parseInt(view.getElementBinding().getPath().split("/")[2])].ServiceRequestAttachmentFolder;
+				attachmentData.push(data);
+				model.refresh();
+				view.byId("fileUploader").clear();
+				this.fileToUpload = null;
+				MessageToast.show("The attachment was uploaded successfully");
+				this._populateAttachmentsList(view.getElementBinding().getPath());
+			}
 		},
-
 		/* =========================================================== */
 		/* begin: internal methods                                     */
 		/* =========================================================== */
-
 		_setEditMode: function(isEdit) {
 			var view = this.getView();
-
 			view.byId("save").setVisible(isEdit);
 			view.byId("cancel").setVisible(isEdit);
 			view.byId("edit").setVisible(!isEdit);
-
 			view.byId("infoStatusSelect").setEnabled(isEdit);
 			view.byId("infoPrioritySelect").setEnabled(isEdit);
 			view.byId("infoProductCategorySelect").setEnabled(isEdit);
 			view.byId("infoServiceCategorySelect").setEnabled(isEdit);
 		},
-
 		/**
 		 * Binds the view to the object path and expands the aggregated line items.
 		 * @function
@@ -235,7 +261,6 @@ sap.ui.define([
 				}.bind(this));
 			}
 		},
-
 		/**
 		 * Binds the view to the object path. Makes sure that detail view displays
 		 * a busy indicator while data for the corresponding element binding is loaded.
@@ -249,7 +274,6 @@ sap.ui.define([
 
 			// If the view was not bound yet its not busy, only if the binding requests data it is set to busy again
 			oViewModel.setProperty("/busy", false);
-
 			this.getView().bindElement({
 				path: sObjectPath,
 				parameters: {
@@ -305,10 +329,10 @@ sap.ui.define([
 						info = "Description";
 					} else if (typeCode === "10007") {
 						sender = description.CreatedBy;
-						info = "Reply to customer";
+						info = "Reply to Customer";
 					} else if (typeCode === "10008") {
 						sender = description.AuthorName;
-						info = "Reply from customer";
+						info = "Reply from Customer";
 					}
 					list.addItem(new FeedListItem({
 						showIcon: false,
@@ -320,19 +344,29 @@ sap.ui.define([
 				});
 			}
 		},
-
 		_populateAttachmentsList: function(sPath) {
 			var list = this.getView().byId("attachmentsList");
 			var attachments = this.getModel().getObject(sPath).ServiceRequestAttachmentFolder;
-
 			list.removeAllItems();
-			if (attachments.forEach) {
-				attachments.forEach(function(attachment) {
-					list.addItem(new StandardListItem({
-						type: ListType.Active,
-						title: attachment.Name
-					}).data("uri", attachment.__metadata.uri + "/Binary/$value"));
-				});
+			if (!this.getOwnerComponent().mockData) {
+				if (attachments.forEach) {
+					attachments.forEach(function(attachment) {
+						list.addItem(new StandardListItem({
+							type: ListType.Active,
+							title: attachment.Name
+						}).data("uri", attachment.__metadata.uri + "/Binary/$value"));
+					});
+				}
+			} else {
+				if (attachments.forEach) {
+					attachments.forEach(function(attachment) {
+						list.addItem(new StandardListItem({
+							type: ListType.Active,
+							title: attachment.Name
+						}).data("uri", attachment.__metadata ? attachment.__metadata.uri + "/Binary/$value" : attachment));
+					});
+				}
+				this.app.setBusy(false);
 			}
 		},
 

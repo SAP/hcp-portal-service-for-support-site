@@ -50,7 +50,8 @@
 			"config": {
 				"icon": "supportsitetemplate/Support_Site/thumbnail.png",
 				"theme.id": "supportsitetheme",
-				"theme.active": "[\"supportsitetheme\",\"sap_hcb\"]"
+				"theme.active": "[\"supportsitetheme\",\"sap_hcb\"]",
+				"solution": "supportSite"
 			}
 		}
 	}

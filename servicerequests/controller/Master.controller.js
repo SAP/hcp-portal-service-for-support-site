@@ -38,9 +38,9 @@ sap.ui.define([
 			// Control state model
 			var oList = this.byId("list"),
 				oViewModel = this._createViewModel(),
-			// Put down master list's original value for busy indicator delay,
-			// so it can be restored later on. Busy handling on the master list is
-			// taken care of by the master list itself.
+				// Put down master list's original value for busy indicator delay,
+				// so it can be restored later on. Busy handling on the master list is
+				// taken care of by the master list itself.
 				iOriginalBusyDelay = oList.getBusyIndicatorDelay();
 
 			this._oList = oList;
@@ -147,7 +147,6 @@ sap.ui.define([
 			this._updateListItemCount(oEvent.getParameter("total"));
 			// hide pull to refresh if necessary
 			this.byId("pullToRefresh").hide();
-
 			var items = this._oList.getItems();
 			if (!this._oList.getSelectedItem() && items.length > 0) {
 				this._oList.setSelectedItem(items[0]);
@@ -230,15 +229,15 @@ sap.ui.define([
 		onAdd: function() {
 			if (!this.oDialog) {
 				this.oDialog = sap.ui.xmlfragment("ServiceRequests.fragment.Create", this);
+				var dialogModel = new sap.ui.model.json.JSONModel();
+				dialogModel.setProperty("createEnabled", false);
+				dialogModel.setProperty("titleInput", '');
+				dialogModel.setProperty("descriptionInput", '');
+				this.oDialog.setModel(dialogModel);
 				this.oDialog.attachAfterClose(function() {
 					this.oDialog.destroy();
 					this.oDialog = null;
 				}.bind(this));
-
-				if (this.mockData) {
-					sap.ui.getCore().byId("addDialogCreateButton").setEnabled(false);
-				}
-
 				this.getView().addDependent(this.oDialog);
 			}
 			this.oDialog.open();
@@ -247,11 +246,9 @@ sap.ui.define([
 		onDialogAdd: function() {
 			this.createTicket();
 		},
-
 		onFileChange: function(oEvent) {
 			this.fileToUpload = oEvent.getParameter("files")["0"];
 		},
-
 		createTicket: function() {
 			var view = this.getView(),
 				core = sap.ui.getCore(),
@@ -263,11 +260,131 @@ sap.ui.define([
 			if (!titleInput.getValue() || !descriptionInput.getValue()) {
 				return;
 			}
-
-			var model = view.getModel(),
-				url = model.sServiceUrl + "/ServiceRequestCollection",
-				token = model.getSecurityToken();
-
+			var mockData = {
+				"RequestAssignmentStatusCode": "2",
+				"CompletedOnDate": "\/Date(1465344000000)\/",
+				"ObjectID": this.createMockGUID(),
+				"ActivityServiceIssueCategoryID": "",
+				"ApprovalStatusCode": "1",
+				"CauseServiceIssueCategoryID": "",
+				"ChangedBy": "Test Agent",
+				"CompletionDueDate": "\/Date(1465603200000)\/",
+				"ContractID": "",
+				"CreatedBy": "Juliane Beyer",
+				"CreationDate": new Date(),
+				"Customer": "",
+				"CustomerID": "",
+				"DataOriginTypeCode": "1",
+				"ID": "6006",
+				"IncidentCategoryName": {
+					"__metadata": {
+						"type": "c4codata.MEDIUM_Name"
+					},
+					"content": ""
+				},
+				"ActivityCategoryName": {
+					"__metadata": {
+						"type": "c4codata.MEDIUM_Name"
+					},
+					"content": ""
+				},
+				"CauseCategoryName": {
+					"__metadata": {
+						"type": "c4codata.MEDIUM_Name"
+					},
+					"content": ""
+				},
+				"IncidentServiceIssueCategoryID": "",
+				"InitialReviewDueDate": "\/Date(1465344000000)\/",
+				"InstallationPointID": "",
+				"InstalledBaseID": "",
+				"ItemListServiceRequestExecutionLifeCycleStatusCode": "1",
+				"LastChangeDate": "\/Date(1466035200000)\/",
+				"LastResponseOnDate": "\/Date(1465344000000)\/",
+				"Name": {
+					"__metadata": {
+						"type": "c4codata.EXTENDED_Name"
+					},
+					"languageCode": "E",
+					"content": titleInput.getValue()
+				},
+				"NextResponseDueDate": null,
+				"ObjectCategoryName": {
+					"__metadata": {
+						"type": "c4codata.MEDIUM_Name"
+					},
+					"content": ""
+				},
+				"ObjectServiceIssueCategoryID": "",
+				"Partner": "",
+				"PartnerID": "",
+				"ProcessingTypeCode": "SRRQ",
+				"ProductID": core.byId("createProductCategory").getSelectedKey(),
+				"ReferenceDate": null,
+				"ReportedForEmail": "",
+				"ReportedForPartyID": "",
+				"ReporterEmail": "guy.roth@SAP.COM",
+				"ReporterPartyID": "1001702",
+				"RequestedEnd": "2016-06-11T07:00:00Z",
+				"RequestedEndTimeZoneCode": "PST",
+				"RequestedStart": "2016-06-10T07:00:00Z",
+				"RequestedStartTimeZoneCode": "PST",
+				"RoleCode": "8",
+				"SalesTerritoryID": "",
+				"SerialID": "",
+				"ServiceCategoryName": {
+					"__metadata": {
+						"type": "c4codata.MEDIUM_Name"
+					},
+					"content": "Account Support"
+				},
+				"ServiceIssueCategoryID": core.byId("createServiceCategory").getSelectedKey(),
+				"ServiceLevelAgreement": "CLOUDFORSERVICE_STANDARD",
+				"ServicePriorityCode": core.byId("createPriority").getSelectedKey(),
+				"ServiceRequestClassificationCode": "",
+				"ServiceRequestLifeCycleStatusCode": "2",
+				"ServiceTechnician": "",
+				"ServiceTechnicianTeam": "",
+				"WarrantyDescription": "",
+				"WarrantyFrom": null,
+				"WarrantyTo": null,
+				"ServiceAndSupportTeam": "S3110",
+				"ServiceRequestUserLifeCycleStatusCode": "4",
+				"AssignedTo": "",
+				"EscalationStatus": "1",
+				"AssignedToName": {
+					"__metadata": {
+						"type": "c4codata.ENCRYPTED_LONG_Name"
+					},
+					"languageCode": "",
+					"content": ""
+				},
+				"ProductCategoryDescription": "Sweets",
+				"InitialResponseDate": "\/Date(1465344000000)\/",
+				"Contact": "",
+				"ParentServiceRequest": "",
+				"ETag": "\/Date(1466098359312)\/",
+				"CreationDateTime": new Date(),
+				"LastChangeDateTime": "\/Date(1466098359312)\/",
+				"RequestAssignmentStatusCodeText": "Requestor Action",
+				"ApprovalStatusCodeText": "Not Started",
+				"DataOriginTypeCodeText": "Manual data entry",
+				"ItemListServiceRequestExecutionLifeCycleStatusCodeText": "Open",
+				"ProcessingTypeCodeText": "Service Request",
+				"RoleCodeText": "Service Point",
+				"ServicePriorityCodeText": core.byId("createPriority").getSelectedItem().getText(),
+				"ServiceRequestClassificationCodeText": "",
+				"ServiceRequestLifeCycleStatusCodeText": "In Process",
+				"ServiceRequestUserLifeCycleStatusCodeText": "Open",
+				"EscalationStatusText": "Not Escalated",
+				"ServiceRequestItem": {
+					"__deferred": {
+						"uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1EE68BB3A36C8C740442')/ServiceRequestItem"
+					}
+				},
+				"ServiceRequestAttachmentFolder": [],
+				"ServiceRequestDescription": [],
+			};
 			var data = {
 				ReporterPartyID: this.contactID,
 				Name: {
@@ -278,56 +395,85 @@ sap.ui.define([
 				ProductID: core.byId("createProductCategory").getSelectedKey(),
 				ServiceIssueCategoryID: core.byId("createServiceCategory").getSelectedKey()
 			};
-
 			this.oDialog.setBusy(true);
-			jQuery.ajax({
-				url: url,
-				method: "POST",
-				contentType: "application/json",
-				headers: {
-					"X-CSRF-TOKEN": token
-				},
-				data: JSON.stringify(data),
-				success: this.setTicketDescription.bind(this),
-				error: function(jqXHR) {
-					var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
-					MessageBox.error(error);
-					this.oDialog.setBusy(false);
-				}.bind(this)
-			});
+			if (!this.mockData) {
+				var model = view.getModel(),
+					url = model.sServiceUrl + "/ServiceRequestCollection",
+					token = model.getSecurityToken();
+				jQuery.ajax({
+					url: url,
+					method: "POST",
+					contentType: "application/json",
+					headers: {
+						"X-CSRF-TOKEN": token
+					},
+					data: JSON.stringify(data),
+					success: this.setTicketDescription.bind(this),
+					error: function(jqXHR) {
+						var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
+						MessageBox.error(error);
+						this.oDialog.setBusy(false);
+					}.bind(this)
+				});
+			} else {
+				this.setTicketDescription(mockData);
+			}
+		},
+
+		createMockGUID: function() {
+			function s4() {
+				return Math.floor((1 + Math.random()) * 0x10000)
+					.toString(16)
+					.substring(1)
+					.toUpperCase();
+			}
+
+			return s4() + s4() + s4() + s4() +
+				s4() + s4() + s4() + s4();
 		},
 
 		setTicketDescription: function(result) {
-			var model = this.getModel(),
-				authorUUID = this.component.contactUUID,
-				baseUrl = result.getElementsByTagName("id")[0].innerHTML,
-				url = baseUrl + "/ServiceRequestDescription",
-				text = sap.ui.getCore().byId("createDescription").getValue(),
-				token = model.getSecurityToken();
-
-			jQuery.ajax({
-				url: url,
-				method: "POST",
-				contentType: "application/json",
-				headers: {
-					"X-CSRF-TOKEN": token
-				},
-				data: JSON.stringify({
+			if (!this.mockData) {
+				var model = this.getModel(),
+					authorUUID = this.component.contactUUID,
+					baseUrl = result.getElementsByTagName("id")[0].innerHTML,
+					url = baseUrl + "/ServiceRequestDescription",
+					text = sap.ui.getCore().byId("createDescription").getValue(),
+					token = model.getSecurityToken();
+				jQuery.ajax({
+					url: url,
+					method: "POST",
+					contentType: "application/json",
+					headers: {
+						"X-CSRF-TOKEN": token
+					},
+					data: JSON.stringify({
+						TypeCode: "10004",
+						AuthorUUID: authorUUID,
+						Text: text
+					}),
+					success: function() {
+						this.uploadAttachment(result);
+					}.bind(this),
+					error: function(jqXHR) {
+						var error = jqXHR.responseJSON.error.message.value;
+						MessageBox.error("The service request was created successfully, but a description could not be set: " + error);
+						this.oDialog.setBusy(false);
+					}
+				});
+			} else {
+				var serviceData = result.ServiceRequestDescription;
+				var user = sap.ushell.Container.getUser();
+				var dataDescription = {
 					TypeCode: "10004",
-					AuthorUUID: authorUUID,
-					Text: text
-				}),
-				success: function() {
-					this.uploadAttachment(result);
-				}.bind(this),
-				error: function(jqXHR) {
-					var error = jqXHR.responseJSON.error.message.value;
-					MessageBox.error("The service request was created successfully, but a description could not be set: " + error);
-					this.oDialog.setBusy(false);
-				}
-			});
+					AuthorName: user.getFullName(),
+					Text: sap.ui.getCore().byId("createDescription").getValue(),
+					CreatedOn: new Date()
+				};
+				serviceData.push(dataDescription);
+				this.uploadAttachment(result);
+			}
 		},
-
 		uploadAttachment: function(result) {
 			if (this.fileToUpload) {
 				var fileReader = new FileReader();
@@ -336,48 +482,108 @@ sap.ui.define([
 				}.bind(this);
 				fileReader.readAsBinaryString(this.fileToUpload);
 			} else {
-				this.finishCreateTicket();
+				this.finishCreateTicket(result);
 			}
 		},
-
 		uploadFile: function(e, result) {
-			var model = this.getModel(),
-				url = result.getElementsByTagName("id")[0].innerHTML + "/ServiceRequestAttachmentFolder",
-				token = model.getSecurityToken();
+			var model = this.getModel();
+			if (!this.mockData) {
+				var url = result.getElementsByTagName("id")[0].innerHTML + "/ServiceRequestAttachmentFolder",
+					token = model.getSecurityToken();
+				var data = {
+					Name: this.fileToUpload.name,
+					Binary: window.btoa(e.target.result)
+				};
+				jQuery.ajax({
+					url: url,
+					method: "POST",
+					contentType: "application/json",
+					headers: {
+						"X-CSRF-TOKEN": token
+					},
+					data: JSON.stringify(data),
+					success: this.finishCreateTicket.bind(this),
+					error: function(jqXHR) {
+						var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
+						MessageBox.error("The service request was created successfully, but the attachment could not be uploaded: " + error);
+						this.oDialog.setBusy(false);
+					}
+				});
+			} else {
+				var data = {
+					Name: this.fileToUpload.name,
+					fileBlob: new Blob([this.fileToUpload], {type: "any"})
+				};
 
-			var data = {
-				Name: this.fileToUpload.name,
-				Binary: window.btoa(e.target.result)
-			};
-
-			jQuery.ajax({
-				url: url,
-				method: "POST",
-				contentType: "application/json",
-				headers: {
-					"X-CSRF-TOKEN": token
-				},
-				data: JSON.stringify(data),
-				success: this.finishCreateTicket.bind(this),
-				error: function(jqXHR) {
-					var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
-					MessageBox.error("The service request was created successfully, but the attachment could not be uploaded: " + error);
-					this.oDialog.setBusy(false);
-				}
-			});
+				var attachmentData = result.ServiceRequestAttachmentFolder;
+				attachmentData.push(data);
+				this.finishCreateTicket(result);
+			}
+			this.fileToUpload = null;
 		},
-
-		finishCreateTicket: function() {
+		finishCreateTicket: function(data) {
+			var model = this.getModel(),
+				modelData = model.getData();
+			if (data && this.mockData) {
+				var arrayToInsert = [data],
+					oldData = modelData.ServiceRequestCollection,
+					newArr = arrayToInsert.concat(oldData);
+				model.setData({ServiceRequestCollection: newArr});
+			}
 			MessageToast.show("The service request was created successfully");
 			this.oDialog.setBusy(false);
-			this.getModel().refresh();
+			model.refresh();
 			this.oDialog.close();
+			if (this.mockData){
+				this.updateMockItemDetails();
+			}
 		},
-
+		updateMockItemDetails: function(){
+			var items = this._oList.getItems();
+			this._showDetail(items[0]);
+		},
 		onDialogCancel: function() {
 			this.oDialog.close();
 		},
+		onTitleChange: function(oEvent) {
+			var titleInput = oEvent.getSource();
+			if (this.isStringEmpty(titleInput.getValue())) {
+				titleInput.setValueState(sap.ui.core.ValueState.Error);
+				titleInput.setValueStateText("Please enter a value");
+			} else {
+				titleInput.setValueState(sap.ui.core.ValueState.None);
+				var createBtn = sap.ui.getCore().byId("addDialogCreateButton");
+				if (this.isCreateTicketEnabled(titleInput.getValue(), sap.ui.getCore().byId("createDescription").getValue())) {
+					createBtn.setEnabled(true);
+				} else {
+					createBtn.setEnabled(false);
+				}
+			}
+		},
+		onTextAreaChange: function(oEvent) {
+			var textareaInput = oEvent.getSource();
+			if (this.isStringEmpty(textareaInput.getValue())) {
+				textareaInput.setValueState(sap.ui.core.ValueState.Error);
+				textareaInput.setValueStateText("Please enter a value");
+			} else {
+				textareaInput.setValueState(sap.ui.core.ValueState.None);
+				var createBtn = sap.ui.getCore().byId("addDialogCreateButton");
+				if (this.isCreateTicketEnabled(sap.ui.getCore().byId("createTitle").getValue(), textareaInput.getValue())) {
+					createBtn.setEnabled(true);
+				} else {
+					createBtn.setEnabled(false);
+				}
+			}
+		},
+		isCreateTicketEnabled: function(titleInput, descriptionInput) {
+			if (titleInput && descriptionInput)
+				return (titleInput.trim().length !== 0 && descriptionInput.trim().length !== 0);
+			return false;
 
+		},
+		isStringEmpty: function(text) {
+			return text.trim().length === 0;
+		},
 		setListFilters: function() {
 			var componentData = this.getOwnerComponent().getComponentData();
 

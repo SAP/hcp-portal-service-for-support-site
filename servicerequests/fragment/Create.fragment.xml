@@ -1,11 +1,11 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
 	<Dialog id="addDialog" title="Create Service Request">
 		<content>
-			<VBox class="dialogVbox">
+			<VBox class="dialogVbox" width="800px">
 				<Label text="Title" class="dialogLabel mandatoryLabel" />
-				<Input id="createTitle" width="100%" valueStateText="Enter a title"/>
+				<Input id="createTitle" width="100%" valueStateText="Enter a title" value="{/titleInput}" liveChange="onTitleChange" />
 				<Label text="Description" class="dialogLabel mandatoryLabel"/>
-				<TextArea id="createDescription" rows="3" width="100%" valueStateText="Enter a description"/>
+				<TextArea id="createDescription" rows="3" width="100%" valueStateText="Enter a description" liveChange="onTextAreaChange" value="{/descriptionInput}"/>
 				<Label text="Priority" class="dialogLabel"/>
 				<Select id="createPriority" width="100%">
 					<items>
@@ -45,7 +45,7 @@
 			</VBox>
 		</content>
 		<buttons>
-			<Button id="addDialogCreateButton" text="Create" press="onDialogAdd"/>
+			<Button id="addDialogCreateButton" text="Create" press="onDialogAdd" enabled="{ parts: ['/titleInput', '/descriptionInput'],formatter: '.isCreateTicketEnabled' }"/>
 			<Button text="Cancel" press="onDialogCancel"/>
 		</buttons>
 	</Dialog>
