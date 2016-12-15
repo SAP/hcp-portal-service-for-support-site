@@ -5,7 +5,7 @@
 		<content>
 			<FlexBox direction="Column">
 				<items>
-					<cpControls:Widget alias="page1.header"></cpControls:Widget>
+					<cpControls:Widget alias="4_Sections.header"></cpControls:Widget>
 					<l:VerticalLayout width="80%" class="center">
 						<l:layoutData>
 							<FlexItemData growFactor="1"/>
@@ -15,7 +15,7 @@
 								<l:layoutData>
 									<l:GridData span="L12 M12 S12"/>
 								</l:layoutData>
-								<cpControls:Widget alias="page1.topMainContent"></cpControls:Widget>
+								<cpControls:Widget alias="4_Sections.topMainContent"></cpControls:Widget>
 							</l:VerticalLayout>
 						</l:Grid>
 						<l:Grid hSpacing="0" vSpacing="0" class="sapUiMediumMarginTopBottom">
@@ -23,11 +23,11 @@
 								<l:layoutData>
 									<l:GridData span="L12 M12 S12"/>
 								</l:layoutData>
-								<cpControls:Widget alias="page1.bottomMainContent"></cpControls:Widget>
+								<cpControls:Widget alias="4_Sections.bottomMainContent"></cpControls:Widget>
 							</l:VerticalLayout>
 						</l:Grid>
 					</l:VerticalLayout>
-					<cpControls:Widget alias="page1.footer"></cpControls:Widget>
+					<cpControls:Widget alias="4_Sections.footer"></cpControls:Widget>
 				</items>
 			</FlexBox>
 		</content>

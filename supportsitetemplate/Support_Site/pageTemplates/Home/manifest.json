@@ -98,7 +98,7 @@
             "technology": "UI5"
           },
         "local": "true",
-        "sectionAlias": "page1.footer"     
+        "sectionAlias": "Home.footer"     
       }
 		},
 		"thumbnail": "preview.png"

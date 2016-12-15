@@ -1,0 +1,12 @@
+{
+  "projectType": [
+    "sap.watt.uitools.ide.fiori",
+    "sap.watt.uitools.ide.web",
+    "sap.site.template"
+  ],
+  "hcpdeploy": {
+    "account": "we043e646",
+    "name": "supportsitetemplate",
+    "lastVersionWeTriedToDeploy": "1.0.10"
+  }
+}

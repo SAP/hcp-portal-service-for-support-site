@@ -120,8 +120,7 @@
 						"defaultValue": "SAP"
 					}
 				},
-				"local": "true",
-				"sectionAlias": "page1.bottomMainContent"
+				"sectionAlias": "4_Sections.bottomMainContent"
 			},
 			"topMainContent": {
 				"_version": "1.3.0",
@@ -251,8 +250,7 @@
 						}
 					}
 				},
-				"local": "true",
-				"sectionAlias": "page1.topMainContent"
+				"sectionAlias": "4_Sections.topMainContent"
 			},
 			"header": {
 				"_version": "1.3.0",
@@ -315,8 +313,7 @@
 					"_version": "1.3.0",
 					"technology": "UI5"
 				},
-				"local": "true",
-				"sectionAlias": "page1.header"
+				"sectionAlias": "4_Sections.header"
 			}
 		}
 	}
