@@ -118,7 +118,9 @@ sap.ui.define([
 								}
 							}.bind(this),
 							error: function(jqXHR) {
-								MessageBox.error(jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML);
+								var elm = jqXHR.responseXML.getElementsByTagName("message")[0];
+								var error = elm.innerHTML || elm.textContent;
+								MessageBox.error(error);
 							}
 						});
 					} else {
@@ -126,7 +128,9 @@ sap.ui.define([
 					}
 				}.bind(this),
 				error: function(jqXHR) {
-					MessageBox.error(jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML);
+					var elm = jqXHR.responseXML.getElementsByTagName("message")[0];
+					var error = elm.innerHTML || elm.textContent;
+					MessageBox.error(error);
 				}
 			});
 		},
@@ -410,7 +414,8 @@ sap.ui.define([
 					data: JSON.stringify(data),
 					success: this.setTicketDescription.bind(this),
 					error: function(jqXHR) {
-						var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
+						var elm = jqXHR.responseXML.getElementsByTagName("message")[0];
+						var error = elm.innerHTML || elm.textContent;
 						MessageBox.error(error);
 						this.oDialog.setBusy(false);
 					}.bind(this)
@@ -436,7 +441,8 @@ sap.ui.define([
 			if (!this.mockData) {
 				var model = this.getModel(),
 					authorUUID = this.component.contactUUID,
-					baseUrl = result.getElementsByTagName("id")[0].innerHTML,
+					elm = result.getElementsByTagName("id")[0],
+					baseUrl = elm.innerHTML || elm.textContent,
 					url = baseUrl + "/ServiceRequestDescription",
 					text = sap.ui.getCore().byId("createDescription").getValue(),
 					token = model.getSecurityToken();
@@ -488,7 +494,9 @@ sap.ui.define([
 		uploadFile: function(e, result) {
 			var model = this.getModel();
 			if (!this.mockData) {
-				var url = result.getElementsByTagName("id")[0].innerHTML + "/ServiceRequestAttachmentFolder",
+				var elm = result.getElementsByTagName("id")[0],
+					baseUrl = elm.innerHTML || elm.textContent,
+					url = baseUrl + "/ServiceRequestAttachmentFolder",
 					token = model.getSecurityToken();
 				var data = {
 					Name: this.fileToUpload.name,
@@ -504,7 +512,8 @@ sap.ui.define([
 					data: JSON.stringify(data),
 					success: this.finishCreateTicket.bind(this),
 					error: function(jqXHR) {
-						var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
+						var elm = jqXHR.responseXML.getElementsByTagName("message")[0];
+						var error = elm.innerHTML || elm.textContent;
 						MessageBox.error("The service request was created successfully, but the attachment could not be uploaded: " + error);
 						this.oDialog.setBusy(false);
 					}

@@ -152,7 +152,8 @@ sap.ui.define([
 						this.getModel().refresh();
 					}.bind(this),
 					error: function(jqXHR) {
-						var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
+						var elm = jqXHR.responseXML.getElementsByTagName("message")[0];
+						var error = elm.innerHTML || elm.textContent;
 						MessageBox.error(error);
 					},
 					complete: function() {
@@ -202,7 +203,8 @@ sap.ui.define([
 						this.getModel().refresh();
 					}.bind(this),
 					error: function(jqXHR) {
-						var error = jqXHR.responseXML.getElementsByTagName("message")[0].innerHTML;
+						var elm = jqXHR.responseXML.getElementsByTagName("message")[0];
+						var error = elm.innerHTML || elm.textContent;
 						MessageBox.error(error);
 					},
 					complete: function() {
