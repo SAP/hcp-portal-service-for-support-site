@@ -1,44 +1,37 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<Dialog id="addDialog" title="Create Service Request">
 		<content>
-			<VBox class="dialogVbox" width="800px">
+			<VBox class="dialogVbox" width="950px">
 				<Label text="Title" class="dialogLabel mandatoryLabel" />
 				<Input id="createTitle" width="100%" valueStateText="Enter a title" value="{/titleInput}" liveChange="onTitleChange" />
 				<Label text="Description" class="dialogLabel mandatoryLabel"/>
-				<TextArea id="createDescription" rows="3" width="100%" valueStateText="Enter a description" liveChange="onTextAreaChange" value="{/descriptionInput}"/>
+				<TextArea id="createDescription" rows="6" width="100%" valueStateText="Enter a description" liveChange="onTextAreaChange" value="{/descriptionInput}"/>
 				<Label text="Priority" class="dialogLabel"/>
-				<Select id="createPriority" width="100%">
-					<items>
-						<core:Item key="3" text="Normal"/>
-						<core:Item key="2" text="Urgent"/>
-						<core:Item key="1" text="Immediate"/>
-					</items>
+				<Select id="createPriority" class="dialogLabel" width="100%"
+						items="{ServiceRequest>/ServiceRequestServicePriorityCodeCollection}">
+					<core:Item key="{ServiceRequest>Code}" text="{ServiceRequest>Description}"/>
 				</Select>
+
 				<Label text="Product Category" class="dialogLabel"/>
-				<Select id="createProductCategory" width="100%">
-					<items>
-						<core:Item key="P100114" text="Sweets"/>
-						<core:Item key="P200010" text="Consumer Products"/>
-						<core:Item key="P200020" text="Life Sciences"/>
-						<core:Item key="P200030" text="Retail"/>
-						<core:Item key="P200040" text="Wholesale Distribution"/>
-						<core:Item key="P200050" text="Automotive"/>
-						<core:Item key="P200160" text="Utilities"/>
-						<core:Item key="P200120" text="Mill Products"/>
-						<core:Item key="P200271" text="Operations"/>
-						<core:Item key="P200280" text="Media"/>
-						<core:Item key="P100314" text="Television"/>
-					</items>
+				<Select id="createProductCategory" class="dialogLabel" width="100%"
+						items="{ServiceRequest>/ProductCollection}">
+					<core:Item key="{ServiceRequest>ID}" text="{ServiceRequest>Description}"/>
 				</Select>
+
 				<Label text="Service Category" class="dialogLabel"/>
-				<Select id="createServiceCategory" width="100%">
-					<items>
-						<core:Item key="AS" text="Account Support"/>
-						<core:Item key="PS" text="Product Support"/>
-						<core:Item key="OS" text="Order Support"/>
-						<core:Item key="HT" text="How-To Support"/>
-						<core:Item key="SS" text="Social Support"/>
-					</items>
+				<Select id="createServiceCategory" class="dialogLabel" width="100%"
+					change="onServiceCategorySelectCreateFragment"
+						items="{ServiceRequest>/ServiceIssueCategoryCatalogueCategoryCollection}">
+					<core:Item key="{ServiceRequest>ServiceIssueCategoryID}"
+							   text="{ServiceRequest>Name/content}"
+							   data:parentObject="{ServiceRequest>ParentObjectID}"/>
+				</Select>
+
+				<Label text="Incident Category" class="dialogLabel"/>
+				<Select id="createIncidentCategory" class="dialogLabel" width="100%"
+						items="{IncidentModel>/results}">
+					<core:Item key="{IncidentModel>ServiceIssueCategoryID}"
+							   text="{IncidentModel>Name/content}"/>
 				</Select>
 				<Label text="Attachment" class="dialogLabel"/>
 				<u:FileUploader id="createFileUploader" uploadComplete="onUploadComplete" change="onFileChange"/>
@@ -47,6 +40,7 @@
 		<buttons>
 			<Button id="addDialogCreateButton" text="Create" press="onDialogAdd" enabled="{ parts: ['/titleInput', '/descriptionInput'],formatter: '.isCreateTicketEnabled' }"/>
 			<Button text="Cancel" press="onDialogCancel"/>
+
 		</buttons>
 	</Dialog>
 </core:FragmentDefinition>

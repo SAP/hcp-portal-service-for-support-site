@@ -18,6 +18,14 @@ sap.ui.define([
 		contactUUID: null,
 		contactID: null,
 		mockData: false,
+		SELECT_BOX_URLS: {
+			ServiceRequestLifeCycleStatusCode: '/ServiceRequestServiceRequestLifeCycleStatusCodeCollection',
+			ServicePriorityCode: '/ServiceRequestServicePriorityCodeCollection',
+			ServiceCategory: '/ServiceIssueCategoryCatalogueCategoryCollection',
+			IncidentCategory: '/ServiceIssueCategoryCatalogueCategoryCollection?$filter=ParentObjectID%20eq%20%27${0}%27',
+			DescriptionTypeCollection: '/ServiceRequestTextCollectionTypeCodeCollection',
+			ProductCategoryCollection:'/ProductCollection'
+		},
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -97,7 +105,6 @@ sap.ui.define([
 			var settings = this.getMetadata().getManifest()["sap.cloud.portal"].settings;
 			this.getAggregation("rootControl").$().css("height", settings.widgetHeight.value + "px");
 		}
-
 	});
 
 });

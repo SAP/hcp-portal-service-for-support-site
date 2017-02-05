@@ -1,156 +1,157 @@
 {
-    "_version": "1.3.0",
-    "sap.app": {
-        "_version": "1.3.0",
-        "id": "hcp://servicerequests/manifest.json",
-        "type": "application",
-        "i18n": "i18n/i18n.properties",
-        "title": "Service Requests",
-        "description": "Service Requests",
-        "applicationVersion": {
-            "version": "1.0.0"
-        },
-        "sourceTemplate": {
-            "id": "sap.ui.ui5-template-plugin.2masterdetail",
-            "version": "1.36.2"
-        }
-    },
-    "sap.ui": {
-        "_version": "1.3.0",
-        "technology": "UI5",
-        "icons": {
-            "icon": "sap-icon://detail-view",
-            "favIcon": "",
-            "phone": "",
-            "phone@2": "",
-            "tablet": "",
-            "tablet@2": ""
-        },
-        "deviceTypes": {
-            "desktop": true,
-            "tablet": true,
-            "phone": true
-        },
-        "supportedThemes": [
-            "sap_hcb",
-            "sap_bluecrystal"
-        ]
-    },
-    "sap.ui5": {
-        "_version": "1.2.0",
-        "rootView": {
-            "viewName": "ServiceRequests.view.App",
-            "type": "XML",
-            "id": "app"
-        },
-        "dependencies": {
-            "minUI5Version": "1.36.0",
-            "libs": {
-                "sap.ui.core": {
-                    "minVersion": "1.36.0"
-                },
-                "sap.m": {
-                    "minVersion": "1.36.0"
-                }
-            }
-        },
-        "contentDensities": {
-            "compact": true,
-            "cozy": true
-        },
-        "models": {
-            "i18n": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "settings": {
-                    "bundleName": "ServiceRequests.i18n.i18n"
-                }
-            }
-        },
-        "routing": {
-            "config": {
-                "routerClass": "sap.m.routing.Router",
-                "viewType": "XML",
-                "viewPath": "ServiceRequests.view",
-                "controlId": "idAppControl",
-                "controlAggregation": "detailPages",
-                "bypassed": {
-                    "target": [
-                        "master",
-                        "notFound"
-                    ]
-                },
-                "async": true
-            },
-            "routes": [
-                {
-                    "pattern": "",
-                    "name": "master",
-                    "target": [
-                        "object",
-                        "master"
-                    ]
-                },
-                {
-                    "pattern": "ServiceRequestCollection/{objectId}",
-                    "name": "object",
-                    "target": [
-                        "master",
-                        "object"
-                    ]
-                }
-            ],
-            "targets": {
-                "master": {
-                    "viewName": "Master",
-                    "viewLevel": 1,
-                    "viewId": "master",
-                    "controlAggregation": "masterPages"
-                },
-                "object": {
-                    "viewName": "Detail",
-                    "viewId": "detail",
-                    "viewLevel": 2
-                },
-                "detailObjectNotFound": {
-                    "viewName": "DetailObjectNotFound",
-                    "viewId": "detailObjectNotFound"
-                },
-                "detailNoObjectsAvailable": {
-                    "viewName": "DetailNoObjectsAvailable",
-                    "viewId": "detailNoObjectsAvailable"
-                },
-                "notFound": {
-                    "viewName": "NotFound",
-                    "viewId": "notFound"
-                }
-            }
-        },
-        "resources": {
-            "css": [
-                {
-                    "uri": "css/style.css"
-                }
-            ]
-        },
-        "componentName": "ServiceRequests"
-    },
-    "sap.flp": {
-        "appType": "SAP_UI5_Component",
-        "config": {
-            "editable": true,
-            "deletable": true
-        }
-    },
-    "sap.platform.hcp": {
-        "uri": "/",
-        "appName": "servicerequests"
-    },
-    "sap.cloud.portal": {
-        "settings": {
-            "widgetHeight": {
-                "displayName": "Widget height in pixels",
-                "value": "500"
-            }
-        }
-    }
+	"_version": "1.3.0",
+	"sap.app": {
+		"_version": "1.3.0",
+		"id": "hcp://servicerequests/manifest.json",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "Service Requests",
+		"description": "Service Requests",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.2masterdetail",
+			"version": "1.36.2"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.2.0",
+		"rootView": {
+			"viewName": "ServiceRequests.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.36.0",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.36.0"
+				},
+				"sap.m": {
+					"minVersion": "1.36.0"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ServiceRequests.i18n.i18n"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "ServiceRequests.view",
+				"controlId": "idAppControl",
+				"controlAggregation": "detailPages",
+				"bypassed": {
+					"target": [
+						"master",
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "master",
+					"target": [
+						"object",
+						"master"
+					]
+				},
+				{
+					"pattern": "ServiceRequestCollection/{objectId}",
+					"name": "object",
+					"target": [
+						"master",
+						"object"
+					]
+				}
+			],
+			"targets": {
+				"master": {
+					"viewName": "Master",
+					"viewLevel": 1,
+					"viewId": "master",
+					"controlAggregation": "masterPages"
+				},
+				"object": {
+					"viewName": "Detail",
+					"viewId": "detail",
+					"viewLevel": 2
+				},
+				"detailObjectNotFound": {
+					"viewName": "DetailObjectNotFound",
+					"viewId": "detailObjectNotFound"
+				},
+				"detailNoObjectsAvailable": {
+					"viewName": "DetailNoObjectsAvailable",
+					"viewId": "detailNoObjectsAvailable"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"componentName": "ServiceRequests"
+	},
+	"sap.flp": {
+		"appType": "SAP_UI5_Component",
+		"config": {
+			"editable": true,
+			"deletable": true
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "/",
+		"appName": "servicerequests"
+	},
+	"sap.cloud.portal": {
+		"settings": {
+			"widgetHeight": {
+				"displayName": "Widget height in pixels",
+				"value": "500"
+			},
+			"hiddenPriorityCodes": []
+		}
+	}
 }

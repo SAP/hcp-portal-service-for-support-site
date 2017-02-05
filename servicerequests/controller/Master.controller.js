@@ -82,7 +82,6 @@ sap.ui.define([
 				this.onAdd();
 			}
 		},
-
 		onBeforeRendering: function() {
 			this.getC4CContact();
 			this.setListFilters();
@@ -112,8 +111,9 @@ sap.ui.define([
 								view.byId("downloadButton").setEnabled(true);
 
 								var componentData = this.getOwnerComponent().getComponentData();
-								if (componentData && componentData.startupParameters && componentData.startupParameters.createNewTicket && !this.initialCreateTicketOpened) {
+								if ((componentData && componentData.startupParameters && componentData.startupParameters.createNewTicket && !this.initialCreateTicketOpened)) {
 									this.initialCreateTicketOpened = true;
+									// ||(this.getOwnerComponent().getManifest()["sap.cloud.portal"].settings.navigationContext)
 									this.onAdd();
 								}
 							}.bind(this),
@@ -134,7 +134,33 @@ sap.ui.define([
 				}
 			});
 		},
-
+		onServiceCategorySelectCreateFragment: function() {
+			this.getIncidentCategoryList();
+		},
+		getIncidentCategoryList: function() {
+			var oView = this.getView(),
+				createServiceSelect = sap.ui.getCore().byId("createServiceCategory"),
+				parentObject = createServiceSelect.getSelectedItem().data("parentObject"),
+				cmpt = this.getOwnerComponent(),
+				oModel = cmpt.getModel(),
+				_self = this,
+				URLS = cmpt.SELECT_BOX_URLS;
+			sap.ui.getCore().byId("createIncidentCategory").setBusy(true);
+			oModel.read(URLS.IncidentCategory.replace('${0}', parentObject), {
+				success: _self.initIncidentModel.bind(_self),
+				error: function(jqXHR) {
+					var error = jqXHR.responseJSON.error.message.value;
+					MessageBox.error(error);
+					sap.ui.getCore().byId("createIncidentCategory").setBusy(false);
+				}
+			});
+		},
+		initIncidentModel: function(data) {
+			var incidentModel = this.oDialog.getModel("IncidentModel");
+			incidentModel.setData(data);
+			incidentModel.refresh();
+			sap.ui.getCore().byId("createIncidentCategory").setBusy(false);
+		},
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
@@ -229,7 +255,14 @@ sap.ui.define([
 				upperCase: false
 			});
 		},
-
+		onAfterRendering: function() {
+			if (window.location.search.substring(1).split('&').indexOf("createNewTicket=true") !== -1) {
+				if (!this.initialCreateTicketOpened) {
+					this.initialCreateTicketOpened = true;
+					this.onAdd();
+				}
+			}
+		},
 		onAdd: function() {
 			if (!this.oDialog) {
 				this.oDialog = sap.ui.xmlfragment("ServiceRequests.fragment.Create", this);
@@ -237,16 +270,49 @@ sap.ui.define([
 				dialogModel.setProperty("createEnabled", false);
 				dialogModel.setProperty("titleInput", '');
 				dialogModel.setProperty("descriptionInput", '');
+				var incidentModel = new sap.ui.model.json.JSONModel({results: []});
+				this.oDialog.setModel(incidentModel, "IncidentModel");
+				this.oDialog.setModel(this.getOwnerComponent().getModel(), "ServiceRequest");
 				this.oDialog.setModel(dialogModel);
 				this.oDialog.attachAfterClose(function() {
 					this.oDialog.destroy();
 					this.oDialog = null;
 				}.bind(this));
 				this.getView().addDependent(this.oDialog);
+				this.oDialog.attachAfterOpen(this.onDialogOpen.bind(this));
 			}
 			this.oDialog.open();
 		},
+		onDialogOpen: function() {
+			var serviceCategorySelect = sap.ui.getCore().byId("createServiceCategory"),
+				incidentCategorySelect = sap.ui.getCore().byId("createIncidentCategory");
+			incidentCategorySelect.setBusy(true);
+			serviceCategorySelect.getBinding("items").attachEvent('dataReceived', this.serviceCategoryLoaded.bind(this));
+		},
 
+		serviceCategoryLoaded: function(oEvent) {
+			var selectedData = oEvent.getParameter("data").results[0],
+				serviceRequestModel = this.oDialog.getModel("ServiceRequest"),
+				URLS = this.getOwnerComponent().SELECT_BOX_URLS;
+			serviceRequestModel.read(URLS.IncidentCategory.replace('${0}', selectedData.ParentObjectID), {
+				success: this.onIncidentLoaded.bind(this),
+				error: this.onIncidentFailed.bind(this)
+			});
+		},
+
+		onIncidentLoaded: function(oData) {
+			var incidentModel = this.oDialog.getModel("IncidentModel");
+			incidentModel.setData(oData);
+			incidentModel.refresh();
+			sap.ui.getCore().byId("createIncidentCategory").setBusy(false);
+		},
+
+		onIncidentFailed: function(jqXHR) {
+			var error = jqXHR.responseJSON.error.message.value;
+			MessageBox.error(error);
+			this.getView().byId("createIncidentCategory").setBusy(false);
+
+		},
 		onDialogAdd: function() {
 			this.createTicket();
 		},
@@ -397,8 +463,10 @@ sap.ui.define([
 				ServiceRequestLifeCycleStatusCode: "1",
 				ServicePriorityCode: core.byId("createPriority").getSelectedKey(),
 				ProductID: core.byId("createProductCategory").getSelectedKey(),
-				ServiceIssueCategoryID: core.byId("createServiceCategory").getSelectedKey()
+				ServiceIssueCategoryID: core.byId("createServiceCategory").getSelectedKey(),
+				IncidentServiceIssueCategoryID: core.byId("createIncidentCategory").getSelectedKey()
 			};
+
 			this.oDialog.setBusy(true);
 			if (!this.mockData) {
 				var model = view.getModel(),
@@ -543,11 +611,11 @@ sap.ui.define([
 			this.oDialog.setBusy(false);
 			model.refresh();
 			this.oDialog.close();
-			if (this.mockData){
+			if (this.mockData) {
 				this.updateMockItemDetails();
 			}
 		},
-		updateMockItemDetails: function(){
+		updateMockItemDetails: function() {
 			var items = this._oList.getItems();
 			this._showDetail(items[0]);
 		},
@@ -653,9 +721,15 @@ sap.ui.define([
 						}
 					},
 					{
-						name: "Service Category",
+						name: "Service Issue Category",
 						template: {
 							content: "{ServiceCategoryName/content}"
+						}
+					},
+					{
+						name: "Incident Category ID",
+						template: {
+							content: "{IncidentServiceIssueCategoryID}"
 						}
 					}
 				]
@@ -714,10 +788,10 @@ sap.ui.define([
 					}, true);
 				}.bind(this),
 				function(mParams) {
+					this.getRouter().getTargets().display("detailNoObjectsAvailable");
 					if (mParams.error) {
 						return;
 					}
-					this.getRouter().getTargets().display("detailNoObjectsAvailable");
 				}.bind(this)
 			);
 		},

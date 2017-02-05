@@ -6,8 +6,12 @@ sap.ui.define([
 	"sap/m/MessageBox",
 	"sap/m/MessageToast",
 	"sap/m/StandardListItem",
-	"sap/m/ListType"
-], function(BaseController, JSONModel, formatter, FeedListItem, MessageBox, MessageToast, StandardListItem, ListType) {
+	"sap/m/ListType",
+	'sap/ui/model/odata/v2/ODataModel',
+	'sap/ui/comp/valuehelpdialog/ValueHelpDialog',
+	'sap/ui/table/Table',
+	'sap/ui/comp/filterbar/FilterBar'
+], function(BaseController, JSONModel, formatter, FeedListItem, MessageBox, MessageToast, StandardListItem, ListType, ODataModel, ValueHelpDialog, Table, FilterBar) {
 	"use strict";
 
 	return BaseController.extend("ServiceRequests.controller.Detail", {
@@ -15,7 +19,6 @@ sap.ui.define([
 		formatter: formatter,
 		app: null,
 		fileToUpload: null,
-
 		/* =========================================================== */
 		/* lifecycle methods                                           */
 		/* =========================================================== */
@@ -28,6 +31,7 @@ sap.ui.define([
 				busy: false,
 				delay: 0
 			});
+			var _self = this;
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 			this.setModel(oViewModel, "detailView");
 
@@ -36,10 +40,63 @@ sap.ui.define([
 			} else {
 				this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
 			}
+			var URLS = this.getOwnerComponent().SELECT_BOX_URLS;
 			this.app = this.getOwnerComponent().getAggregation("rootControl");
 			this.app.setBusyIndicatorDelay(0);
 			this.getView().setBusyIndicatorDelay(0);
+			var url = jQuery.sap.getModulePath("ServiceRequests") + "/destinations/c4c/sap/byd/odata/v1/c4codata/";
+			var incidentModel = new sap.ui.model.json.JSONModel({results: []});
+			var oModel = new ODataModel(url, {json: true, useBatch: false});
+			oModel.read(URLS.ServicePriorityCode, {
+				success: _self.infoPriorityReceived.bind(_self),
+				error: _self.onErrorODataRead
+			});
+			this.setModel(oModel, "ServiceRequest");
+			this.setModel(incidentModel, "IncidentModel");
 		},
+		onErrorODataRead: function(jqXHR) {
+			var error = jqXHR.responseJSON.error.message.value;
+			MessageBox.error(error);
+		},
+		infoPriorityReceived: function(oData) {
+			var hiddenPriorityCodes = this.getOwnerComponent().getManifest()['sap.cloud.portal'].settings.hiddenPriorityCodes,
+				priorityData = oData.results,
+				filteredPriorityData = [];
+			if (hiddenPriorityCodes) {
+				for (var i = 0; i < priorityData.length; i++) {
+					if (hiddenPriorityCodes.indexOf(parseInt(priorityData[i].Code)) === -1) {
+						filteredPriorityData.push(priorityData[i]);
+					}
+				}
+			}
+			var lifeCycleModel = new JSONModel({filteredResults: filteredPriorityData, results: priorityData}),
+				oView = this.getView();
+			oView.setModel(lifeCycleModel, "LifeCycleModel");
+		},
+		// initProductCategoryModel: function(oData) {
+		// 	var productModel = new JSONModel(),
+		// 		modelSize = oData.results.length;
+		// 	productModel.setSizeLimit(modelSize);
+		// 	productModel.setData(oData.results);
+		// 	this.getView().setModel(productModel, "ProductModel");
+		// },
+		// loadProductCategoryDescription: function() {
+		// 	var oView = this.getView(),
+		// 		productData = oView.getModel("ProductModel").oData,
+		// 		objectItems = oView.getModel().oData,
+		// 		keyItems = Object.keys(objectItems),
+		// 		modifiedServiceItems = [];
+		// 	for (var i = 0; i < keyItems.length; i++) {
+		// 		var serviceItem = objectItems[keyItems[i]],
+		// 		productDescription = productData.filter(function(product) {
+		// 			return product.ID === serviceItem.ProductID;
+		// 		});
+		// 		serviceItem.ProductDescription = productDescription[0].Description;
+		// 		modifiedServiceItems.push(serviceItem);
+		// 	}
+		// 	oView.setModel(modifiedServiceItems);
+		// 	oView.refresh();
+		// },
 		onPost: function(oEvent) {
 			var view = this.getView(),
 				model = view.getModel(),
@@ -95,7 +152,7 @@ sap.ui.define([
 				link.download = item.data("uri").Name;
 			} else {
 				link.href = item.data("uri");
-				link.download = item.getTitle();
+				link.download = item.getAggregation("cells")[0].getText();
 			}
 			link.click();
 		},
@@ -109,20 +166,19 @@ sap.ui.define([
 			var view = this.getView(),
 				model = view.getModel();
 			var patch = {
-				ServiceRequestLifeCycleStatusCode: view.byId("infoStatusSelect").getSelectedKey(),
 				ServicePriorityCode: view.byId("infoPrioritySelect").getSelectedKey(),
+				ProductID: view.byId("infoProductCategorySelect").getSelectedKey(),
+				ServiceIssueCategoryID: view.byId("infoServiceCategorySelect").getSelectedKey(),
+				IncidentServiceIssueCategoryID: view.byId("infoIncidentCategorySelect").getSelectedKey()
+			};
+
+			var patchMock = {
+				ServicePriorityCode: view.byId("infoPrioritySelect").getSelectedKey(),
+				ServicePriorityCodeText: view.byId("infoPrioritySelect").getSelectedItem().getProperty("text"),
 				ProductID: view.byId("infoProductCategorySelect").getSelectedKey(),
 				ServiceIssueCategoryID: view.byId("infoServiceCategorySelect").getSelectedKey()
 			};
 
-			var patchMock = {
-					ServiceRequestLifeCycleStatusCode: view.byId("infoStatusSelect").getSelectedKey(),
-					ServiceRequestUserLifeCycleStatusCodeText: view.byId("infoStatusSelect").getSelectedItem().getProperty("text"),
-					ServicePriorityCode: view.byId("infoPrioritySelect").getSelectedKey(),
-					ServicePriorityCodeText: view.byId("infoPrioritySelect").getSelectedItem().getProperty("text"),
-					ProductID: view.byId("infoProductCategorySelect").getSelectedKey(),
-					ServiceIssueCategoryID: view.byId("infoServiceCategorySelect").getSelectedKey()
-			};
 			if (this.getOwnerComponent().mockData) {
 				var sPath = view.getElementBinding().getPath(),
 					ind = parseInt(sPath.split('/')[2]),
@@ -162,6 +218,113 @@ sap.ui.define([
 					}.bind(this)
 				});
 			}
+		},
+		// onValueHelpRequest: function() {
+		// 	var oView = this.getView(),
+		// 		oModel = this.getModel("ServiceRequest"),
+		// 		URLS = this.getOwnerComponent().SELECT_BOX_URLS;
+		// 	var oValueHelpDialog = new sap.ui.comp.valuehelpdialog.ValueHelpDialog({
+		// 		title: 'Product',
+		// 		supportMultiselect: false,
+		// 		supportRanges: false,
+		// 		supportRangesOnly: false,
+		// 		key: 'Code',
+		// 		descriptionKey: 'Description',
+		// 		ok: function(oControlEvent) {
+		// 			debugger;
+		// 		},
+		// 		cancel: function(oControlEvent) {
+		// 			this.close();
+		// 		},
+		//
+		// 		afterClose: function() {
+		// 			this.destroy();
+		// 		}
+		// 	});
+		// 	var oColModel = new JSONModel();
+		// 	oColModel.setData({
+		// 		cols: [
+		// 			{label: "ID", template: "ID"},
+		// 			{label: "Description", template: "Description"}
+		// 		]
+		// 	});
+		//
+		// 	oValueHelpDialog.getTable().setModel(oColModel, "columns");
+		// 	var productModel = oView.getModel("ProductModel");
+		// 	oValueHelpDialog.getTable().setModel(productModel);
+		// 	if (oValueHelpDialog.getTable().bindRows) {
+		// 		oValueHelpDialog.getTable().bindRows("/");
+		// 	}
+		// 	if (oValueHelpDialog.getTable().bindItems) {
+		// 		var oTable = oValueHelpDialog.getTable();
+		// 		oTable.bindAggregation("items", "/", function(sId, oContext) {
+		// 			var aCols = oTable.getModel("columns").getData().cols;
+		//
+		// 			return new sap.m.ColumnListItem({
+		// 				cells: aCols.map(function(column) {
+		// 					var colname = column.template;
+		// 					return new sap.m.Label({text: "{" + colname + "}"});
+		// 				})
+		// 			});
+		// 		});
+		// 	}
+		// 	oValueHelpDialog.update();
+		// 	oValueHelpDialog.setBusy(false);
+		// 	var oFilterBar = new FilterBar({
+		// 			filterBarExpanded: false,
+		// 			showGoOnFB: false
+		// 		}
+		// 	);
+		// 	if (oFilterBar.setBasicSearch) {
+		// 		var searchField = new sap.m.SearchField({
+		// 			placeholder: "Search",
+		// 			liveChange: function(e) {
+		// 				console.log(e);
+		// 			},
+		// 			search: function(event) {
+		// 				oValueHelpDialog.getFilterBar().search();
+		// 			}
+		// 		});
+		// 		oFilterBar.setBasicSearch(searchField);
+		// 	}
+		// 	oValueHelpDialog.setFilterBar(oFilterBar);
+		// 	oValueHelpDialog.open();
+		// 	oValueHelpDialog.setBusy(true);
+		// },
+		onServiceCategorySelect: function() {
+			this.getIncidentCategoryList();
+		},
+
+		onSetToComplete: function(oEvent) {
+			var patch = {ServiceRequestLifeCycleStatusCode: "3"},
+				oModel = this.getModel(),
+				oView = this.getView();
+			this.app.setBusy(true);
+			var sPath = oView.getElementBinding().getPath(),
+				url = oModel.sServiceUrl + sPath,
+				token = oModel.getSecurityToken();
+			jQuery.ajax({
+				url: url,
+				method: "PATCH",
+				contentType: "application/json",
+				headers: {
+					"X-CSRF-TOKEN": token
+				},
+				data: JSON.stringify(patch),
+				success: function() {
+					MessageToast.show("The service request was set to completed");
+					this.getModel().refresh();
+				}.bind(this),
+				error: function(jqXHR) {
+					var elm = jqXHR.responseXML.getElementsByTagName("message")[0];
+					var error = elm.innerHTML || elm.textContent;
+					MessageBox.error(error);
+				},
+				complete: function() {
+					this.app.setBusy(false);
+					this._setEditMode(false);
+				}.bind(this)
+			});
 		},
 		onFileChange: function(oEvent) {
 			this.fileToUpload = oEvent.getParameter("files")["0"];
@@ -225,6 +388,30 @@ sap.ui.define([
 				this._populateAttachmentsList(view.getElementBinding().getPath());
 			}
 		},
+		initIncidentModel: function(data) {
+			var oView = this.getView(),
+				incidentModel = oView.getModel("IncidentModel");
+			incidentModel.setData(data);
+			incidentModel.refresh();
+			oView.byId("infoIncidentCategorySelect").setBusy(false);
+		},
+		onErrorIncidentModel: function(jqXHR) {
+			var error = jqXHR.responseJSON.error.message.value;
+			MessageBox.error(error);
+			this.getView().byId("infoIncidentCategorySelect").setBusy(false);
+		},
+		getIncidentCategoryList: function() {
+			var oView = this.getView(),
+				parentObject = oView.byId("infoServiceCategorySelect").getSelectedItem().data("parentObject"),
+				oModel = oView.getModel("ServiceRequest"),
+				_self = this,
+				URLS = this.getOwnerComponent().SELECT_BOX_URLS;
+			oView.byId("infoIncidentCategorySelect").setBusy(true);
+			oModel.read(URLS.IncidentCategory.replace('${0}', parentObject), {
+				success: _self.initIncidentModel.bind(_self),
+				error: _self.onErrorIncidentModel.bind(_self)
+			});
+		},
 		/* =========================================================== */
 		/* begin: internal methods                                     */
 		/* =========================================================== */
@@ -233,10 +420,10 @@ sap.ui.define([
 			view.byId("save").setVisible(isEdit);
 			view.byId("cancel").setVisible(isEdit);
 			view.byId("edit").setVisible(!isEdit);
-			view.byId("infoStatusSelect").setEnabled(isEdit);
 			view.byId("infoPrioritySelect").setEnabled(isEdit);
 			view.byId("infoProductCategorySelect").setEnabled(isEdit);
 			view.byId("infoServiceCategorySelect").setEnabled(isEdit);
+			view.byId("infoIncidentCategorySelect").setEnabled(isEdit);
 		},
 		/**
 		 * Binds the view to the object path and expands the aggregated line items.
@@ -262,7 +449,8 @@ sap.ui.define([
 					this._bindView("/" + sObjectPath);
 				}.bind(this));
 			}
-		},
+		}
+		,
 		/**
 		 * Binds the view to the object path. Makes sure that detail view displays
 		 * a busy indicator while data for the corresponding element binding is loaded.
@@ -273,7 +461,7 @@ sap.ui.define([
 		_bindView: function(sObjectPath) {
 			// Set busy indicator during view binding
 			var oViewModel = this.getModel("detailView");
-
+			var _self = this;
 			// If the view was not bound yet its not busy, only if the binding requests data it is set to busy again
 			oViewModel.setProperty("/busy", false);
 			this.getView().bindElement({
@@ -294,11 +482,10 @@ sap.ui.define([
 				}
 			});
 		},
-
 		_onBindingChange: function() {
 			var oView = this.getView(),
 				oElementBinding = oView.getElementBinding();
-
+			this.getIncidentCategoryList();
 			// No data for the binding
 			if (!oElementBinding.getBoundContext()) {
 				this.getRouter().getTargets().display("detailObjectNotFound");
@@ -307,13 +494,11 @@ sap.ui.define([
 				this.getOwnerComponent().oListSelector.clearMasterListSelection();
 				return;
 			}
-
 			var sPath = oElementBinding.getPath();
 			this.getOwnerComponent().oListSelector.selectAListItem(sPath);
 			this._populateDescriptionsList(sPath);
 			this._populateAttachmentsList(sPath);
 		},
-
 		_populateDescriptionsList: function(sPath) {
 			var list = this.getView().byId("descriptionsList");
 			var descriptions = this.getModel().getObject(sPath).ServiceRequestDescription;
@@ -329,8 +514,11 @@ sap.ui.define([
 					if (typeCode === "10004") {
 						sender = description.AuthorName;
 						info = "Description";
-					} else if (typeCode === "10007") {
-						sender = description.CreatedBy;
+					} else if (typeCode === "10008") {
+						sender = description.AuthorName;
+						info = "Reply from Customer";
+					} else if (typeCode === "10007" || typeCode === '10011') {
+						sender = "Service Agent";
 						info = "Reply to Customer";
 					} else if (typeCode === "10008") {
 						sender = description.AuthorName;
@@ -347,31 +535,19 @@ sap.ui.define([
 			}
 		},
 		_populateAttachmentsList: function(sPath) {
-			var list = this.getView().byId("attachmentsList");
+			var oView = this.getView();
+			var list = oView.byId("attachmentsList");
 			var attachments = this.getModel().getObject(sPath).ServiceRequestAttachmentFolder;
-			list.removeAllItems();
-			if (!this.getOwnerComponent().mockData) {
-				if (attachments.forEach) {
-					attachments.forEach(function(attachment) {
-						list.addItem(new StandardListItem({
-							type: ListType.Active,
-							title: attachment.Name
-						}).data("uri", attachment.__metadata.uri + "/Binary/$value"));
-					});
-				}
-			} else {
-				if (attachments.forEach) {
-					attachments.forEach(function(attachment) {
-						list.addItem(new StandardListItem({
-							type: ListType.Active,
-							title: attachment.Name
-						}).data("uri", attachment.__metadata ? attachment.__metadata.uri + "/Binary/$value" : attachment));
-					});
-				}
-				this.app.setBusy(false);
+			var attachmentModel = new JSONModel(attachments);
+			oView.setModel(attachmentModel, "AttachmentModel");
+			oView.getModel("AttachmentModel").refresh();
+			var listItems = list.getItems(),
+				mockData = this.getOwnerComponent().mockData;
+			for (var i = 0; i < listItems.length; i++) {
+				listItems[i].data("uri", mockData ? (attachments[i].__metadata ? attachments[i].__metadata.uri + "/Binary/$value" : attachments[i]) : attachments[i].__metadata.uri + "/Binary/$value");
 			}
+			this.app.setBusy(false);
 		},
-
 		_onMetadataLoaded: function() {
 			// Store original busy indicator delay for the detail view
 			var iOriginalViewBusyDelay = this.getView().getBusyIndicatorDelay(),

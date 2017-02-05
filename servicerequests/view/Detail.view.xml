@@ -1,85 +1,131 @@
 <mvc:View controllerName="ServiceRequests.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.m.semantic" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
-		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
-		<semantic:content>
-			<ObjectHeader id="objectHeader" title="{Name/content}"></ObjectHeader>
-			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
-				<items>
-					<IconTabFilter id="iconTabBarInfo" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
-						<VBox class="detailsBox">
-							<HBox>
-								<Label class="infoTitle" text="Status:"/>
-								<Select id="infoStatusSelect" width="10rem" enabled="false" selectedKey="{ServiceRequestUserLifeCycleStatusCode}">
-									<items>
-										<core:Item key="1" text="Open"/>
-										<core:Item key="3" text="Completed"/>
-									</items>
-								</Select>
-							</HBox>
-							<HBox>
-								<Label class="infoTitle" text="Priority:"/>
-								<Select id="infoPrioritySelect" width="10rem" enabled="false" selectedKey="{ServicePriorityCode}">
-									<items>
-										<core:Item key="3" text="Normal"/>
-										<core:Item key="2" text="Urgent"/>
-										<core:Item key="1" text="Immediate"/>
-									</items>
-								</Select>
-							</HBox>
-							<HBox>
-								<Label class="infoTitle" text="Product Category:"/>
-								<Select id="infoProductCategorySelect" width="10rem" enabled="false" selectedKey="{ProductID}">
-									<items>
-										<core:Item key="P100114" text="Sweets"/>
-										<core:Item key="P200010" text="Consumer Products"/>
-										<core:Item key="P200020" text="Life Sciences"/>
-										<core:Item key="P200030" text="Retail"/>
-										<core:Item key="P200040" text="Wholesale Distribution"/>
-										<core:Item key="P200050" text="Automotive"/>
-										<core:Item key="P200160" text="Utilities"/>
-										<core:Item key="P200120" text="Mill Products"/>
-										<core:Item key="P200271" text="Operations"/>
-										<core:Item key="P200280" text="Media"/>
-										<core:Item key="P100314" text="Television"/>
-									</items>
-								</Select>
-							</HBox>
-							<HBox>
-								<Label class="infoTitle" text="Service Category:"/>
-								<Select id="infoServiceCategorySelect" width="10rem" enabled="false" selectedKey="{ServiceIssueCategoryID}">
-									<items>
-										<core:Item key="AS" text="Account Support"/>
-										<core:Item key="PS" text="Product Support"/>
-										<core:Item key="OS" text="Order Support"/>
-										<core:Item key="HT" text="How-To Support"/>
-										<core:Item key="SS" text="Social Support"/>
-									</items>
-								</Select>
-							</HBox>
-						</VBox>
-						<List id="descriptionsList"/>
-						<FeedInput id="interactionInput" post="onPost" showIcon="false"/>
-					</IconTabFilter>
-					<IconTabFilter id="iconTabBarAttachments" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}">
-						<VBox class="detailsBox">
-							<Label text="Upload an attachment"/>
-							<u:FileUploader id="fileUploader" tooltip="Upload an attachment" uploadComplete="onUploadComplete" change="onFileChange"/>
-							<Button id="uploadFileButton" text="Upload" press="onFileUpload"/>
-						</VBox>
-						<List id="attachmentsList" itemPress="onAttachmentPress" noDataText="No attachments"/>
-					</IconTabFilter>
-				</items>
-			</IconTabBar>
-		</semantic:content>
-		<semantic:editAction>
-			<semantic:EditAction id="edit" press="onEdit"/>
-		</semantic:editAction>
-		<semantic:saveAction>
-			<semantic:SaveAction id="save" press="onSave" visible="false"/>
-		</semantic:saveAction>
-		<semantic:cancelAction>
-			<semantic:CancelAction id="cancel" press="onCancel" visible="false"/>
-		</semantic:cancelAction>
-	</semantic:DetailPage>
+          xmlns:semantic="sap.m.semantic" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified"
+          xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}"
+                         title="{i18n>detailTitle}"
+                         busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+        <semantic:content>
+            <ObjectHeader id="objectHeader" title="{Name/content}"></ObjectHeader>
+            <IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter id="iconTabBarInfo" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
+                        <VBox class="detailsBox">
+                            <HBox>
+                                <Label class="infoTitle" text="Priority:"/>
+                                <Select id="infoPrioritySelect" width="10rem" enabled="false"
+                                        selectedKey="{ServicePriorityCode}"
+                                        items="{LifeCycleModel>/results}">
+                                    <core:Item key="{LifeCycleModel>Code}" text="{LifeCycleModel>Description}"/>
+                                </Select>
+                            </HBox>
+
+                            <HBox>
+                                <Label class="infoTitle" text="Product Category:"/>
+                                <Select id="infoProductCategorySelect" width="10rem" enabled="false"
+                                        selectedKey="{ProductID}" items="{ServiceRequest>/ProductCollection}">
+                                    <core:Item key="{ServiceRequest>ID}" text="{ServiceRequest>Description}"/>
+                                </Select>
+                            </HBox>
+                            <!--<HBox>-->
+                                <!--<Label class="infoTitle" text="ValueHelp Product:"/>-->
+                                <!--<Input id="infoProductCategorySelectValueHelp" value="{ProductDescription}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onValueHelpRequest">-->
+                                <!--</Input>-->
+                            <!--</HBox>-->
+                            <HBox>
+                                <Label class="infoTitle" text="Service Category: "/>
+                                <Select id="infoServiceCategorySelect" width="10rem" enabled="false"
+                                        selectedKey="{ServiceIssueCategoryID}" change="onServiceCategorySelect"
+                                        items="{ServiceRequest>/ServiceIssueCategoryCatalogueCategoryCollection}">
+                                    <core:Item key="{ServiceRequest>ServiceIssueCategoryID}"
+                                               text="{ServiceRequest>Name/content}"
+                                               data:parentObject="{ServiceRequest>ParentObjectID}"/>
+                                </Select>
+                            </HBox>
+                            <HBox>
+                                <Label class="infoTitle" text="Incident Category: "/>
+                                <Select id="infoIncidentCategorySelect" width="10rem" enabled="false"
+                                        selectedKey="{IncidentServiceIssueCategoryID}"
+                                        items="{IncidentModel>/results}">
+                                    <core:Item key="{IncidentModel>ServiceIssueCategoryID}"
+                                               text="{IncidentModel>Name/content}"/>
+                                </Select>
+                            </HBox>
+                        </VBox>
+                        <List id="descriptionsList"/>
+                        <FeedInput id="interactionInput" post="onPost" showIcon="false"/>
+                    </IconTabFilter>
+                    <IconTabFilter id="iconTabBarAttachments" icon="sap-icon://attachment"
+                                   tooltip="{i18n>detailIconTabBarAttachments}">
+                        <VBox class="detailsBox">
+                            <Label text="Upload an attachment"/>
+                            <u:FileUploader id="fileUploader" tooltip="Upload an attachment"
+                                            uploadComplete="onUploadComplete" change="onFileChange"/>
+                            <Button id="uploadFileButton" text="Upload" press="onFileUpload"/>
+                        </VBox>
+                        <!--<List id="attachmentsList" itemPress="onAttachmentPress" noDataText="No attachments"/>-->
+                        <Table id="attachmentsList"
+                               inset="false"
+                               itemPress="onAttachmentPress"
+                               noDataText="No attachments"
+                               items="{AttachmentModel>/}">
+                            <columns>
+                                <Column>
+                                    <Text text="File Name"/>
+                                </Column>
+                                <Column>
+                                    <Text text="Uploader"/>
+                                </Column>
+                                <Column>
+                                    <Text text="Date"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem type="Active">
+                                    <cells>
+                                        <Text text="{AttachmentModel>Name}"/>
+                                        <Text text="{AttachmentModel>CreatedBy}" />
+                                        <Text text="{AttachmentModel>CreatedOn}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
+                        <!--<Table id="productCollectionTable"-->
+                               <!--inset="false"-->
+                               <!--noDataText="No attachments"-->
+                               <!--items="{ServiceRequest>/ProductCollection}">-->
+                            <!--<columns>-->
+                                <!--<Column>-->
+                                    <!--<Text text="ID"/>-->
+                                <!--</Column>-->
+                                <!--<Column>-->
+                                    <!--<Text text="Description"/>-->
+                                <!--</Column>-->
+                            <!--</columns>-->
+                            <!--<items>-->
+                                <!--<ColumnListItem type="Active">-->
+                                    <!--<cells>-->
+                                        <!--<Text text="{ServiceRequest>ID}"/>-->
+                                        <!--<Text text="{ServiceRequest>Description}" />-->
+                                    <!--</cells>-->
+                                <!--</ColumnListItem>-->
+                            <!--</items>-->
+                        <!--</Table>-->
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </semantic:content>
+        <semantic:mainAction>
+            <semantic:MainAction text="Set To Complete" id="setToCompleteBtn" press="onSetToComplete"/>
+        </semantic:mainAction>
+        <semantic:editAction>
+            <semantic:EditAction id="edit" press="onEdit"/>
+        </semantic:editAction>
+        <semantic:saveAction>
+            <semantic:SaveAction id="save" press="onSave" visible="false"/>
+        </semantic:saveAction>
+        <semantic:cancelAction>
+            <semantic:CancelAction id="cancel" press="onCancel" visible="false"/>
+        </semantic:cancelAction>
+    </semantic:DetailPage>
 </mvc:View>
