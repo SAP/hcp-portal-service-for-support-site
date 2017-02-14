@@ -97,23 +97,12 @@ You can use the following resources to learn more:
 This section provides you with guidelines to help you edit the predefined content of the out of the box Support Site. 
 Prerequisite:  In the Site Directory, first open your support site for editing by clicking Edit.
 
-Note
-The changes between sample versions are not guaranteed to be backwards compatible.
+**Note!** <br> The changes between sample versions are not guaranteed to be backwards compatible.
 
 ### Rebranding
 
 | Question | More Information |
 | -------- | ---------------- |
-How do I change the company logo or background of the support site? | 1.	Go to the Home page. 2.	On the left, click   to open Services and Tools. 3.	In the UI Theme Designer, click Configure. 4.	In order to change a logo, create a new theme as follows:
- a.	Click Create a New Theme.
- b.	Follow the steps of the wizard and click Create Theme.
- c.	On the right of the screen, select   (quick editing mode) and upload the company logo. 
- d.	From the Theme tab at the top left, select Export to create a zip file containing the new theme you created with the logo.
- For more information, see Exporting Themes. 
-  5.	Now go to the Theme Manager (also in Services and Tools) and click Configure.
-  6.	Browse for and upload the zip file with the updated theme that includes your logo.
-  7.	Click Assign to Site.
-How can I change the name of the company? | 8.	Go to the Home page. 
-  9.	Click on the Rich Text Editor widget that contains the text "Welcome to Atomic Support" 
-  10.	Click .
-  11.	Edit the text.
+| **How do I change the company logo or background of the support site?** | 1.	Go to the Home page. 2.	On the left, click   to open Services and Tools. 3.	In the UI Theme Designer, click Configure. 4.	In order to change a logo, create a new theme as follows:
+ a.	Click Create a New Theme. b.	Follow the steps of the wizard and click Create Theme. c.	On the right of the screen, select   (quick editing mode) and upload the company logo. d.	From the Theme tab at the top left, select Export to create a zip file containing the new theme you created with the logo. For more information, see Exporting Themes. 5.	Now go to the Theme Manager (also in Services and Tools) and click Configure. 6.	Browse for and upload the zip file with the updated theme that includes your logo. 7.	Click Assign to Site.
+| **How can I change the name of the company?** | 8.	Go to the Home page. 9.	Click on the Rich Text Editor widget that contains the text "Welcome to Atomic Support" 10.	Click on pencil icon.  11.	Edit the text. |
