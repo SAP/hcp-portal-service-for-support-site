@@ -35,21 +35,23 @@ The Support Site solution includes several components:
   User | technical_user_name
   Password | technical_user_password
  
-2. [Optional] Create a trust between your HCP account and your Jam tenant, and create a destination to your Jam tenant, as described [here](http://help.sap.com/download/documentation/sapjam/developer/index.html#hcp/concepts/ADVANCED_TOPICS-API_integrate_features_data.html).
+2. [Optional] Create a trust between your HCP account and your Jam tenant, and create a destination to your Jam tenant, as described [here](https://help.hana.ondemand.com/cloud_portal/frameset.htm?9b529041d0fe470d9c7c795eb4038e7a.html).
  
 ### Download and Deploy the Applications
  
 1. Navigate to https://github.com/SAP/hcp-portal-service-for-support-site/releases
 2. Download all the files from the latest release to your computer. You can also download the source code.
+   Note
+   There are two theme files.  Only download the one you need. 
+   §	The theme file supportsitetheme.zip is compatible with the innovation version of SAPUI5. 
+   §	The theme file supportsitetheme-stable.zip is compatible with the stable version of SAPUI5
+
 3. Import the following applications to your account:
  * supportsitetemplate.zip (Site template)
  * servicerequests.zip (Service Requests application)
   
+  Note
   You can import the files to SAP Web IDE and then deploy them to HCP, or you can directly deploy them to HCP through the HCP cockpit (Applications >> HTML5 Applications >> Import from File). Click [here](https://help.hana.ondemand.com/webide/frameset.htm?344e8c91e33b4ae8b4032709c45776a3.html) to receive more information on using SAP Web IDE.
-  
-4. You may also download two optional SAP Jam widgets from https://github.com/SAP/hcp-portal-service-samples (under the widgets folder):
- * jamgroupfeed.zip (Jam Group Feed widget)
- * jamsearch.zip (Jam Search widget)
  
 ### Import the SAPUI5 Theme
  
@@ -62,23 +64,28 @@ The Support Site solution includes several components:
  
 1. Still in the Admin Space, navigate to the Site Directory and create a new site based on the Support Site template.
 2. Each page is made up of the following widgets:  Configure the following widgets according to the page:
-* **Community Page**:  HTML, Rich Text Editor, Tile Grid and SAP Jam Group Feed
-* **Dashboard Page**: Accesses the Manage Groups editor
-* **Home Page**: HTML, Rich Text Editor
-* **Knowledge Base**: HTML, SAP Jam Search
+* **Community Page**:  Rich Text Editor, Image widget, Tile Grid and SAP Jam Group Feed
+* **Dashboard Page**: Tile Grid (and accesses the Manage Groups editor)
+* **Home Page**: Rich Text Editor, Image Widget, Tile Grid
+* **Knowledge Base**: Rich Text Editor, Image Widget, SAP Jam Search
  
   For more information about each of these out of the box widgets, see **About Widgets**  below.
  
 3. Publish the site.  That's it – your Support Site is ready!
  
 ## About Widgets
-* **HTML Widget**: Enter your HTML code or upload it from your computer or from the Asset Repository. The size limit for HTML files is 5 MB. 
-* **Rich Text Editor**: Write text, format it, create tables, add links, paste content from WORD, upload images and much more to quickly and easily populate your site with content. 
-* **Tile Grid**: Create a grid of tiles that includes images and text. Add and arrange them and define their content and visual appearance.
-* **SAP JAM Widgets**: Use the following SAP Jam widgets to embed content from SAP Jam into your site pages to share knowledge with your team: 
-  * **SAP Jam Group Feed**: Select a group. The widget will show the group feed and allow end users to post to the group.
-  * **SAP Jam Search**: Configure a default query to enable end users to search for content in the SAP Jam tenant.
-  * **Prerequisite**:  Make sure you are connected to SAP Jam and that you have enabled integration with SAP Jam in the Site Settings.
+Widget | More Information
+------ | ----------------
+* **Rich Text Editor** | Write text, format it, create tables, add links, paste content from WORD, upload images and much more. Helps you to quickly and easily populate your site with content. 
+ Note! The Rich Text Editor is also incorporated into other widgets – such as the List Builder widget to enable the insertion of text and images.
+* **Tile Grid** | Create a grid of tiles that includes images and text. Add and arrange them and define their content and visual appearance.
+* **SAP JAM Widgets** | Use the following SAP Jam widgets to embed content from SAP Jam into your site pages to share knowledge with your team: 
+ Important
+ Make sure you are connected to SAP Jam and that you have enabled integration with SAP Jam in the Site Settings.
+
+ * **SAP Jam Group Feed**: Displays the feed from a selected SAP Jam group in the site. The end user sees the group feed and can post to the group. 
+  * **SAP Jam Search**: Displays the results of a search query that you defined in the widget. This enables the end user to search for content.
+  * **Prerequisite**:  Displays content from a selected SAP Jam group. The end user can then navigate through the content and download files directly from the widget.
   
     Note that the SAP Jam widgets are part of the site template and are created automatically as part of the site’s initial content. If you did not deploy the SAP Jam applications, these sections will show an error message. In this case, simply click on the sections and delete the widgets.
  
@@ -93,3 +100,31 @@ You can use the following resources to learn more:
 * [SAPUI5: openSAP Course](https://open.sap.com/courses/ui51)
 * [SAPUI5: Tutorials](https://sapui5.hana.ondemand.com/)
 * [OData protocol](http://www.odata.org/)
+
+## How to Edit a Support Site
+
+This section provides you with guidelines to help you edit the predefined content of the out of the box Support Site. 
+Prerequisite:  In the Site Directory, first open your support site for editing by clicking Edit.
+
+Note
+The changes between sample versions are not guaranteed to be backwards compatible.
+
+** Rebranding **
+Question | More Information
+--------   ----------------
+How do I change the company logo or background of the support site? | 1.	Go to the Home page.
+2.	On the left, click   to open Services and Tools. 
+3.	In the UI Theme Designer, click Configure.
+4.	In order to change a logo, create a new theme as follows:
+ a.	Click Create a New Theme.
+ b.	Follow the steps of the wizard and click Create Theme.
+ c.	On the right of the screen, select   (quick editing mode) and upload the company logo. 
+ d.	From the Theme tab at the top left, select Export to create a zip file containing the new theme you created with the logo.
+ For more information, see Exporting Themes.
+5.	Now go to the Theme Manager (also in Services and Tools) and click Configure.
+6.	Browse for and upload the zip file with the updated theme that includes your logo.
+7.	Click Assign to Site.
+How can I change the name of the company? | 8.	Go to the Home page.
+9.	Click on the Rich Text Editor widget that contains the text "Welcome to Atomic Support" 
+10.	Click .
+11.	Edit the text.
