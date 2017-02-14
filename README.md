@@ -76,17 +76,11 @@ The Support Site solution includes several components:
 ## About Widgets
 Widget | More Information
 ------ | ----------------
-* **Rich Text Editor** | Write text, format it, create tables, add links, paste content from WORD, upload images and much more. Helps you to quickly and easily populate your site with content. 
+**Rich Text Editor** | Write text, format it, create tables, add links, paste content from WORD, upload images and much more. Helps you to quickly and easily populate your site with content. 
  Note! The Rich Text Editor is also incorporated into other widgets – such as the List Builder widget to enable the insertion of text and images.
-* **Tile Grid** | Create a grid of tiles that includes images and text. Add and arrange them and define their content and visual appearance.
-* **SAP JAM Widgets** | Use the following SAP Jam widgets to embed content from SAP Jam into your site pages to share knowledge with your team: 
- Important
- Make sure you are connected to SAP Jam and that you have enabled integration with SAP Jam in the Site Settings.
-
- * **SAP Jam Group Feed**: Displays the feed from a selected SAP Jam group in the site. The end user sees the group feed and can post to the group. 
-  * **SAP Jam Search**: Displays the results of a search query that you defined in the widget. This enables the end user to search for content.
-  * **Prerequisite**:  Displays content from a selected SAP Jam group. The end user can then navigate through the content and download files directly from the widget.
-  
+**Tile Grid** | Create a grid of tiles that includes images and text. Add and arrange them and define their content and visual appearance.
+**SAP JAM Widgets** | Use the following SAP Jam widgets to embed content from SAP Jam into your site pages to share knowledge with your team:  Important 
+Make sure you are connected to SAP Jam and that you have enabled integration with SAP Jam in the Site Settings. * **SAP Jam Group Feed**: Displays the feed from a selected SAP Jam group in the site. The end user sees the group feed and can post to the group.   * **SAP Jam Search**: Displays the results of a search query that you defined in the widget. This enables the end user to search for content.   * **Prerequisite**:  Displays content from a selected SAP Jam group. The end user can then navigate through the content and download files directly from the widget.  
     Note that the SAP Jam widgets are part of the site template and are created automatically as part of the site’s initial content. If you did not deploy the SAP Jam applications, these sections will show an error message. In this case, simply click on the sections and delete the widgets.
  
  
@@ -110,21 +104,19 @@ Note
 The changes between sample versions are not guaranteed to be backwards compatible.
 
 ** Rebranding **
+
 Question | More Information
 --------   ----------------
-How do I change the company logo or background of the support site? | 1.	Go to the Home page.
-2.	On the left, click   to open Services and Tools. 
-3.	In the UI Theme Designer, click Configure.
-4.	In order to change a logo, create a new theme as follows:
+How do I change the company logo or background of the support site? | 1.	Go to the Home page. 2.	On the left, click   to open Services and Tools. 3.	In the UI Theme Designer, click Configure. 4.	In order to change a logo, create a new theme as follows:
  a.	Click Create a New Theme.
  b.	Follow the steps of the wizard and click Create Theme.
  c.	On the right of the screen, select   (quick editing mode) and upload the company logo. 
  d.	From the Theme tab at the top left, select Export to create a zip file containing the new theme you created with the logo.
- For more information, see Exporting Themes.
-5.	Now go to the Theme Manager (also in Services and Tools) and click Configure.
-6.	Browse for and upload the zip file with the updated theme that includes your logo.
-7.	Click Assign to Site.
-How can I change the name of the company? | 8.	Go to the Home page.
-9.	Click on the Rich Text Editor widget that contains the text "Welcome to Atomic Support" 
-10.	Click .
-11.	Edit the text.
+ For more information, see Exporting Themes. 
+  5.	Now go to the Theme Manager (also in Services and Tools) and click Configure.
+  6.	Browse for and upload the zip file with the updated theme that includes your logo.
+  7.	Click Assign to Site.
+How can I change the name of the company? | 8.	Go to the Home page. 
+  9.	Click on the Rich Text Editor widget that contains the text "Welcome to Atomic Support" 
+  10.	Click .
+  11.	Edit the text.
