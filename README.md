@@ -76,8 +76,7 @@ The Support Site solution includes several components:
 ## About Widgets
 Widget | More Information
 ------ | ----------------
-**Rich Text Editor** | Write text, format it, create tables, add links, paste content from WORD, upload images and much more. Helps you to quickly and easily populate your site with content. 
- Note! The Rich Text Editor is also incorporated into other widgets – such as the List Builder widget to enable the insertion of text and images.
+**Rich Text Editor** | Write text, format it, create tables, add links, paste content from WORD, upload images and much more. Helps you to quickly and easily populate your site with content. Note! The Rich Text Editor is also incorporated into other widgets – such as the List Builder widget to enable the insertion of text and images.
 **Tile Grid** | Create a grid of tiles that includes images and text. Add and arrange them and define their content and visual appearance.
 **SAP JAM Widgets** | Use the following SAP Jam widgets to embed content from SAP Jam into your site pages to share knowledge with your team:  Important 
 Make sure you are connected to SAP Jam and that you have enabled integration with SAP Jam in the Site Settings. * **SAP Jam Group Feed**: Displays the feed from a selected SAP Jam group in the site. The end user sees the group feed and can post to the group.   * **SAP Jam Search**: Displays the results of a search query that you defined in the widget. This enables the end user to search for content.   * **Prerequisite**:  Displays content from a selected SAP Jam group. The end user can then navigate through the content and download files directly from the widget.  
@@ -106,7 +105,7 @@ The changes between sample versions are not guaranteed to be backwards compatibl
 ** Rebranding **
 
 Question | More Information
---------   ----------------
+-------- | ----------------
 How do I change the company logo or background of the support site? | 1.	Go to the Home page. 2.	On the left, click   to open Services and Tools. 3.	In the UI Theme Designer, click Configure. 4.	In order to change a logo, create a new theme as follows:
  a.	Click Create a New Theme.
  b.	Follow the steps of the wizard and click Create Theme.
