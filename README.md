@@ -74,12 +74,11 @@ The Support Site solution includes several components:
 3. Publish the site.  That's it – your Support Site is ready!
  
 ## About Widgets
-Widget | More Information
------- | ----------------
-**Rich Text Editor** | Write text, format it, create tables, add links, paste content from WORD, upload images and much more. Helps you to quickly and easily populate your site with content. Note! The Rich Text Editor is also incorporated into other widgets – such as the List Builder widget to enable the insertion of text and images.
-**Tile Grid** | Create a grid of tiles that includes images and text. Add and arrange them and define their content and visual appearance.
-**SAP JAM Widgets** | Use the following SAP Jam widgets to embed content from SAP Jam into your site pages to share knowledge with your team:  Important! Make sure you are connected to SAP Jam and that you have enabled integration with SAP Jam in the Site Settings. * **SAP Jam Group Feed**: Displays the feed from a selected SAP Jam group in the site. The end user sees the group feed and can post to the group.   * **SAP Jam Search**: Displays the results of a search query that you defined in the widget. This enables the end user to search for content.   * **Prerequisite**:  Displays content from a selected SAP Jam group. The end user can then navigate through the content and download files directly from the widget.  
-    Note that the SAP Jam widgets are part of the site template and are created automatically as part of the site’s initial content. If you did not deploy the SAP Jam applications, these sections will show an error message. In this case, simply click on the sections and delete the widgets.
+| Widget | More Information |
+| ------ | ---------------- |
+| **Rich Text Editor** | Write text, format it, create tables, add links, paste content from WORD, upload images and much more. Helps you to quickly and easily populate your site with content. Note! The Rich Text Editor is also incorporated into other widgets – such as the List Builder widget to enable the insertion of text and images. |
+| **Tile Grid** | Create a grid of tiles that includes images and text. Add and arrange them and define their content and visual appearance. |
+| **SAP JAM Widgets** | Use the following SAP Jam widgets to embed content from SAP Jam into your site pages to share knowledge with your team:  Important! Make sure you are connected to SAP Jam and that you have enabled integration with SAP Jam in the Site Settings.  ..* **SAP Jam Group Feed**: Displays the feed from a selected SAP Jam group in the site. The end user sees the group feed and can post to the group.   ..* **SAP Jam Search**: Displays the results of a search query that you defined in the widget. This enables the end user to search for content.   ..* **Prerequisite**:  Displays content from a selected SAP Jam group. The end user can then navigate through the content and download files directly from the widget. Note that the SAP Jam widgets are part of the site template and are created automatically as part of the site’s initial content. If you did not deploy the SAP Jam applications, these sections will show an error message. In this case, simply click on the sections and delete the widgets. |
  
  
 ## Extend the Sample Solution for Productive Use
