@@ -117,3 +117,15 @@ Prerequisite:  In the Site Directory, first open your support site for editing b
 | **How do I remove SAP Jam integration?** |	30.	Open the site for editing. <br>31.	Go To Communities page. <br>32.	Click on the SAP Jam Group Feed Widget that contains the text "Select a JAM Group….". <br>33.	Click   to delete the widget. |
 | **How do I connect the site to my JAM account?** |	To add SAP Jam functionality to your site, do the following: <ul><li>Ensure that the end user has an SAP Jam account. </li><li>	Set up your SAP HANA Cloud Platform account.</li></ul>For more information, see Collaborating Using SAP Jam. |
 | **How do I add a new page to the menu?** |	34.	Right click the actions arrow   next to any page or app. <br>35.	Select Add to Menu. The Menu Editor opens. <br>36.	Click Save. <br>You can also do this directly in the Menu Editor   that you access from the left panel of the Site Designer. |
+
+### Editing the Dashboard
+| Question	| More information |
+| -------- | ---------------- |
+| **How do I create a new app tile?** |	37.	In the Site Designer side panel of your support site, click   to open Content Management. <br>38.	Select Apps to open the Manage App Configuration editor. <br>39.	Click + at the bottom of the Apps list to add a new app. <br>40.	In the Properties tab, enter the relevant app properties. Don't forget to assign the app to a catalog. <br>41.	In the Visualization tab, define the tile properties. <br>42.	Save. |
+| **How do I change an existing tile?** |	43.	In the Site Designer side panel of your support site, click   to open Content Management. <br>44.	Select Apps to open the Manage App Configuration editor. <br>45.	Select the app whose tile you want to change. <br>46.	Click Edit. <br>47.	In the Visualization tab, make the necessary changes to the tile. <br>48.	Click Save. |
+
+### Other
+| Question	| More information |
+| -------- | ---------------- |
+| ** How do I remove a field from a ticket app?	** | Look for the field in the code, select the code block representing the field, and delete. |
+| ** How can I localize the site?**	|	<ul><li>The backend data is already displayed in the logon language. </li><li>The UI data does not include translation files (i18n). Therefore to localize the site, you need to manually change the strings to the language you require. |
