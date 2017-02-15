@@ -127,5 +127,5 @@ Prerequisite:  In the Site Directory, first open your support site for editing b
 ### Other
 | Question	| More information |
 | -------- | ---------------- |
-| ** How do I remove a field from a ticket app?	** | Look for the field in the code, select the code block representing the field, and delete. |
-| ** How can I localize the site?**	|	<ul><li>The backend data is already displayed in the logon language. </li><li>The UI data does not include translation files (i18n). Therefore to localize the site, you need to manually change the strings to the language you require. |
+| **How do I remove a field from a ticket app?	** | Look for the field in the code, select the code block representing the field, and delete. |
+| **How can I localize the site?**	|	<ul><li>The backend data is already displayed in the logon language. </li><li>The UI data does not include translation files (i18n). Therefore to localize the site, you need to manually change the strings to the language you require. |
