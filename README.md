@@ -68,8 +68,7 @@ The Support Site solution includes several components:
 * **Dashboard Page**: Tile Grid (and accesses the Manage Groups editor)
 * **Home Page**: Rich Text Editor, Image Widget, Tile Grid
 * **Knowledge Base**: Rich Text Editor, Image Widget, SAP Jam Search
- 
-  For more information about each of these out of the box widgets, see **About Widgets**  below.
+    For more information about each of these out of the box widgets, see **About Widgets**  below.
  
 3. Publish the site.  That's it – your Support Site is ready!
  
