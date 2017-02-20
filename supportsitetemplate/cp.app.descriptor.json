@@ -4,6 +4,5 @@
 	"description": "",
 	"thumbnail": "Support_Site/thumbnail.png",
 	"path": "Support_Site",
-	"_entityType": "PORTAL_SITE_V2_TEMPLATE_SITE",
-	"category": "Samples"
+	"_entityType": "PORTAL_SITE_V2_TEMPLATE_SITE"
 }]

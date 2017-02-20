@@ -1,0 +1,48 @@
+{
+	"_version": "1.3.0",
+	"sap.app": {
+		"_version": "1.3.0",
+		"id": "hcp://supportsitetemplate/Support_Site/pageTemplates/FLPPage/manifest.json",
+		"title": "SAP Fiori Launchpad",
+		"description": "A page template designed according to the SAP Fiori launchpad layout. This template is provided by SAP.",
+		"tags": {
+			"keywords": []
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"0": {
+					"semanticObject": "Shell",
+					"action": "home",
+					"deviceTypes": {
+						"desktop": true,
+						"tablet": true,
+						"phone": true
+					}
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"_version": "1.2.0",
+		"uri": "/Support_Site/pageTemplates/FLPPage",
+		"appName": "supportsitetemplate"
+	},
+	"sap.ui5": {
+		"_version": "1.2.0",
+		"componentName": "sap.ushell.components.flp"
+	},
+	"sap.cloud.portal": {
+		"applicationType": "page",
+		"thumbnail": "preview.png"
+	},
+	"sap.flp": {
+		"_version": "1.1.0",
+		"config": {
+			"groups": []
+		}
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5"
+	}
+}

@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<Dialog id="addDialog" title="Create Service Request">
 		<content>
-			<VBox class="dialogVbox" width="950px">
+			<VBox class="dialogVbox" width="{= ${device>/system/phone} ? '' : '900px' }">
 				<Label text="Title" class="dialogLabel mandatoryLabel" />
 				<Input id="createTitle" width="100%" valueStateText="Enter a title" value="{/titleInput}" liveChange="onTitleChange" />
 				<Label text="Description" class="dialogLabel mandatoryLabel"/>

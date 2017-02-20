@@ -34,7 +34,7 @@ sap.ui.define([
 		 */
 		onInit: function() {
 			this.component = this.getOwnerComponent();
-
+			this.alreadyRendered = false;
 			// Control state model
 			var oList = this.byId("list"),
 				oViewModel = this._createViewModel(),
@@ -42,14 +42,16 @@ sap.ui.define([
 				// so it can be restored later on. Busy handling on the master list is
 				// taken care of by the master list itself.
 				iOriginalBusyDelay = oList.getBusyIndicatorDelay();
-
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.subscribe("Detail", "DetailHasRendered", function() {
+				debugger
+			});
 			this._oList = oList;
 			// keeps the filter and search state
 			this._oListFilterState = {
 				aFilter: [],
 				aSearch: []
 			};
-
 			this.setModel(oViewModel, "masterView");
 			// Make sure, busy indication is showing immediately so there is no
 			// break after the busy indication for loading the view's meta data is
@@ -58,7 +60,6 @@ sap.ui.define([
 				// Restore original busy indicator delay for the list
 				oViewModel.setProperty("/delay", iOriginalBusyDelay);
 			});
-
 			this.getView().addEventDelegate({
 				onBeforeFirstShow: function() {
 					this.getOwnerComponent().oListSelector.setBoundMasterList(oList);
@@ -73,13 +74,6 @@ sap.ui.define([
 				var view = this.getView();
 				view.byId("addButton").setEnabled(true);
 				view.byId("downloadButton").setEnabled(true);
-			}
-
-			var componentData = this.getOwnerComponent().getComponentData();
-			if (this.mockData && componentData && componentData.startupParameters &&
-				componentData.startupParameters.createNewTicket && !this.initialCreateTicketOpened) {
-				this.initialCreateTicketOpened = true;
-				this.onAdd();
 			}
 		},
 		onBeforeRendering: function() {
@@ -109,13 +103,6 @@ sap.ui.define([
 								var view = this.getView();
 								view.byId("addButton").setEnabled(true);
 								view.byId("downloadButton").setEnabled(true);
-
-								var componentData = this.getOwnerComponent().getComponentData();
-								if ((componentData && componentData.startupParameters && componentData.startupParameters.createNewTicket && !this.initialCreateTicketOpened)) {
-									this.initialCreateTicketOpened = true;
-									// ||(this.getOwnerComponent().getManifest()["sap.cloud.portal"].settings.navigationContext)
-									this.onAdd();
-								}
 							}.bind(this),
 							error: function(jqXHR) {
 								var elm = jqXHR.responseXML.getElementsByTagName("message")[0];
@@ -146,14 +133,21 @@ sap.ui.define([
 				_self = this,
 				URLS = cmpt.SELECT_BOX_URLS;
 			sap.ui.getCore().byId("createIncidentCategory").setBusy(true);
-			oModel.read(URLS.IncidentCategory.replace('${0}', parentObject), {
-				success: _self.initIncidentModel.bind(_self),
-				error: function(jqXHR) {
-					var error = jqXHR.responseJSON.error.message.value;
-					MessageBox.error(error);
-					sap.ui.getCore().byId("createIncidentCategory").setBusy(false);
-				}
-			});
+			if (cmpt.mockData) {
+				var mockModelData = this.oDialog.getModel("ServiceRequest").getData();
+				var incidentModel = mockModelData.IncidentModel;
+				this.initIncidentModel(incidentModel[parentObject]);
+			} else {
+				oModel.read(URLS.IncidentCategory.replace('${0}', parentObject), {
+					success: _self.initIncidentModel.bind(_self),
+					error: function(jqXHR) {
+						var error = jqXHR.responseJSON.error.message.value;
+						MessageBox.error(error);
+						sap.ui.getCore().byId("createIncidentCategory").setBusy(false);
+					}
+				});
+			}
+
 		},
 		initIncidentModel: function(data) {
 			var incidentModel = this.oDialog.getModel("IncidentModel");
@@ -256,48 +250,99 @@ sap.ui.define([
 			});
 		},
 		onAfterRendering: function() {
-			if (window.location.search.substring(1).split('&').indexOf("createNewTicket=true") !== -1) {
+			if (window.location.hash.substring(1).indexOf("createNewTicket=true") !== -1 && this.alreadyRendered) {
 				if (!this.initialCreateTicketOpened) {
 					this.initialCreateTicketOpened = true;
-					this.onAdd();
+					var newSiteProperties = window.location.hash.substring(1).split('?')[1];
+					this.onAdd(this.splitData(newSiteProperties));
 				}
+			} else {
+				this.alreadyRendered = true;
 			}
 		},
-		onAdd: function() {
+		splitData: function(urlData) {
+			var query = urlData;
+			var result = {};
+			query.split("&").forEach(function(part) {
+				var item = part.split("=");
+				result[item[0]] = decodeURIComponent(item[1]);
+			});
+			return result;
+		},
+		onAdd: function(context) {
 			if (!this.oDialog) {
+				var _self = this;
 				this.oDialog = sap.ui.xmlfragment("ServiceRequests.fragment.Create", this);
-				var dialogModel = new sap.ui.model.json.JSONModel();
+				var dialogModel = new JSONModel();
 				dialogModel.setProperty("createEnabled", false);
 				dialogModel.setProperty("titleInput", '');
 				dialogModel.setProperty("descriptionInput", '');
-				var incidentModel = new sap.ui.model.json.JSONModel({results: []});
+				var incidentModel = new JSONModel({results: []});
 				this.oDialog.setModel(incidentModel, "IncidentModel");
-				this.oDialog.setModel(this.getOwnerComponent().getModel(), "ServiceRequest");
+				var isMock = this.getOwnerComponent().mockData;
+				if (isMock) {
+					var mockModel = new JSONModel(jQuery.sap.getModulePath("ServiceRequests") + "/mock/serviceMockData.json");
+					mockModel.attachRequestCompleted(function() {
+						_self.oDialog.setModel(new JSONModel(this.getData().ServiceRequest), "ServiceRequest");
+						_self.oDialog.open();
+					});
+				} else {
+					this.oDialog.setModel(this.getOwnerComponent().getModel(), "ServiceRequest");
+				}
 				this.oDialog.setModel(dialogModel);
 				this.oDialog.attachAfterClose(function() {
 					this.oDialog.destroy();
 					this.oDialog = null;
 				}.bind(this));
 				this.getView().addDependent(this.oDialog);
-				this.oDialog.attachAfterOpen(this.onDialogOpen.bind(this));
+				this.oDialog.attachAfterOpen(function() {
+					this.onDialogOpen(context);
+				}.bind(this));
+				if (!isMock) {
+					this.oDialog.open();
+				}
 			}
-			this.oDialog.open();
+
+
 		},
-		onDialogOpen: function() {
+		onDialogOpen: function(context) {
 			var serviceCategorySelect = sap.ui.getCore().byId("createServiceCategory"),
 				incidentCategorySelect = sap.ui.getCore().byId("createIncidentCategory");
 			incidentCategorySelect.setBusy(true);
-			serviceCategorySelect.getBinding("items").attachEvent('dataReceived', this.serviceCategoryLoaded.bind(this));
+			for (var select in context){
+				if (select.toLocaleLowerCase() !== "createnewticket"){
+					var selectBox = sap.ui.getCore().byId('create' + select);
+					if (selectBox){
+						selectBox.setSelectedKey(context[select]);
+					}
+				}
+
+			}
+			if (this.getOwnerComponent().mockData) {
+				this.serviceCategoryLoaded();
+			} else {
+				serviceCategorySelect.getBinding("items").attachEvent('dataReceived', this.serviceCategoryLoaded.bind(this));
+			}
+
 		},
 
 		serviceCategoryLoaded: function(oEvent) {
-			var selectedData = oEvent.getParameter("data").results[0],
-				serviceRequestModel = this.oDialog.getModel("ServiceRequest"),
-				URLS = this.getOwnerComponent().SELECT_BOX_URLS;
-			serviceRequestModel.read(URLS.IncidentCategory.replace('${0}', selectedData.ParentObjectID), {
-				success: this.onIncidentLoaded.bind(this),
-				error: this.onIncidentFailed.bind(this)
-			});
+			var serviceRequestModel = this.oDialog.getModel("ServiceRequest");
+			if (this.getOwnerComponent().mockData) {
+
+				var mockModelData = this.oDialog.getModel("ServiceRequest").getData(),
+					parentObject = mockModelData.ServiceIssueCategoryCatalogueCategoryCollection[0].ParentObjectID,
+					incidentModel = mockModelData.IncidentModel;
+				this.onIncidentLoaded(incidentModel[parentObject]);
+			} else {
+				var selectedData = oEvent.getParameter("data").results[0],
+					URLS = this.getOwnerComponent().SELECT_BOX_URLS;
+				serviceRequestModel.read(URLS.IncidentCategory.replace('${0}', selectedData.ParentObjectID), {
+					success: this.onIncidentLoaded.bind(this),
+					error: this.onIncidentFailed.bind(this)
+				});
+			}
+
 		},
 
 		onIncidentLoaded: function(oData) {
@@ -364,7 +409,7 @@ sap.ui.define([
 					},
 					"content": ""
 				},
-				"IncidentServiceIssueCategoryID": "",
+				"IncidentServiceIssueCategoryID": core.byId("createIncidentCategory").getSelectedKey(),
 				"InitialReviewDueDate": "\/Date(1465344000000)\/",
 				"InstallationPointID": "",
 				"InstalledBaseID": "",
@@ -412,7 +457,7 @@ sap.ui.define([
 				"ServiceLevelAgreement": "CLOUDFORSERVICE_STANDARD",
 				"ServicePriorityCode": core.byId("createPriority").getSelectedKey(),
 				"ServiceRequestClassificationCode": "",
-				"ServiceRequestLifeCycleStatusCode": "2",
+				"ServiceRequestLifeCycleStatusCode": "1",
 				"ServiceTechnician": "",
 				"ServiceTechnicianTeam": "",
 				"WarrantyDescription": "",
@@ -788,10 +833,10 @@ sap.ui.define([
 					}, true);
 				}.bind(this),
 				function(mParams) {
-					this.getRouter().getTargets().display("detailNoObjectsAvailable");
 					if (mParams.error) {
 						return;
 					}
+					this.getRouter().getTargets().display("detailNoObjectsAvailable");
 				}.bind(this)
 			);
 		},
@@ -807,6 +852,7 @@ sap.ui.define([
 			this.getRouter().navTo("object", {
 				objectId: oItem.getBindingContext().getProperty("ObjectID")
 			}, bReplace);
+
 		},
 
 		/**

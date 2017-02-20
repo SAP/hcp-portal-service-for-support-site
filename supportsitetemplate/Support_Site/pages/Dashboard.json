@@ -3,7 +3,7 @@
 	"sap.app": {
 		"_version": "1.3.0",
 		"id": "hcp://supportsitetemplate/Support_Site/pages/Dashboard.json",
-		"baseId": "hcp://supportsitetemplate/Support_Site/pageTemplates/SAP_Fiori_Launchpad/manifest.json",
+		"baseId": "hcp://supportsitetemplate/Support_Site/pageTemplates/FLPPage/manifest.json",
 		"title": "Dashboard",
 		"description": "",
 		"crossNavigation": {

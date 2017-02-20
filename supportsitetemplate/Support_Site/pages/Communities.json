@@ -2,20 +2,16 @@
 	"_version": "1.3.0",
 	"sap.app": {
 		"_version": "1.3.0",
-		"id": "hcp://supportsitetemplate/Support_Site/pages/Home.json",
+		"id": "hcp://supportsitetemplate/Support_Site/pages/Communities.json",
 		"baseId": "hcp://supportsitetemplate/Support_Site/pageTemplates/HeaderFooter/manifest.json",
-		"title": "Home",
+		"title": "Communities",
 		"description": "",
 		"crossNavigation": {
 			"context": {},
 			"inbounds": {
 				"0": {
-					"semanticObject": "Home",
+					"semanticObject": "Communities",
 					"action": "Display"
-				},
-				"1": {
-					"semanticObject": "Home",
-					"action": "show"
 				}
 			}
 		}
@@ -24,49 +20,42 @@
 		"applicationType": "page",
 		"sections": {
 			"HeaderFooter.header": {
+				"local": "true",
 				"widgets": {
-					"home.header-headline": {
+					"communities.header-headline": {
 						"index": 1,
-						"alias": "home.header-headline",
+						"alias": "communities.header-headline",
 						"layoutData": {
 							"L": 4,
 							"M": 6,
 							"S": 12
 						}
 					},
-					"home.header-image": {
+					"communities.header-image": {
 						"index": 2,
-						"alias": "home.header-image",
+						"alias": "communities.header-image",
 						"layoutData": {
 							"L": 4,
 							"M": 6,
 							"S": 12
 						}
 					},
-					"home.header-intro": {
+					"communities.header-intro": {
 						"index": 3,
-						"alias": "home.header-intro",
+						"alias": "communities.header-intro",
 						"layoutData": {
 							"L": 4,
 							"M": 6,
 							"S": 12
 						}
-					},
-					"home.header-tiles": {
-						"index": 4,
-						"alias": "home.header-tiles",
-						"layoutData": {
-							"L": 4,
-							"M": 6,
-							"S": 12
-						}
+
 					}
 				},
 				"layoutData": {
 					"layout": "Column",
 					"itemsMargin": "10",
-					"maxContentWidth": "1000",
-					"minContentHeight": ""
+					"maxContentWidth": "1024",
+					"minContentHeight": "415"
 				},
 				"appearance": {
 					"backgroundColor": "transparent",
@@ -79,61 +68,43 @@
 				"resources": {
 					"assets": [
 						{
-							"value": "/assets/img/Home/home_image.jpg"
+							"value": "/assets/img/Communities/community_image.jpg"
 						}
 					]
 				}
 			},
 			"HeaderFooter.content": {
 				"widgets": {
-					"home.content-image1": {
+					"communities.content-rte1": {
 						"index": 1,
-						"alias": "home.content-image1",
+						"alias": "communities.content-rte1",
 						"layoutData": {
 							"L": 4,
 							"M": 6,
 							"S": 12
 						}
 					},
-					"home.content-rte1": {
+					"communities.content-tilegrid": {
 						"index": 2,
-						"alias": "home.content-rte1",
+						"alias": "communities.content-tilegrid",
 						"layoutData": {
 							"L": 4,
 							"M": 6,
 							"S": 12
 						}
 					},
-					"home.content-image2": {
+					"communities.content-rte2": {
 						"index": 3,
-						"alias": "home.content-image2",
+						"alias": "communities.content-rte2",
 						"layoutData": {
 							"L": 4,
 							"M": 6,
 							"S": 12
 						}
 					},
-					"home.content-rte2": {
+					"communities.content-jam": {
 						"index": 4,
-						"alias": "home.content-rte2",
-						"layoutData": {
-							"L": 4,
-							"M": 6,
-							"S": 12
-						}
-					},
-					"home.content-image3": {
-						"index": 5,
-						"alias": "home.content-image3",
-						"layoutData": {
-							"L": 4,
-							"M": 6,
-							"S": 12
-						}
-					},
-					"home.content-rte3": {
-						"index": 6,
-						"alias": "home.content-rte3",
+						"alias": "communities.content-jam",
 						"layoutData": {
 							"L": 4,
 							"M": 6,
@@ -142,14 +113,10 @@
 					}
 				},
 				"layoutData": {
-					"layout": "Row",
-					"itemsPerRowDesktop": "2",
-					"itemsPerRowTablet": 2,
-					"itemsPerRowPhone": 1,
-					"autoGrow": false,
-					"itemsMargin": "20",
-					"maxContentWidth": "1000",
-					"minContentHeight": "285"
+					"layout": "Column",
+					"itemsMargin": "10",
+					"maxContentWidth": "1024",
+					"minContentHeight": 0
 				},
 				"appearance": {
 					"backgroundColor": "transparent",
@@ -160,10 +127,11 @@
 					"fixedBackgroundImage": false
 				}
 			}
+
 		},
 		"nodes": {
 			"header-headline": {
-				"sectionAlias": "home.header-headline",
+				"sectionAlias": "communities.header-headline",
 				"_version": "1.3.0",
 				"sap.app": {
 					"_version": "1.1.0",
@@ -291,7 +259,7 @@
 						},
 						"resources": {
 							"assets": [{
-								"value": "/assets/markup/Home_Header_Headline.html",
+								"value": "/assets/markup/Communities_Header_Headline.html",
 								"isCloned":true
 							}]
 						}
@@ -299,7 +267,7 @@
 				}
 			},
 			"header-image": {
-				"sectionAlias": "home.header-image",
+				"sectionAlias": "communities.header-image",
 				"_version": "1.3.0",
 				"sap.app": {
 					"_version": "1.3.0",
@@ -321,9 +289,8 @@
 						},
 						"resources": {
 							"assets": [{
-								"value": "/assets/img/Home/home_pas.png"
-							}
-							]
+								"value": "/assets/img/Communities/community_pas.png"
+							}]
 						},
 						"state": {
 							"value": "0"
@@ -352,8 +319,8 @@
 							},
 							"source": {
 								"value": "2"
-							}
-
+							},
+							"useMobileSettings": true
 						}
 					}
 				},
@@ -385,9 +352,10 @@
 						}]
 					}
 				}
+				
 			},
 			"header-intro": {
-				"sectionAlias": "home.header-intro",
+				"sectionAlias": "communities.header-intro",
 				"_version": "1.3.0",
 				"sap.app": {
 					"_version": "1.1.0",
@@ -515,15 +483,124 @@
 						},
 						"resources": {
 							"assets": [{
-								"value": "/assets/markup/Home_Header_Intro.html",
+								"value": "/assets/markup/Communities_Header_Intro.html",
 								"isCloned":true
 							}]
 						}
 					}
 				}
 			},
-			"header-tiles": {
-				"sectionAlias": "home.header-tiles",
+			"content-jam": {
+				"sectionAlias": "communities.content-jam",
+				"_version": "1.3.0",
+				"sap.app": {
+					"_version": "1.1.0",
+					"id": "hcp://portalapptemplates/jamGroupFeedWidget/manifest.json",
+					"type": "application",
+					"i18n": "i18n/i18n.properties",
+					"applicationVersion": {
+						"version": "1.0.0"
+					},
+					"title": "SAP Jam Group Feed",
+					"description": "Embed content from SAP Jam into your site pages",
+					"sourceTemplate": {
+						"id": "ui5template.basicSAPUI5ApplicationProject",
+						"version": "1.32.0"
+					}
+				},
+				"sap.ui": {
+					"_version": "1.1.0",
+					"technology": "UI5",
+					"icons": {
+						"icon": "",
+						"favIcon": "",
+						"phone": "",
+						"phone@2": "",
+						"tablet": "",
+						"tablet@2": ""
+					},
+					"deviceTypes": {
+						"desktop": true,
+						"tablet": true,
+						"phone": true
+					},
+					"supportedThemes": [
+						"sap_hcb",
+						"sap_bluecrystal"
+					]
+				},
+				"sap.ui5": {
+					"_version": "1.1.0",
+					"rootView": {
+						"viewName": "jamGroupFeedWidget.view.Main",
+						"type": "XML"
+					},
+					"dependencies": {
+						"minUI5Version": "1.30.0",
+						"libs": {
+							"sap.ui.core": {},
+							"sap.m": {},
+							"sap.ui.layout": {}
+						}
+					},
+					"contentDensities": {
+						"compact": true,
+						"cozy": true
+					},
+					"models": {
+						"i18nApp": {
+							"type": "sap.ui.model.resource.ResourceModel",
+							"uri": "i18n/i18n.properties"
+						}
+					},
+					"resources": {
+						"css": [{
+							"uri": "css/style.css"
+						}]
+					},
+					"config": {
+						"jamUrl": "/destinations/jam/api/v1/OData",
+						"groups": "/Groups?$top=100",
+						"feedEntries": "/Groups('{groupId}')/FeedEntries",
+						"expandQuery": "?$expand=Creator,ThumbnailImage"
+					},
+					"routing": {
+						"config": {
+							"routerClass": "sap.hana.uis.flp.routing.Router"
+						}
+					},
+					"componentName": "jamGroupFeedWidget"
+				},
+				"sap.flp": {
+					"appType": "SAP_UI5_Component",
+					"config": {
+						"editable": true,
+						"deletable": true
+					}
+				},
+				"sap.platform.hcp": {
+					"appName": "portalapptemplates",
+					"uri": "/jamGroupFeedWidget"
+				},
+				"sap.cloud.portal": {
+					"show.portal.settings": "false",
+					"settings": {
+						"groupId": {
+							"displayName": "SAP Jam group ID",
+							"value": ""
+						},
+						"visualProperties": {
+							"showGroupName": true,
+							"widgetHeight": 0,
+							"desktopHeight": "600",
+							"mobileHeight": "600",
+							"errorLink": "http://help.sap.com/download/documentation/sapjam/developer/index.html#hcp/concepts/ADVANCED_TOPICS-API_integrate_features_data.html"
+						}
+					}
+				}
+			},
+			"content-tilegrid": {
+				"sectionAlias": "communities.content-tilegrid",
 				"_version": "1.3.0",
 				"sap.app": {
 					"_version": "1.1.0",
@@ -658,13 +735,13 @@
 						"template_cdate_format": "%d.%m.%Y | %H:%M:%S",
 						"tile_settings": {
 							"units": "px",
-							"height": 265,
-							"height_iPhone": 265,
-							"width": 230,
-							"width_iPhone": 200,
+							"height": 170,
+							"height_iPhone": 170,
+							"width": 140,
+							"width_iPhone": 140,
 							"margin": 2,
-							"tiles": 4,
-							"alignment": "1",
+							"tiles": 6,
+							"alignment": 1,
 							"border": 0,
 							"shadow": 0
 						},
@@ -685,229 +762,40 @@
 							}
 						},
 						"resources": {
-							"assets": [{
-								"value": "/assets/markup/Home_Header_Tiles.html",
+								"assets": [{
+								"value": "/assets/markup/Communities_Tile_Grid.html",
 								"isCloned":true
 							}, {
-								"value": "/assets/img/Home/community_btn.png"
+								"value": "/assets/img/Communities/1.png"
 							}, {
-								"value": "/assets/img/Home/knowledge_btn.png"
+								"value": "/assets/img/Communities/2.png"
 							}, {
-								"value": "/assets/img/Home/service_btn.png"
+								"value": "/assets/img/Communities/3.png"
+							}, {
+								"value": "/assets/img/Communities/4.png"
+							}, {
+								"value": "/assets/img/Communities/5.png"
+							}, {
+								"value": "/assets/img/Communities/6.png"
+							}, {
+								"value": "/assets/img/Communities/7.png"
+							}, {
+								"value": "/assets/img/Communities/8.png"
+							}, {
+								"value": "/assets/img/Communities/9.png"
+							}, {
+								"value": "/assets/img/Communities/10.png"
+							}, {
+								"value": "/assets/img/Communities/11.png"
+							}, {
+								"value": "/assets/img/Communities/12.png"
 							}]
 						}
-					}
-				}
-			},
-			"content-image1": {
-				"sectionAlias": "home.content-image1",
-				"_version": "1.3.0",
-				"sap.app": {
-					"_version": "1.3.0",
-					"id": "hcp://portalapptemplates/imageWidget/manifest.json",
-					"title": "Image Widget",
-					"description": "A widget template that displays images."
-				},
-				"sap.platform.hcp": {
-					"_version": "1.2.0",
-					"appName": "portalapptemplates",
-					"uri": "/imageWidget"
-				},
-				"sap.cloud.portal": {
-					"show.portal.settings": "false",
-					"settings": {
-						"useMobileSettings": false,
-						"source": {
-							"value": "2"
-						},
-						"resources": {
-							"assets": [{
-								"value": "/assets/img/Home/home_pic1.png"
-							}]
-						},
-						"state": {
-							"value": "4"
-						},
-						"height": {
-							"value": "285"
-						},
-						"units": {
-							"value": "px"
-						},
-						"alignment": {
-							"value": 4
-						}
-					}
-				},
-				"sap.flp": {
-					"config": {}
-				},
-				"sap.ui": {
-					"_version": "1.3.0",
-					"technology": "UI5"
-				},
-				"sap.ui5": {
-					"_version": "1.2.0",
-					"componentName": "sap.cp.widgets.image",
-					"routing": {
-						"config": {
-							"routerClass": "sap.hana.uis.flp.routing.Router"
-						}
-					},
-					"rootView": "sap.cp.widgets.image.view.Widget",
-					"models": {
-						"i18nApp": {
-							"type": "sap.ui.model.resource.ResourceModel",
-							"uri": "i18n/i18n.properties"
-						}
-					},
-					"resources": {
-						"css": [{
-							"uri": "css/style.css"
-						}]
-					}
-				}
-			},
-			"content-image2": {
-				"sectionAlias": "home.content-image2",
-				"_version": "1.3.0",
-				"sap.app": {
-					"_version": "1.3.0",
-					"id": "hcp://portalapptemplates/imageWidget/manifest.json",
-					"title": "Image Widget",
-					"description": "A widget template that displays images."
-				},
-				"sap.platform.hcp": {
-					"_version": "1.2.0",
-					"appName": "portalapptemplates",
-					"uri": "/imageWidget"
-				},
-				"sap.cloud.portal": {
-					"show.portal.settings": "false",
-					"settings": {
-						"useMobileSettings": false,
-						"source": {
-							"value": "2"
-						},
-						"resources": {
-							"assets": [{
-								"value": "/assets/img/Home/home_pic2.png"
-							}]
-						},
-						"state": {
-							"value": "4"
-						},
-						"height": {
-							"value": "285"
-						},
-						"units": {
-							"value": "px"
-						},
-						"alignment": {
-							"value": 4
-						}
-					}
-				},
-				"sap.flp": {
-					"config": {}
-				},
-				"sap.ui": {
-					"_version": "1.3.0",
-					"technology": "UI5"
-				},
-				"sap.ui5": {
-					"_version": "1.2.0",
-					"componentName": "sap.cp.widgets.image",
-					"routing": {
-						"config": {
-							"routerClass": "sap.hana.uis.flp.routing.Router"
-						}
-					},
-					"rootView": "sap.cp.widgets.image.view.Widget",
-					"models": {
-						"i18nApp": {
-							"type": "sap.ui.model.resource.ResourceModel",
-							"uri": "i18n/i18n.properties"
-						}
-					},
-					"resources": {
-						"css": [{
-							"uri": "css/style.css"
-						}]
-					}
-				}
-			},
-			"content-image3": {
-				"sectionAlias": "home.content-image3",
-				"_version": "1.3.0",
-				"sap.app": {
-					"_version": "1.3.0",
-					"id": "hcp://portalapptemplates/imageWidget/manifest.json",
-					"title": "Image Widget",
-					"description": "A widget template that displays images."
-				},
-				"sap.platform.hcp": {
-					"_version": "1.2.0",
-					"appName": "portalapptemplates",
-					"uri": "/imageWidget"
-				},
-				"sap.cloud.portal": {
-					"show.portal.settings": "false",
-					"settings": {
-						"useMobileSettings": false,
-						"source": {
-							"value": "2"
-						},
-						"resources": {
-							"assets": [{
-								"value": "assets/img/Home/home_pic3.png"
-							}]
-						},
-						"state": {
-							"value": "4"
-						},
-						"height": {
-							"value": 100
-						},
-						"units": {
-							"value": "pt"
-						},
-						"alignment": {
-							"value": 4
-						}
-					}
-				},
-				"sap.flp": {
-					"config": {}
-				},
-				"sap.ui": {
-					"_version": "1.3.0",
-					"technology": "UI5"
-				},
-				"sap.ui5": {
-					"_version": "1.2.0",
-					"componentName": "sap.cp.widgets.image",
-					"routing": {
-						"config": {
-							"routerClass": "sap.hana.uis.flp.routing.Router"
-						}
-					},
-					"rootView": "sap.cp.widgets.image.view.Widget",
-					"models": {
-						"i18nApp": {
-							"type": "sap.ui.model.resource.ResourceModel",
-							"uri": "i18n/i18n.properties"
-						}
-					},
-					"resources": {
-						"css": [{
-							"uri": "css/style.css"
-						}]
 					}
 				}
 			},
 			"content-rte1": {
-				"sectionAlias": "home.content-rte1",
+				"sectionAlias": "communities.content-rte1",
 				"_version": "1.3.0",
 				"sap.app": {
 					"_version": "1.1.0",
@@ -997,7 +885,7 @@
 						}
 					},
 					"settings": {
-						"plugins": "template link image table textcolor colorpicker autolink directionality searchreplace hr insertdatetime charmap imageuploader background",
+						"plugins": "template link image table textcolor colorpicker autolink directionality searchreplace hr insertdatetime charmap",
 						"portalplugins": "imageuploader background",
 						"menu": {
 							"file": {
@@ -1035,7 +923,7 @@
 						},
 						"resources": {
 							"assets": [{
-								"value": "/assets/markup/Home_Content_Rich_Text_Editor_1.html",
+								"value": "/assets/markup/Communities_Rich_Text_Editor_1.html",
 								"isCloned":true
 							}]
 						}
@@ -1043,7 +931,7 @@
 				}
 			},
 			"content-rte2": {
-				"sectionAlias": "home.content-rte2",
+				"sectionAlias": "communities.content-rte2",
 				"_version": "1.3.0",
 				"sap.app": {
 					"_version": "1.1.0",
@@ -1133,7 +1021,7 @@
 						}
 					},
 					"settings": {
-						"plugins": "template link image table textcolor colorpicker autolink directionality searchreplace hr insertdatetime charmap imageuploader background",
+						"plugins": "template link image table textcolor colorpicker autolink directionality searchreplace hr insertdatetime charmap",
 						"portalplugins": "imageuploader background",
 						"menu": {
 							"file": {
@@ -1171,143 +1059,7 @@
 						},
 						"resources": {
 							"assets": [{
-								"value": "/assets/markup/Home_Content_Rich_Text_Editor_2.html",
-								"isCloned":true
-							}]
-						}
-					}
-				}
-			},
-			"content-rte3": {
-				"sectionAlias": "home.content-rte3",
-				"_version": "1.3.0",
-				"sap.app": {
-					"_version": "1.1.0",
-					"id": "hcp://portalapptemplates/rtewidget/widgets/rte/manifest.json",
-					"type": "application",
-					"applicationVersion": {
-						"version": "1.0.0"
-					},
-					"title": "Rich Text Editor",
-					"description": "An editor for adding and formatting text, tables and more",
-					"sourceTemplate": {
-						"id": "ui5template.basicSAPUI5ApplicationProject",
-						"version": "1.32.0"
-					}
-				},
-				"sap.ui": {
-					"_version": "1.1.0",
-					"technology": "UI5",
-					"icons": {
-						"icon": "",
-						"favIcon": "",
-						"phone": "",
-						"phone@2": "",
-						"tablet": "",
-						"tablet@2": ""
-					},
-					"deviceTypes": {
-						"desktop": true,
-						"tablet": true,
-						"phone": true
-					},
-					"supportedThemes": [
-						"sap_hcb",
-						"sap_bluecrystal"
-					]
-				},
-				"sap.ui5": {
-					"_version": "1.1.0",
-					"rootView": {
-						"viewName": "rtewidget.widgets.rte.view.Main",
-						"type": "XML"
-					},
-					"dependencies": {
-						"minUI5Version": "1.30.0",
-						"libs": {
-							"sap.ui.core": {},
-							"sap.m": {},
-							"sap.ui.layout": {}
-						}
-					},
-					"contentDensities": {
-						"compact": true,
-						"cozy": true
-					},
-					"resources": {
-						"css": [{
-							"uri": "../../css/style.css"
-						}]
-					},
-					"componentName": "rtewidget.widgets.rte"
-				},
-				"sap.flp": {
-					"appType": "SAP_UI5_Component",
-					"config": {
-						"editable": true,
-						"deletable": true
-					}
-				},
-				"sap.platform.hcp": {
-					"uri": "/rtewidget/widgets/rte/",
-					"appName": "portalapptemplates"
-				},
-				"sap.cloud.portal": {
-					"show.portal.settings": "false",
-					"menu": {
-						"actions": {
-							"properties": {
-								"element": "OverflowToolbarButton",
-								"events": {
-									"press": "onEditButtonPress"
-								},
-								"attributes": {
-									"icon": "sap-icon://edit",
-									"tooltip": "Edit"
-								}
-							}
-						}
-					},
-					"settings": {
-						"plugins": "template link image table textcolor colorpicker autolink directionality searchreplace hr insertdatetime charmap imageuploader background",
-						"portalplugins": "imageuploader background",
-						"menu": {
-							"file": {
-								"title": "Edit",
-								"items": "undo redo | cut copy paste pastetext | selectall | searchreplace"
-							},
-							"insert": {
-								"title": "Insert",
-								"items": "image imageuploader link | charmap hr insertdatetime"
-							},
-							"format": {
-								"title": "Format",
-								"items": "bold italic underline strikethrough superscript subscript | formats | removeformat"
-							},
-							"table": {
-								"title": "Table",
-								"items": "inserttable tableprops deletetable | cell row column"
-							}
-						},
-						"toolbar": [
-							"undo redo | cut copy paste | bold italic underline | fontselect fontsizeselect | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | link image imageuploader background"
-						],
-						"fontsize_formats": "8px 9px 10px 11px 12px 13px 14px 16px 18px 20px 22px 24px 30px 36px 48px",
-						"background": {
-							"useMobileSettings": false,
-							"desktop": {
-								"useImageBg": false,
-								"imageUrl": "",
-								"source": "0",
-								"state": "0",
-								"alignment": "4",
-								"color": "transparent",
-								"opacity": "100"
-							}
-						},
-						"resources": {
-							"assets": [{
-								"value": "/assets/markup/Home_Content_Rich_Text_Editor_3.html",
+								"value": "/assets/markup/Communities_Rich_Text_Editor_2.html",
 								"isCloned":true
 							}]
 						}

@@ -14,7 +14,7 @@
 			},
 			{
 				"namespace": "",
-				"id": "hcp://supportsitetemplate/Support_Site/pages/Community.json"
+				"id": "hcp://supportsitetemplate/Support_Site/pages/Communities.json"
 			},
 			{
 				"namespace": "",
@@ -22,11 +22,11 @@
 			},
 			{
 				"namespace": "",
-				"id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequests.json"
+				"id": "hcp://supportsitetemplate/Support_Site/pages/Dashboard.json"
 			},
 			{
 				"namespace": "",
-				"id": "hcp://supportsitetemplate/Support_Site/pages/Dashboard.json"
+				"id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequests.json"
 			},
 			{
 				"namespace": "",
@@ -44,7 +44,6 @@
 				"namespace": "",
 				"id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsCreateNewTicket.json"
 			}
-			
 		]
 	}
 }

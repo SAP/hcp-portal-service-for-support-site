@@ -16,9 +16,9 @@
 			},
 			"entityType": "PAGE"
 		}, {
-			"title": "{{community}}",
+			"title": "{{communities}}",
 			"target": {
-				"semanticObject": "Community",
+				"semanticObject": "Communities",
 				"action": "Display"
 			},
 			"entityType": "PAGE"

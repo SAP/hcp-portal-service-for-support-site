@@ -3,11 +3,11 @@
 	"identification": {
 		"id": "hcp://supportsitetemplate/Support_Site/site.json",
 		"namespace": "",
-		"entityType": "site",
 		"layer": "vendor",
+		"title": "Support Site",
 		"description": "",
-		"i18n": "",
-		"title": "Support Site"
+		"entityType": "site",
+		"i18n": ""
 	},
 	"payload": {
 		"homeApp": {
@@ -27,32 +27,25 @@
 			}
 		},
 		"sap.cloud.portal": {
-			"_version": "1.2.0",
-			"availablePageTemplates": [
-				{
-					"namespace": "",
-					"id": "hcp://supportsitetemplate/Support_Site/pageTemplates/Home/manifest.json"
-				},
-				{
-					"namespace": "",
-					"id": "hcp://supportsitetemplate/Support_Site/pageTemplates/4_Sections/manifest.json"
-				},
-				{
-					"namespace": "",
-					"id": "hcp://supportsitetemplate/Support_Site/pageTemplates/6_Sections/manifest.json"
-				},
-				
-				{
-					"namespace": "",
-					"id": "hcp://supportsitetemplate/Support_Site/pageTemplates/SAP_Fiori_Launchpad/manifest.json"
-				}
-			],
 			"config": {
 				"icon": "supportsitetemplate/Support_Site/thumbnail.png",
 				"theme.id": "supportsitetheme",
 				"theme.active": "[\"supportsitetheme\",\"sap_hcb\"]",
-				"solution": "supportSite"
-			}
+				"isOnline": "false",
+				"solution": "freestyle"
+			},
+			"availablePageTemplates": [
+			
+				{
+					"namespace": "",
+					"id": "hcp://supportsitetemplate/Support_Site/pageTemplates/FLPPage/manifest.json"
+				},
+				{
+					"namespace": "",
+					"id": "hcp://supportsitetemplate/Support_Site/pageTemplates/HeaderFooter/manifest.json"
+				}
+			],
+			"_version": "1.2.0"
 		}
 	}
 }

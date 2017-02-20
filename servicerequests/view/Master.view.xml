@@ -27,7 +27,7 @@
                     <ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange"
                                     title="{Name/content}">
                         <firstStatus>
-                            <ObjectStatus text="{ID}"/>
+                            <ObjectStatus text="{ID}" tooltip="Ticket ID"/>
                         </firstStatus>
                     </ObjectListItem>
                 </items>

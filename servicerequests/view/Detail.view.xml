@@ -14,23 +14,18 @@
                                 <Label class="infoTitle" text="Priority:"/>
                                 <Select id="infoPrioritySelect" width="10rem" enabled="false"
                                         selectedKey="{ServicePriorityCode}"
-                                        items="{LifeCycleModel>/results}">
-                                    <core:Item key="{LifeCycleModel>Code}" text="{LifeCycleModel>Description}"/>
+                                        items="{ServiceRequest>/ServiceRequestServicePriorityCodeCollection}">
+                                    <core:Item key="{ServiceRequest>Code}" text="{ServiceRequest>Description}"/>
                                 </Select>
                             </HBox>
 
                             <HBox>
                                 <Label class="infoTitle" text="Product Category:"/>
-                                <Select id="infoProductCategorySelect" width="10rem" enabled="false"
+                                    <Select id="infoProductCategorySelect" width="10rem" enabled="false"
                                         selectedKey="{ProductID}" items="{ServiceRequest>/ProductCollection}">
                                     <core:Item key="{ServiceRequest>ID}" text="{ServiceRequest>Description}"/>
                                 </Select>
                             </HBox>
-                            <!--<HBox>-->
-                                <!--<Label class="infoTitle" text="ValueHelp Product:"/>-->
-                                <!--<Input id="infoProductCategorySelectValueHelp" value="{ProductDescription}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onValueHelpRequest">-->
-                                <!--</Input>-->
-                            <!--</HBox>-->
                             <HBox>
                                 <Label class="infoTitle" text="Service Category: "/>
                                 <Select id="infoServiceCategorySelect" width="10rem" enabled="false"
@@ -62,7 +57,6 @@
                                             uploadComplete="onUploadComplete" change="onFileChange"/>
                             <Button id="uploadFileButton" text="Upload" press="onFileUpload"/>
                         </VBox>
-                        <!--<List id="attachmentsList" itemPress="onAttachmentPress" noDataText="No attachments"/>-->
                         <Table id="attachmentsList"
                                inset="false"
                                itemPress="onAttachmentPress"
@@ -89,28 +83,6 @@
                                 </ColumnListItem>
                             </items>
                         </Table>
-
-                        <!--<Table id="productCollectionTable"-->
-                               <!--inset="false"-->
-                               <!--noDataText="No attachments"-->
-                               <!--items="{ServiceRequest>/ProductCollection}">-->
-                            <!--<columns>-->
-                                <!--<Column>-->
-                                    <!--<Text text="ID"/>-->
-                                <!--</Column>-->
-                                <!--<Column>-->
-                                    <!--<Text text="Description"/>-->
-                                <!--</Column>-->
-                            <!--</columns>-->
-                            <!--<items>-->
-                                <!--<ColumnListItem type="Active">-->
-                                    <!--<cells>-->
-                                        <!--<Text text="{ServiceRequest>ID}"/>-->
-                                        <!--<Text text="{ServiceRequest>Description}" />-->
-                                    <!--</cells>-->
-                                <!--</ColumnListItem>-->
-                            <!--</items>-->
-                        <!--</Table>-->
                     </IconTabFilter>
                 </items>
             </IconTabBar>

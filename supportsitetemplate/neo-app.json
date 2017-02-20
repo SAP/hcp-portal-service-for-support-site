@@ -1,7 +1,15 @@
 {
   "welcomeFile": "index.html",
-  "authenticationMethod": "none" ,
   "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "application",
+        "name": "sapui5preview",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
     {
       "path": "/resources",
       "target": {
@@ -10,6 +18,15 @@
         "entryPath": "/resources"
       },
       "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "application",
+        "name": "sapui5preview",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
     },
     {
       "path": "/test-resources",
@@ -25,7 +42,7 @@
     {
       "directive": "private",
       "maxAge": 0,
-      "path": "*html"
+      "path": "**.html"
     },
     {
       "directive": "private",
@@ -36,5 +53,6 @@
       "directive": "public",
       "maxAge": 31536000
     }
-  ]
+  ],
+   "authenticationMethod": "none"
 }
