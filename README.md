@@ -1,12 +1,12 @@
-# Welcome to the SAP HANA Cloud Platform, Portal Service for Support Site GitHub Repository
+# Welcome to the SAP Cloud Platform Portal for Support Site GitHub Repository
  
-The SAP HCP portal service for the Support Site repository provides all you need to deploy the Support Site solution on your HCP account and connect it to your SAP Hybris Cloud for Customer (C4C) tenant. Click [here](https://hcp.sap.com/capabilities/ux/cloud-portal.html) to receive more information on using SAP HCP portal service.
+The SAP Cloud Platform Portal for the Support Site repository provides all you need to deploy the Support Site solution on your Cloud Platform account and connect it to your SAP Hybris Cloud for Customer (C4C) tenant. Click [here](https://hcp.sap.com/capabilities/ux/cloud-portal.html) to receive more information on using SAP Cloud Platform Portal.
  
 ## How to Deploy the Support Site Sample Solution
  
 [Watch the configuration video](https://youtu.be/wikqPJQ_LKY)
  
-This guide will show you how to download the Support Site sample solution from the SAP HANA Cloud Platform, portal service GitHub repository and deploy it to your account.
+This guide will show you how to download the Support Site sample solution from the SAP Cloud Platform Portal GitHub repository and deploy it to your account.
  
 The Support Site solution includes several components:
  
@@ -17,13 +17,13 @@ The Support Site solution includes several components:
  
 ### Prerequisites
  
-1. SAP HANA Cloud Platform (HCP) productive account (the solution does not work with a trial account)
+1. SAP Cloud Platform productive account (the solution does not work with a trial account)
 2. C4C tenant
 3. [Optional] SAP Jam tenant
  
 ### Prepare the Landscape
  
-1. In your SAP HCP cockpit, create a destination to your C4C tenant by importing the destination file you extracted from GitHub, c4c, and use the following configuration:
+1. In your SAP Cloud Platform cockpit, create a destination to your C4C tenant by importing the destination file you extracted from GitHub, c4c, and use the following configuration:
   
   Property | Value
   --- | ---
@@ -35,7 +35,7 @@ The Support Site solution includes several components:
   User | technical_user_name
   Password | technical_user_password
  
-2. [Optional] Create a trust between your HCP account and your Jam tenant, and create a destination to your Jam tenant, as described [here](https://help.hana.ondemand.com/cloud_portal/frameset.htm?9b529041d0fe470d9c7c795eb4038e7a.html).
+2. [Optional] Create a trust between your Cloud Platform account and your Jam tenant, and create a destination to your Jam tenant, as described [here](https://help.hana.ondemand.com/cloud_portal/frameset.htm?9b529041d0fe470d9c7c795eb4038e7a.html).
  
 ### Download and Deploy the Applications
  
@@ -51,7 +51,7 @@ The Support Site solution includes several components:
  * servicerequests.zip (Service Requests application)
   
   Note
-  You can import the files to SAP Web IDE and then deploy them to HCP, or you can directly deploy them to HCP through the HCP cockpit (Applications >> HTML5 Applications >> Import from File). Click [here](https://help.hana.ondemand.com/webide/frameset.htm?344e8c91e33b4ae8b4032709c45776a3.html) to receive more information on using SAP Web IDE.
+  You can import the files to SAP Web IDE and then deploy them to SAP Cloud Platform, or you can directly deploy them to SAP Cloud Platform through the cockpit (Applications >> HTML5 Applications >> Import from File). Click [here](https://help.hana.ondemand.com/webide/frameset.htm?344e8c91e33b4ae8b4032709c45776a3.html) to receive more information on using SAP Web IDE.
  
 ### Import the SAPUI5 Theme
  
@@ -85,8 +85,8 @@ The Support Site solution includes several components:
 The sample solution provided in this repository is intended to be used as an accelerator for a productive implementation, adapting and extending it to fit a specific customer's requirements. The solution uses cutting-edge front-end technologies like SAPUI5 and the OData open protocol, and extending the solution requires adequate knowledge of these technologies.
  
 You can use the following resources to learn more:
-* [SAP HANA Cloud Platform (HCP)](https://hcp.sap.com/developers.html)
-* [HCP Portal Service](https://help.hana.ondemand.com/cloud_portal/frameset.htm)
+* [SAP Cloud Platform](https://hcp.sap.com/developers.html)
+* [SAP Cloud Platform Portal](https://help.hana.ondemand.com/cloud_portal/frameset.htm)
 * [SAPUI5: openSAP Course](https://open.sap.com/courses/ui51)
 * [SAPUI5: Tutorials](https://sapui5.hana.ondemand.com/)
 * [OData protocol](http://www.odata.org/)
@@ -114,7 +114,7 @@ Prerequisite:  In the Site Directory, first open your support site for editing b
 | **How do I remove a widget?** |	26.	Click the widget to open the widget settings.<br>27.	Click ![delete](/resources/ss7.png) to delete. |
 | **How do I remove a page?** |	28.	In the Pages and Apps panel in the Site Designer, click the page that you want to remove. <br>29.	Right click on the actions arrow ![arrow](/resources/ss11.png) and select Delete. |
 | **How do I remove SAP Jam integration?** |	30.	Open the site for editing. <br>31.	Go To Communities page. <br>32.	Click on the SAP Jam Group Feed Widget that contains the text "Select a JAM Group….". <br>33.	Click ![delete](/resources/ss7.png) to delete the widget. |
-| **How do I connect the site to my JAM account?** |	To add SAP Jam functionality to your site, do the following: <ul><li>Ensure that the end user has an SAP Jam account. </li><li>	Set up your SAP HANA Cloud Platform account.</li></ul>For more information, see Collaborating Using SAP Jam. |
+| **How do I connect the site to my JAM account?** |	To add SAP Jam functionality to your site, do the following: <ul><li>Ensure that the end user has an SAP Jam account. </li><li>	Set up your SAP Cloud Platform account.</li></ul>For more information, see Collaborating Using SAP Jam. |
 | **How do I add a new page to the menu?** |	34.	Right click the actions arrow ![arrow](/resources/ss11.png) next to any page or app. <br>35.	Select Add to Menu. The Menu Editor opens. <br>36.	Click Save. <br>You can also do this directly in the Menu Editor ![menu](/resources/ss12.png)  that you access from the left panel of the Site Designer. |
 
 ### Editing the Dashboard
