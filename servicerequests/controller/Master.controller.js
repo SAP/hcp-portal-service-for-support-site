@@ -250,14 +250,14 @@ sap.ui.define([
 			});
 		},
 		onAfterRendering: function() {
-			if (window.location.hash.substring(1).indexOf("createNewTicket=true") !== -1 && this.alreadyRendered) {
+			if (window.location.hash.substring(1).indexOf("createNewTicket=true")) {
 				if (!this.initialCreateTicketOpened) {
 					this.initialCreateTicketOpened = true;
 					var newSiteProperties = window.location.hash.substring(1).split('?')[1];
-					this.onAdd(this.splitData(newSiteProperties));
+					if(newSiteProperties){
+							this.onAdd(this.splitData(newSiteProperties));
+					}
 				}
-			} else {
-				this.alreadyRendered = true;
 			}
 		},
 		splitData: function(urlData) {
@@ -309,10 +309,10 @@ sap.ui.define([
 			var serviceCategorySelect = sap.ui.getCore().byId("createServiceCategory"),
 				incidentCategorySelect = sap.ui.getCore().byId("createIncidentCategory");
 			incidentCategorySelect.setBusy(true);
-			for (var select in context){
-				if (select.toLocaleLowerCase() !== "createnewticket"){
+			for (var select in context) {
+				if (select.toLocaleLowerCase() !== "createnewticket") {
 					var selectBox = sap.ui.getCore().byId('create' + select);
-					if (selectBox){
+					if (selectBox) {
 						selectBox.setSelectedKey(context[select]);
 					}
 				}
