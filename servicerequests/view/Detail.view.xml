@@ -11,7 +11,7 @@
                     <IconTabFilter id="iconTabBarInfo" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
                         <VBox class="detailsBox">
                             <HBox>
-                                <Label class="infoTitle" text="Priority:"/>
+                                <Label class="infoTitle" text="{i18n>detailPriority}"/>
                                 <Select id="infoPrioritySelect" width="10rem" enabled="false"
                                         selectedKey="{ServicePriorityCode}"
                                         items="{ServiceRequest>/ServiceRequestServicePriorityCodeCollection}">
@@ -20,14 +20,14 @@
                             </HBox>
 
                             <HBox>
-                                <Label class="infoTitle" text="Product Category:"/>
+                                <Label class="infoTitle" text="{i18n>detailProductCategory}"/>
                                     <Select id="infoProductCategorySelect" width="10rem" enabled="false"
                                         selectedKey="{ProductID}" items="{ServiceRequest>/ProductCollection}">
                                     <core:Item key="{ServiceRequest>ID}" text="{ServiceRequest>Description}"/>
                                 </Select>
                             </HBox>
                             <HBox>
-                                <Label class="infoTitle" text="Service Category: "/>
+                                <Label class="infoTitle" text="{i18n>detailServiceCategory}"/>
                                 <Select id="infoServiceCategorySelect" width="10rem" enabled="false"
                                         selectedKey="{ServiceIssueCategoryID}" change="onServiceCategorySelect"
                                         items="{ServiceRequest>/ServiceIssueCategoryCatalogueCategoryCollection}">
@@ -37,7 +37,7 @@
                                 </Select>
                             </HBox>
                             <HBox>
-                                <Label class="infoTitle" text="Incident Category: "/>
+                                <Label class="infoTitle" text="{i18n>detailIncidentCategory} "/>
                                 <Select id="infoIncidentCategorySelect" width="10rem" enabled="false"
                                         selectedKey="{IncidentServiceIssueCategoryID}"
                                         items="{IncidentModel>/results}">
@@ -52,10 +52,10 @@
                     <IconTabFilter id="iconTabBarAttachments" icon="sap-icon://attachment"
                                    tooltip="{i18n>detailIconTabBarAttachments}">
                         <VBox class="detailsBox">
-                            <Label text="Upload an attachment"/>
+                            <Label text="{i18n>detailUploadAnAttachment}"/>
                             <u:FileUploader id="fileUploader" tooltip="Upload an attachment"
                                             uploadComplete="onUploadComplete" change="onFileChange"/>
-                            <Button id="uploadFileButton" text="Upload" press="onFileUpload"/>
+                            <Button id="uploadFileButton" text="{i18n>detailUploadFile}" press="onFileUpload"/>
                         </VBox>
                         <Table id="attachmentsList"
                                inset="false"
@@ -64,13 +64,13 @@
                                items="{AttachmentModel>/}">
                             <columns>
                                 <Column>
-                                    <Text text="File Name"/>
+                                    <Text text="{i18n>detailFileName}"/>
                                 </Column>
                                 <Column>
-                                    <Text text="Uploader"/>
+                                    <Text text="{i18n>detailUploader}"/>
                                 </Column>
                                 <Column>
-                                    <Text text="Date"/>
+                                    <Text text="{i18n>detailDate}"/>
                                 </Column>
                             </columns>
                             <items>
@@ -88,7 +88,7 @@
             </IconTabBar>
         </semantic:content>
         <semantic:mainAction>
-            <semantic:MainAction text="Set To Complete" id="setToCompleteBtn" press="onSetToComplete"/>
+            <semantic:MainAction text="{i18n>detailComplete}" id="setToCompleteBtn" press="onSetToComplete"/>
         </semantic:mainAction>
         <semantic:editAction>
             <semantic:EditAction id="edit" press="onEdit"/>

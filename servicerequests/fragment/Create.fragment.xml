@@ -1,24 +1,24 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-	<Dialog id="addDialog" title="Create Service Request">
+	<Dialog id="addDialog" title="{i18n>createDialogTitle}">
 		<content>
 			<VBox class="dialogVbox" width="{= ${device>/system/phone} ? '' : '900px' }">
-				<Label text="Title" class="dialogLabel mandatoryLabel" />
+				<Label text="{i18n>DialogContentTitle}" class="dialogLabel mandatoryLabel" />
 				<Input id="createTitle" width="100%" valueStateText="Enter a title" value="{/titleInput}" liveChange="onTitleChange" />
-				<Label text="Description" class="dialogLabel mandatoryLabel"/>
+				<Label text="{i18n>DialogContentDescription}" class="dialogLabel mandatoryLabel"/>
 				<TextArea id="createDescription" rows="6" width="100%" valueStateText="Enter a description" liveChange="onTextAreaChange" value="{/descriptionInput}"/>
-				<Label text="Priority" class="dialogLabel"/>
+				<Label text="{i18n>DialogContentPriority}" class="dialogLabel"/>
 				<Select id="createPriority" class="dialogLabel" width="100%"
 						items="{ServiceRequest>/ServiceRequestServicePriorityCodeCollection}">
 					<core:Item key="{ServiceRequest>Code}" text="{ServiceRequest>Description}"/>
 				</Select>
 
-				<Label text="Product Category" class="dialogLabel"/>
+				<Label text="{i18n>DialogProductCategory}" class="dialogLabel"/>
 				<Select id="createProductCategory" class="dialogLabel" width="100%"
 						items="{ServiceRequest>/ProductCollection}">
 					<core:Item key="{ServiceRequest>ID}" text="{ServiceRequest>Description}"/>
 				</Select>
 
-				<Label text="Service Category" class="dialogLabel"/>
+				<Label text="{i18n>DialogServiceCategory}" class="dialogLabel"/>
 				<Select id="createServiceCategory" class="dialogLabel" width="100%"
 					change="onServiceCategorySelectCreateFragment"
 						items="{ServiceRequest>/ServiceIssueCategoryCatalogueCategoryCollection}">
@@ -27,19 +27,19 @@
 							   data:parentObject="{ServiceRequest>ParentObjectID}"/>
 				</Select>
 
-				<Label text="Incident Category" class="dialogLabel"/>
+				<Label text="{i18n>DialogIncidentCategory}" class="dialogLabel"/>
 				<Select id="createIncidentCategory" class="dialogLabel" width="100%"
 						items="{IncidentModel>/results}">
 					<core:Item key="{IncidentModel>ServiceIssueCategoryID}"
 							   text="{IncidentModel>Name/content}"/>
 				</Select>
-				<Label text="Attachment" class="dialogLabel"/>
+				<Label text="{i18n>DialogAttachment}" class="dialogLabel"/>
 				<u:FileUploader id="createFileUploader" uploadComplete="onUploadComplete" change="onFileChange"/>
 			</VBox>
 		</content>
 		<buttons>
-			<Button id="addDialogCreateButton" text="Create" press="onDialogAdd" enabled="{ parts: ['/titleInput', '/descriptionInput'],formatter: '.isCreateTicketEnabled' }"/>
-			<Button text="Cancel" press="onDialogCancel"/>
+			<Button id="addDialogCreateButton" text="{i18n>DialogCreate}" press="onDialogAdd" enabled="{ parts: ['/titleInput', '/descriptionInput'],formatter: '.isCreateTicketEnabled' }"/>
+			<Button text="{i18n>DialogCancel}" press="onDialogCancel"/>
 
 		</buttons>
 	</Dialog>

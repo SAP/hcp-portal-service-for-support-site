@@ -203,8 +203,8 @@ sap.ui.define([
 			};
 
 			if (this.getOwnerComponent().mockData) {
-				var sPath = view.getElementBinding().getPath(),
-					ind = parseInt(sPath.split('/')[2]),
+				var sPathMock = view.getElementBinding().getPath(),
+					ind = parseInt(sPathMock.split('/')[2]),
 					data = model.getData(),
 					arr = data.ServiceRequestCollection,
 					objToUpdate = arr[ind];
@@ -299,7 +299,7 @@ sap.ui.define([
 			if (!this.getOwnerComponent().mockData) {
 				var url = model.sServiceUrl + sPath + "/ServiceRequestAttachmentFolder",
 					token = model.getSecurityToken();
-				var data = {
+				var dataMock = {
 					Name: this.fileToUpload.name,
 					Binary: window.btoa(e.target.result)
 				};
@@ -310,7 +310,7 @@ sap.ui.define([
 					headers: {
 						"X-CSRF-TOKEN": token
 					},
-					data: JSON.stringify(data),
+					data: JSON.stringify(dataMock),
 					success: function() {
 						view.byId("fileUploader").clear();
 						this.fileToUpload = null;
@@ -421,7 +421,6 @@ sap.ui.define([
 		_bindView: function(sObjectPath) {
 			// Set busy indicator during view binding
 			var oViewModel = this.getModel("detailView");
-			var _self = this;
 			// If the view was not bound yet its not busy, only if the binding requests data it is set to busy again
 			oViewModel.setProperty("/busy", false);
 			this.getView().bindElement({

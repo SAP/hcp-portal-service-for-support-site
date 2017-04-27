@@ -12,6 +12,7 @@ sap.ui.define([
 	"ServiceRequests/model/formatter"
 ], function(BaseController, JSONModel, Filter, FilterOperator, Device, Export, ExportTypeCSV, GroupHeaderListItem, MessageBox, MessageToast, formatter) {
 	"use strict";
+	/*global $*/
 
 	return BaseController.extend("ServiceRequests.controller.Master", {
 
@@ -44,7 +45,6 @@ sap.ui.define([
 				iOriginalBusyDelay = oList.getBusyIndicatorDelay();
 			var eventBus = sap.ui.getCore().getEventBus();
 			eventBus.subscribe("Detail", "DetailHasRendered", function() {
-				debugger
 			});
 			this._oList = oList;
 			// keeps the filter and search state
@@ -125,8 +125,7 @@ sap.ui.define([
 			this.getIncidentCategoryList();
 		},
 		getIncidentCategoryList: function() {
-			var oView = this.getView(),
-				createServiceSelect = sap.ui.getCore().byId("createServiceCategory"),
+			var createServiceSelect = sap.ui.getCore().byId("createServiceCategory"),
 				parentObject = createServiceSelect.getSelectedItem().data("parentObject"),
 				cmpt = this.getOwnerComponent(),
 				oModel = cmpt.getModel(),
@@ -172,7 +171,10 @@ sap.ui.define([
 			// hide pull to refresh if necessary
 			this.byId("pullToRefresh").hide();
 			var items = this._oList.getItems();
-			if (!this._oList.getSelectedItem() && items.length > 0) {
+			if (items.length === 0) {
+				this.getRouter().getTargets().display("detailNoObjectsAvailable");
+			}
+			else if (!this._oList.getSelectedItem() && items.length > 0) {
 				this._oList.setSelectedItem(items[0]);
 				this._showDetail(items[0]);
 			}
@@ -250,23 +252,24 @@ sap.ui.define([
 			});
 		},
 		onAfterRendering: function() {
-			if (window.location.hash.substring(1).indexOf("createNewTicket=true")) {
+			var startupParams = this.component.startupParams;
+			if (window.location.hash.substring(1).indexOf("createNewTicket=true") > -1 || startupParams.createNewTicket === "true") {
 				if (!this.initialCreateTicketOpened) {
 					this.initialCreateTicketOpened = true;
 					var newSiteProperties = window.location.hash.substring(1).split('?')[1];
-					if(newSiteProperties){
-							this.onAdd(this.splitData(newSiteProperties));
-					}
+					this.onAdd(this.splitData(newSiteProperties));
 				}
 			}
 		},
 		splitData: function(urlData) {
-			var query = urlData;
 			var result = {};
-			query.split("&").forEach(function(part) {
-				var item = part.split("=");
-				result[item[0]] = decodeURIComponent(item[1]);
-			});
+			if (urlData) {
+				var query = urlData;
+				query.split("&").forEach(function(part) {
+					var item = part.split("=");
+					result[item[0]] = decodeURIComponent(item[1]);
+				});
+			}
 			return result;
 		},
 		onAdd: function(context) {
@@ -302,7 +305,6 @@ sap.ui.define([
 					this.oDialog.open();
 				}
 			}
-
 
 		},
 		onDialogOpen: function(context) {
@@ -494,11 +496,11 @@ sap.ui.define([
 				"EscalationStatusText": "Not Escalated",
 				"ServiceRequestItem": {
 					"__deferred": {
-						"uri": "https://flpnwc-cplto.dispatcher.hana.ondemand.com/sap/fiori/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1EE68BB3A36C8C740442')/ServiceRequestItem"
+						"uri": "/servicerequests/destinations/c4c/sap/byd/odata/v1/c4codata/ServiceRequestCollection('00163E08A7AF1EE68BB3A36C8C740442')/ServiceRequestItem"
 					}
 				},
 				"ServiceRequestAttachmentFolder": [],
-				"ServiceRequestDescription": [],
+				"ServiceRequestDescription": []
 			};
 			var data = {
 				ReporterPartyID: this.contactID,
@@ -607,11 +609,11 @@ sap.ui.define([
 		uploadFile: function(e, result) {
 			var model = this.getModel();
 			if (!this.mockData) {
-				var elm = result.getElementsByTagName("id")[0],
-					baseUrl = elm.innerHTML || elm.textContent,
+				var elmMock = result.getElementsByTagName("id")[0],
+					baseUrl = elmMock.innerHTML || elmMock.textContent,
 					url = baseUrl + "/ServiceRequestAttachmentFolder",
 					token = model.getSecurityToken();
-				var data = {
+				var dataMock = {
 					Name: this.fileToUpload.name,
 					Binary: window.btoa(e.target.result)
 				};
@@ -622,7 +624,7 @@ sap.ui.define([
 					headers: {
 						"X-CSRF-TOKEN": token
 					},
-					data: JSON.stringify(data),
+					data: JSON.stringify(dataMock),
 					success: this.finishCreateTicket.bind(this),
 					error: function(jqXHR) {
 						var elm = jqXHR.responseXML.getElementsByTagName("message")[0];
@@ -654,6 +656,7 @@ sap.ui.define([
 			}
 			MessageToast.show("The service request was created successfully");
 			this.oDialog.setBusy(false);
+			this._oList.removeSelections();
 			model.refresh();
 			this.oDialog.close();
 			if (this.mockData) {
@@ -698,8 +701,9 @@ sap.ui.define([
 			}
 		},
 		isCreateTicketEnabled: function(titleInput, descriptionInput) {
-			if (titleInput && descriptionInput)
+			if (titleInput && descriptionInput) {
 				return (titleInput.trim().length !== 0 && descriptionInput.trim().length !== 0);
+			}
 			return false;
 
 		},
@@ -707,23 +711,22 @@ sap.ui.define([
 			return text.trim().length === 0;
 		},
 		setListFilters: function() {
-			var componentData = this.getOwnerComponent().getComponentData();
+			var startupParams = this.component.startupParams;
 
 			if (!this.mockData) {
 				var userEmail = sap.ushell.Container.getUser().getEmail();
 				this._oListFilterState.aFilter.push(new Filter("ReporterEmail", FilterOperator.EQ, userEmail));
 			}
 
-			if (componentData && componentData.startupParameters) {
-				if (componentData.startupParameters.pendingResponse) {
-					this._oListFilterState.aFilter.push(new Filter("ServiceRequestUserLifeCycleStatusCode", FilterOperator.EQ, "4"));
-				} else {
-					this._oListFilterState.aFilter.push(new Filter("ServiceRequestUserLifeCycleStatusCodeText", FilterOperator.NE, "Completed"));
-					if (componentData.startupParameters.highPriority) {
-						this._oListFilterState.aFilter.push(new Filter("ServicePriorityCode", FilterOperator.LT, "3"));
-					}
+			if (startupParams.pendingResponse) {
+				this._oListFilterState.aFilter.push(new Filter("ServiceRequestUserLifeCycleStatusCode", FilterOperator.EQ, "4"));
+			} else {
+				this._oListFilterState.aFilter.push(new Filter("ServiceRequestUserLifeCycleStatusCodeText", FilterOperator.NE, "Completed"));
+				if (startupParams.highPriority) {
+					this._oListFilterState.aFilter.push(new Filter("ServicePriorityCode", FilterOperator.LT, "3"));
 				}
 			}
+
 			this._oList.getBinding("items").filter(this._oListFilterState.aFilter, "Application");
 		},
 
@@ -740,44 +743,37 @@ sap.ui.define([
 					filters: this._oListFilterState.aFilter
 				},
 
-				columns: [
-					{
-						name: "Title",
-						template: {
-							content: "{Name/content}"
-						}
-					},
-					{
-						name: "Priority",
-						template: {
-							content: "{ServicePriorityCodeText}"
-						}
-					},
-					{
-						name: "Status",
-						template: {
-							content: "{ServiceRequestUserLifeCycleStatusCodeText}"
-						}
-					},
-					{
-						name: "Product Category",
-						template: {
-							content: "{ProductCategoryDescription}"
-						}
-					},
-					{
-						name: "Service Issue Category",
-						template: {
-							content: "{ServiceCategoryName/content}"
-						}
-					},
-					{
-						name: "Incident Category ID",
-						template: {
-							content: "{IncidentServiceIssueCategoryID}"
-						}
+				columns: [{
+					name: "Title",
+					template: {
+						content: "{Name/content}"
 					}
-				]
+				}, {
+					name: "Priority",
+					template: {
+						content: "{ServicePriorityCodeText}"
+					}
+				}, {
+					name: "Status",
+					template: {
+						content: "{ServiceRequestUserLifeCycleStatusCodeText}"
+					}
+				}, {
+					name: "Product Category",
+					template: {
+						content: "{ProductCategoryDescription}"
+					}
+				}, {
+					name: "Service Issue Category",
+					template: {
+						content: "{ServiceCategoryName/content}"
+					}
+				}, {
+					name: "Incident Category ID",
+					template: {
+						content: "{IncidentServiceIssueCategoryID}"
+					}
+				}]
 			});
 
 			download.saveFile().catch(function(error) {

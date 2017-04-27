@@ -13,7 +13,7 @@ sap.ui.define([
 			 * @public
 			 * @alias ServiceRequests.controller.ErrorHandler
 			 */
-			constructor : function (oComponent) {
+			constructor: function (oComponent) {
 				this._oResourceBundle = oComponent.getModel("i18n").getResourceBundle();
 				this._oComponent = oComponent;
 				this._oModel = oComponent.getModel();
@@ -44,15 +44,15 @@ sap.ui.define([
 			 * @param {string} sDetails a technical error to be displayed on request
 			 * @private
 			 */
-			_showMetadataError : function (sDetails) {
+			_showMetadataError: function (sDetails) {
 				MessageBox.error(
 					this._sErrorText,
 					{
-						id : "metadataErrorMessageBox",
-						details : sDetails,
-						styleClass : this._oComponent.getContentDensityClass(),
-						actions : [MessageBox.Action.RETRY, MessageBox.Action.CLOSE],
-						onClose : function (sAction) {
+						id: "metadataErrorMessageBox",
+						details: sDetails,
+						styleClass: this._oComponent.getContentDensityClass(),
+						actions: [MessageBox.Action.RETRY, MessageBox.Action.CLOSE],
+						onClose: function (sAction) {
 							if (sAction === MessageBox.Action.RETRY) {
 								this._oModel.refreshMetadata();
 							}
@@ -67,7 +67,7 @@ sap.ui.define([
 			 * @param {string} sDetails a technical error to be displayed on request
 			 * @private
 			 */
-			_showServiceError : function (sDetails) {
+			_showServiceError: function (sDetails) {
 				if (this._bMessageOpen) {
 					return;
 				}
@@ -75,11 +75,11 @@ sap.ui.define([
 				MessageBox.error(
 					this._sErrorText,
 					{
-						id : "serviceErrorMessageBox",
-						details : sDetails,
-						styleClass : this._oComponent.getContentDensityClass(),
-						actions : [MessageBox.Action.CLOSE],
-						onClose : function () {
+						id: "serviceErrorMessageBox",
+						details: sDetails,
+						styleClass: this._oComponent.getContentDensityClass(),
+						actions: [MessageBox.Action.CLOSE],
+						onClose: function () {
 							this._bMessageOpen = false;
 						}.bind(this)
 					}

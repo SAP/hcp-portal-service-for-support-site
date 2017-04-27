@@ -24,7 +24,7 @@ sap.ui.define([
 			ServiceCategory: '/ServiceIssueCategoryCatalogueCategoryCollection',
 			IncidentCategory: '/ServiceIssueCategoryCatalogueCategoryCollection?$filter=ParentObjectID%20eq%20%27${0}%27',
 			DescriptionTypeCollection: '/ServiceRequestTextCollectionTypeCodeCollection',
-			ProductCategoryCollection:'/ProductCollection'
+			ProductCategoryCollection: '/ProductCollection'
 		},
 
 		/**
@@ -54,6 +54,7 @@ sap.ui.define([
 			}
 
 			this.oListSelector = new ListSelector();
+			this.startupParams = this.receiveStartupParams();
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
@@ -63,6 +64,20 @@ sap.ui.define([
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
+		},
+
+		receiveStartupParams: function() {
+			var obj = {},
+				oComponentData = this.getComponentData && this.getComponentData();
+
+			if (oComponentData && oComponentData.startupParameters) {
+				var startupParameters = oComponentData.startupParameters;
+				obj.createNewTicket = startupParameters.createNewTicket && startupParameters.createNewTicket[0];
+				obj.highPriority = startupParameters.highPriority && startupParameters.highPriority[0];
+				obj.pendingResponse = startupParameters.pendingResponse && startupParameters.pendingResponse[0];
+			}
+
+			return obj;
 		},
 
 		/**

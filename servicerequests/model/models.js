@@ -5,7 +5,7 @@ sap.ui.define([
 		"use strict";
 
 		return {
-			createDeviceModel : function () {
+			createDeviceModel: function () {
 				var oModel = new JSONModel(Device);
 				oModel.setDefaultBindingMode("OneWay");
 				return oModel;

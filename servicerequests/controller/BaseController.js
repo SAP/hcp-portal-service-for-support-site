@@ -11,7 +11,7 @@ sap.ui.define([
 			 * @public
 			 * @returns {sap.ui.core.routing.Router} the router for this component
 			 */
-			getRouter : function () {
+			getRouter: function () {
 				return this.getOwnerComponent().getRouter();
 			},
 
@@ -21,7 +21,7 @@ sap.ui.define([
 			 * @param {string} sName the model name
 			 * @returns {sap.ui.model.Model} the model instance
 			 */
-			getModel : function (sName) {
+			getModel: function (sName) {
 				return this.getView().getModel(sName);
 			},
 
@@ -32,7 +32,7 @@ sap.ui.define([
 			 * @param {string} sName the model name
 			 * @returns {sap.ui.mvc.View} the view instance
 			 */
-			setModel : function (oModel, sName) {
+			setModel: function (oModel, sName) {
 				return this.getView().setModel(oModel, sName);
 			},
 
@@ -41,7 +41,7 @@ sap.ui.define([
 			 * @public
 			 * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
 			 */
-			getResourceBundle : function () {
+			getResourceBundle: function () {
 				return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 			}
 

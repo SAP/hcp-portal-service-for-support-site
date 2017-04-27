@@ -13,7 +13,7 @@ sap.ui.define([
 			 * @alias ServiceRequests.model.ListSelector
 			 */
 
-			constructor : function () {
+			constructor: function () {
 				this._oWhenListHasBeenSet = new Promise(function (fnResolveListHasBeenSet) {
 					this._fnResolveListHasBeenSet = fnResolveListHasBeenSet;
 				}.bind(this));
@@ -27,8 +27,8 @@ sap.ui.define([
 								function (oData) {
 									if (!oData.getParameter("data")) {
 										fnReject({
-											list : oList,
-											error : true
+											list: oList,
+											error: true
 										});
 									}
 									var oFirstListItem = oList.getItems()[0];
@@ -37,14 +37,14 @@ sap.ui.define([
 										// and a select event is triggered. Like that, the corresponding
 										// detail page is loaded automatically
 										fnResolve({
-											list : oList,
-											firstListitem : oFirstListItem
+											list: oList,
+											firstListitem: oFirstListItem
 										});
 									} else {
 										// No items in the list
 										fnReject({
-											list : oList,
-											error : false
+											list: oList,
+											error: false
 										});
 									}
 								}
@@ -59,7 +59,7 @@ sap.ui.define([
 			 * @param {sap.m.List} oList The list all the select functions will be invoked on.
 			 * @public
 			 */
-			setBoundMasterList : function (oList) {
+			setBoundMasterList: function (oList) {
 				this._oList = oList;
 				this._fnResolveListHasBeenSet(oList);
 			},
@@ -71,7 +71,7 @@ sap.ui.define([
 			 * @param {string} sBindingPath the binding path matching the binding path of a list item
 			 * @public
 			 */
-			selectAListItem : function (sBindingPath) {
+			selectAListItem: function (sBindingPath) {
 
 				this.oWhenListLoadingIsDone.then(
 					function () {
@@ -116,7 +116,7 @@ sap.ui.define([
 			 * @return {ServiceRequests.model.ListSelector} the list selector object for method chaining
 			 * @public
 			 */
-			attachListSelectionChange : function (fnFunction, oListener) {
+			attachListSelectionChange: function (fnFunction, oListener) {
 				this._oWhenListHasBeenSet.then(function () {
 					this._oList.attachSelectionChange(fnFunction, oListener);
 				}.bind(this));
@@ -132,7 +132,7 @@ sap.ui.define([
 			 * @return {ServiceRequests.model.ListSelector} the list selector object for method chaining
 			 * @public
 			 */
-			detachListSelectionChange : function (fnFunction, oListener) {
+			detachListSelectionChange: function (fnFunction, oListener) {
 				this._oWhenListHasBeenSet.then(function () {
 					this._oList.detachSelectionChange(fnFunction, oListener);
 				}.bind(this));
@@ -144,7 +144,7 @@ sap.ui.define([
 			 * Does not trigger 'selectionChange' event on master list, though.
 			 * @public
 			 */
-			clearMasterListSelection : function () {
+			clearMasterListSelection: function () {
 				//use promise to make sure that 'this._oList' is available
 				this._oWhenListHasBeenSet.then(function () {
 					this._oList.removeSelections(true);

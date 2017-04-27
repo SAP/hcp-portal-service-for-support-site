@@ -10,7 +10,7 @@ sap.ui.define([
 			 * @param {string} sValue value to be formatted
 			 * @returns {string} formatted currency value with 2 digits
 			 */
-			currencyValue : function (sValue) {
+			currencyValue: function (sValue) {
 				if (!sValue) {
 					return "";
 				}

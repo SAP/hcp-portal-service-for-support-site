@@ -6,15 +6,15 @@ sap.ui.define([
 
 		return BaseController.extend("ServiceRequests.controller.App", {
 
-			onInit : function () {
+			onInit: function () {
 				var oViewModel,
 					fnSetAppNotBusy,
 					oListSelector = this.getOwnerComponent().oListSelector,
 					iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
 
 				oViewModel = new JSONModel({
-					busy : true,
-					delay : 0
+					busy: true,
+					delay: 0
 				});
 				this.setModel(oViewModel, "appView");
 

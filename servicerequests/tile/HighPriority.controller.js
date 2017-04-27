@@ -2,6 +2,7 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller"
 ], function(Controller) {
 	"use strict";
+	/*global $*/
 
 	return Controller.extend("ServiceRequests.tile.HighPriority", {
 
@@ -10,7 +11,7 @@ sap.ui.define([
 				var oViewData = this.getView().getViewData();
 				var navTargetUrl = oViewData.properties && oViewData.properties.navigation_target_url;
 				if (navTargetUrl) {
-					hasher.setHash(navTargetUrl);
+					window.hasher.setHash(navTargetUrl);
 				}
 			}.bind(this));
 
