@@ -166,18 +166,35 @@ sap.ui.define([
 		 * @public
 		 */
 		onUpdateFinished: function(oEvent) {
-			// update the master list object counter after new data is loaded
-			this._updateListItemCount(oEvent.getParameter("total"));
-			// hide pull to refresh if necessary
-			this.byId("pullToRefresh").hide();
-			var items = this._oList.getItems();
-			if (items.length === 0) {
-				this.getRouter().getTargets().display("detailNoObjectsAvailable");
-			}
-			else if (!this._oList.getSelectedItem() && items.length > 0) {
-				this._oList.setSelectedItem(items[0]);
-				this._showDetail(items[0]);
-			}
+            // update the master list object counter after new data is loaded
+            this._updateListItemCount(oEvent.getParameter("total"));
+            // hide pull to refresh if necessary
+            this.byId("pullToRefresh").hide();
+            var items = this._oList.getItems();
+            var self = this;
+            if (items.length === 0) {
+                this.getRouter().getTargets().display("detailNoObjectsAvailable").then(function(){
+                    self.openNewTicketParam();
+                });
+            }
+            else {
+                if (!this._oList.getSelectedItem() && items.length > 0) {
+                    this._oList.setSelectedItem(items[0]);
+                    this._showDetail(items[0]);
+                }
+                this.openNewTicketParam();
+            }
+		},
+
+		openNewTicketParam: function(){
+            var startupParams = this.component.startupParams;
+            if (window.location.hash.substring(1).indexOf("createNewTicket=true") > -1 || startupParams.createNewTicket === "true") {
+                if (!this.initialCreateTicketOpened) {
+                    var newSiteProperties = window.location.hash.substring(1).split('?')[1];
+                    this.onAdd(this.splitData(newSiteProperties));
+                    this.initialCreateTicketOpened = true;
+                }
+            }
 		},
 
 		/**
@@ -250,16 +267,6 @@ sap.ui.define([
 				title: oGroup.text,
 				upperCase: false
 			});
-		},
-		onAfterRendering: function() {
-			var startupParams = this.component.startupParams;
-			if (window.location.hash.substring(1).indexOf("createNewTicket=true") > -1 || startupParams.createNewTicket === "true") {
-				if (!this.initialCreateTicketOpened) {
-					this.initialCreateTicketOpened = true;
-					var newSiteProperties = window.location.hash.substring(1).split('?')[1];
-					this.onAdd(this.splitData(newSiteProperties));
-				}
-			}
 		},
 		splitData: function(urlData) {
 			var result = {};
