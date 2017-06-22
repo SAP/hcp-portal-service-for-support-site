@@ -32,6 +32,7 @@
 				"theme.id": "supportsitetheme",
 				"theme.active": "[\"supportsitetheme\",\"sap_hcb\"]",
 				"isOnline": "false",
+				"cpv2Ui5Version": "stable_v3",
 				"solution": "freestyle"
 			},
 			"availablePageTemplates": [

@@ -33,7 +33,9 @@
                                         items="{ServiceRequest>/ServiceIssueCategoryCatalogueCategoryCollection}">
                                     <core:Item key="{ServiceRequest>ServiceIssueCategoryID}"
                                                text="{ServiceRequest>Name/content}"
-                                               data:parentObject="{ServiceRequest>ParentObjectID}"/>
+                                               data:parentObject="{ServiceRequest>ParentObjectID}"
+                                               data:typeCode="{ServiceRequest>TypeCode}"
+                                            />
                                 </Select>
                             </HBox>
                             <HBox>

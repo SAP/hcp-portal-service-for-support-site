@@ -355,6 +355,7 @@ sap.ui.define([
 		getIncidentCategoryList: function() {
 			var oView = this.getView(),
 				parentObject = oView.byId("infoServiceCategorySelect").getSelectedItem().data("parentObject"),
+                typeCode = oView.byId("infoServiceCategorySelect").getSelectedItem().data("typeCode"),
 				oModel = oView.getModel("ServiceRequest"),
 				_self = this,
 				URLS = this.getOwnerComponent().SELECT_BOX_URLS;
@@ -364,7 +365,8 @@ sap.ui.define([
 				var incidentModel = mockModelData.ServiceRequest.IncidentModel;
 				this.initIncidentModel(incidentModel[parentObject]);
 			} else {
-				oModel.read(URLS.IncidentCategory.replace('${0}', parentObject), {
+				oModel.read(URLS.ServiceCategory, {
+                    filters: this.getOwnerComponent().createIncidentCategoryFilters(parentObject, typeCode),
 					success: _self.initIncidentModel.bind(_self),
 					error: _self.onErrorIncidentModel.bind(_self)
 				});

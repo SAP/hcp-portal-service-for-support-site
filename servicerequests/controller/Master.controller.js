@@ -127,6 +127,7 @@ sap.ui.define([
 		getIncidentCategoryList: function() {
 			var createServiceSelect = sap.ui.getCore().byId("createServiceCategory"),
 				parentObject = createServiceSelect.getSelectedItem().data("parentObject"),
+                typeCode = createServiceSelect.getSelectedItem().data("typeCode"),
 				cmpt = this.getOwnerComponent(),
 				oModel = cmpt.getModel(),
 				_self = this,
@@ -137,17 +138,18 @@ sap.ui.define([
 				var incidentModel = mockModelData.IncidentModel;
 				this.initIncidentModel(incidentModel[parentObject]);
 			} else {
-				oModel.read(URLS.IncidentCategory.replace('${0}', parentObject), {
-					success: _self.initIncidentModel.bind(_self),
-					error: function(jqXHR) {
-						var error = jqXHR.responseJSON.error.message.value;
-						MessageBox.error(error);
-						sap.ui.getCore().byId("createIncidentCategory").setBusy(false);
-					}
-				});
+                oModel.read(URLS.ServiceCategory, {
+                    filters: this.getOwnerComponent().createIncidentCategoryFilters(parentObject, typeCode),
+                    success: _self.initIncidentModel.bind(_self),
+                    error: function(jqXHR) {
+                        var error = jqXHR.responseJSON.error.message.value;
+                        MessageBox.error(error);
+                        sap.ui.getCore().byId("createIncidentCategory").setBusy(false);
+                    }
+                });
 			}
-
 		},
+
 		initIncidentModel: function(data) {
 			var incidentModel = this.oDialog.getModel("IncidentModel");
 			incidentModel.setData(data);
@@ -346,12 +348,13 @@ sap.ui.define([
 			} else {
 				var selectedData = oEvent.getParameter("data").results[0],
 					URLS = this.getOwnerComponent().SELECT_BOX_URLS;
-				serviceRequestModel.read(URLS.IncidentCategory.replace('${0}', selectedData.ParentObjectID), {
-					success: this.onIncidentLoaded.bind(this),
-					error: this.onIncidentFailed.bind(this)
-				});
-			}
 
+                serviceRequestModel.read(URLS.ServiceCategory, {
+                    filters: this.getOwnerComponent().createIncidentCategoryFilters(selectedData.ParentObjectID, selectedData.TypeCode),
+                    success: this.onIncidentLoaded.bind(this),
+                    error: this.onIncidentFailed.bind(this)
+                });
+			}
 		},
 
 		onIncidentLoaded: function(oData) {

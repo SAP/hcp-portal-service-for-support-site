@@ -66,6 +66,21 @@ sap.ui.define([
 			this.getRouter().initialize();
 		},
 
+        createIncidentCategoryFilters: function(parentObject, typeCode) {
+            return [
+                new sap.ui.model.Filter({
+                    path: "ParentObjectID",
+                    operator: sap.ui.model.FilterOperator.EQ,
+                    value1: parentObject
+                }),
+                new sap.ui.model.Filter({
+                    path: "TypeCode",
+                    operator: sap.ui.model.FilterOperator.EQ,
+                    value1: typeCode
+                })
+            ];
+        },
+
 		receiveStartupParams: function() {
 			var obj = {},
 				oComponentData = this.getComponentData && this.getComponentData();
