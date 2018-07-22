@@ -12,32 +12,20 @@
 		"tiles": [
 		
             {
-              "target": {
-                "semanticObject": "ServiceRequestsCreateNewTicket",
-                "action": "Display"
-              },
-              "id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsCreateNewTicket.json"
+              "id": "dce17c2a-2670-4ca1-a047-a6a425995c21",
+              "appId": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsCreateNewTicket.json"
             },
             {
-              "target": {
-                "semanticObject": "ServiceRequestsOpenTickets",
-                "action": "Display"
-              },
-              "id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsOpenTickets.json"
+              "id": "15a93f1b-887e-441f-9b35-bf00849b6c2d",
+              "appId": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsOpenTickets.json"
             },
             {
-              "target": {
-                "semanticObject": "ServiceRequestsHighPriority",
-                "action": "Display"
-              },
-              "id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsHighPriority.json"
+              "id": "48f6d05a-d2ef-4aa2-85d3-a66146aae179",
+              "appId": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsHighPriority.json"
             },
             {
-              "target": {
-                "semanticObject": "ServiceRequestsPendingResponse",
-                "action": "Display"
-              },
-              "id": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsPendingResponse.json"
+              "id": "70a2931f-01a8-498a-9531-00a7af521966",
+              "appId": "hcp://supportsitetemplate/Support_Site/applications/ServiceRequestsPendingResponse.json"
             }
           ]
 	},
