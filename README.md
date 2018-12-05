@@ -1,6 +1,6 @@
 # Welcome to the SAP Cloud Platform Portal for Support Site GitHub Repository
  
-The SAP Cloud Platform Portal for the Support Site repository provides all you need to deploy the Support Site solution on your Cloud Platform account and connect it to your SAP Hybris Cloud for Customer (C4C) tenant. Click [here](https://hcp.sap.com/capabilities/ux/cloud-portal.html) to receive more information on using SAP Cloud Platform Portal.
+The SAP Cloud Platform Portal for the Support Site repository provides a sample of a Support Site solution on your Cloud Platform account and how to connect it to your SAP Hybris Cloud for Customer (C4C) tenant. Click [here](https://hcp.sap.com/capabilities/ux/cloud-portal.html) to receive more information on using SAP Cloud Platform Portal.
  
 ## How to Deploy the Support Site Sample Solution
  
@@ -23,8 +23,8 @@ The Support Site solution includes several components:
  
 ### Prepare the Landscape
  
-1. In your SAP Cloud Platform cockpit, create a destination to your C4C tenant by importing the destination file you extracted from GitHub, c4c, and use the following configuration:
-  
+1. In your SAP Cloud Platform cockpit, create a destination to your C4C tenant by importing the destination file you extracted from GitHub, c4c, and read the following [guide](https://help.sap.com/viewer/462e41a242984577acc28eae130855ad/Cloud/en-US/eea73b48fe3e48e78f03a0a1394a064c.html?q=extending%20sap%20cloud%20for%20customers) for more details.
+ 
   Property | Value
   --- | ---
   Name | c4c
@@ -41,8 +41,7 @@ The Support Site solution includes several components:
  
 1. Navigate to https://github.com/SAP/hcp-portal-service-for-support-site/releases
 2. Download all the files from the latest release to your computer. You can also download the source code.
-   Note
-   There are two theme files.  Only download the one you need. 
+   Note There are two theme files. Only download the one you need. 
    §	The theme file supportsitetheme.zip is compatible with the innovation version of SAPUI5. 
    §	The theme file supportsitetheme-stable.zip is compatible with the stable version of SAPUI5
 
@@ -50,8 +49,7 @@ The Support Site solution includes several components:
  * supportsitetemplate.zip (Site template)
  * servicerequests.zip (Service Requests application)
   
-  Note
-  You can import the files to SAP Web IDE and then deploy them to SAP Cloud Platform, or you can directly deploy them to SAP Cloud Platform through the cockpit (Applications >> HTML5 Applications >> Import from File). Click [here](https://help.hana.ondemand.com/webide/frameset.htm?344e8c91e33b4ae8b4032709c45776a3.html) to receive more information on using SAP Web IDE.
+Note You can import the files to SAP Web IDE and then deploy them to SAP Cloud Platform, or you can directly deploy them to SAP Cloud Platform through the cockpit (Applications >> HTML5 Applications >> Import from File). Click [here](https://help.hana.ondemand.com/webide/frameset.htm?344e8c91e33b4ae8b4032709c45776a3.html) to receive more information on using SAP Web IDE.
  
 ### Import the SAPUI5 Theme
  
@@ -64,6 +62,7 @@ The Support Site solution includes several components:
  
 1. Still in the Admin Space, navigate to the Site Directory and create a new site based on the Support Site template.
 2. Each page is made up of the following widgets:  Configure the following widgets according to the page:
+
 * **Community Page**:  Rich Text Editor, Image widget, Tile Grid and SAP Jam Group Feed
 * **Dashboard Page**: Tile Grid (and accesses the Manage Groups editor)
 * **Home Page**: Rich Text Editor, Image Widget, Tile Grid
@@ -80,9 +79,9 @@ The Support Site solution includes several components:
 | **SAP JAM Widgets** | Use the following SAP Jam widgets to embed content from SAP Jam into your site pages to share knowledge with your team: <br><br> **Important!** <br> Make sure you are connected to SAP Jam and that you have enabled integration with SAP Jam in the Site Settings. <br><br> **SAP Jam Group Feed**: Displays the feed from a selected SAP Jam group in the site. The end user sees the group feed and can post to the group. <br> **SAP Jam Search**: Displays the results of a search query that you defined in the widget. This enables the end user to search for content. <br> **SAP Jam Content**: Displays content from a selected SAP Jam group. The end user can then navigate through the content and download files directly from the widget. <br><br> **Note!** The SAP Jam widgets are part of the site template and are created automatically as part of the site’s initial content. If you did not deploy the SAP Jam applications, these sections will show an error message. In this case, simply click on the sections and delete the widgets. |
  
  
-## Extend the Sample Solution for Productive Use
+## Extend the Sample Solution
  
-The sample solution provided in this repository is intended to be used as an accelerator for a productive implementation, adapting and extending it to fit a specific customer's requirements. The solution uses cutting-edge front-end technologies like SAPUI5 and the OData open protocol, and extending the solution requires adequate knowledge of these technologies.
+The sample solution provided in this repository is intended to be used as an accelerator for implementation, adapting and extending it to fit a specific customer's requirements. The solution uses cutting-edge front-end technologies like SAPUI5 and the OData open protocol, and extending the solution requires adequate knowledge of these technologies.
  
 You can use the following resources to learn more:
 * [SAP Cloud Platform](https://hcp.sap.com/developers.html)
@@ -128,3 +127,6 @@ Prerequisite:  In the Site Directory, first open your support site for editing b
 | -------- | ---------------- |
 | **How do I remove a field from a ticket app?** | Look for the field in the code, select the code block representing the field, and delete. |
 | **How can I localize the site?**	|	<ul><li>The backend data is already displayed in the logon language. </li><li>The UI data does not include translation files (i18n). Therefore to localize the site, you need to manually change the strings to the language you require. |
+
+## Disclaimer
+Any software coding and/or code snippets are examples. They are not for productive use. The example code is only intended to better explain and visualize the syntax and phrasing rules. SAP does not warrant the correctness and completeness of the example code. SAP shall not be liable for errors or damages caused by the use of example code unless damages have been caused by SAP's gross negligence or willful misconduct.
